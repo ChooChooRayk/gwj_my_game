@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=3 uid="uid://boa4w0vx84ybe"]
+
+[ext_resource type="Script" path="res://scenes/menu_UI/setting_menu/settings_menu.gd" id="1_qt1do"]
+[ext_resource type="Script" path="res://scenes/menu_UI/setting_menu/InputRemapPanel.gd" id="2_4l12d"]
+
+[node name="SettingsMenu" type="PanelContainer"]
+custom_minimum_size = Vector2(400, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qt1do")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="GeneralSettings" type="PanelContainer" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/GeneralSettings"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/GeneralSettings/GridContainer"]
+layout_mode = 2
+text = "Master volume"
+
+[node name="MasterVolume" type="HSlider" parent="VBoxContainer/TabContainer/GeneralSettings/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/TabContainer/GeneralSettings/GridContainer"]
+layout_mode = 2
+text = "SFX volume"
+
+[node name="SFXVolume" type="HSlider" parent="VBoxContainer/TabContainer/GeneralSettings/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+
+[node name="Label3" type="Label" parent="VBoxContainer/TabContainer/GeneralSettings/GridContainer"]
+layout_mode = 2
+text = "Window"
+
+[node name="Windowing" type="OptionButton" parent="VBoxContainer/TabContainer/GeneralSettings/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 2
+popup/item_0/text = "Full screen"
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+
+[node name="InputRemap" type="PanelContainer" parent="VBoxContainer/TabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+script = ExtResource("2_4l12d")
+metadata/_tab_index = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MainMenuBttn" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Main menu"
+
+[node name="spacer" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResetBttn" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reset"
+
+[node name="ApplyBttn" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Apply"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ResetBttn" to="." method="on_reset_settings"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ApplyBttn" to="." method="on_apply_settings"]
