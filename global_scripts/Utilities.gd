@@ -11,7 +11,8 @@ static func find_first_child_of_type(parent, type, depth:int=0)->Node:
         if is_instance_valid(grandchild):
             return grandchild
     # ---
-    push_warning("no child found of type : ", type) if depth==0 else null
+    if depth==0:
+        push_warning("no child found of type : ", type)
     return null
 
 

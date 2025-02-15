@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CleanableZone" load_steps=2 format=3 uid="uid://wh23vjjhgh74"]
+
+[ext_resource type="Script" path="res://scenes/cleaning_tools/CleanableZone.gd" id="1_r0nhp"]
+
+[resource]
+script = ExtResource("1_r0nhp")
+ellps_a = 40.0
+ellps_b = 20.0
+center_offset = Vector2(0, 10)
+center_zone = Vector2(0, 0)
