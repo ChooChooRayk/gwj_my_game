@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgcp0hkb0vimr"]
+
+[ext_resource type="Texture2D" uid="uid://dd1c38d3v1ue5" path="res://assets/characters/forensic_scientist.svg" id="1_3wr87"]
+[ext_resource type="Script" path="res://scenes/player/body_motor.gd" id="1_ujrbn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r2wdt"]
+radius = 4.0
+height = 24.0
+
+[node name="ForensicScientist" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_ujrbn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 0)
+texture = ExtResource("1_3wr87")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_r2wdt")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvjp6wn02hyno"]
+
+[ext_resource type="Script" path="res://scenes/cleaning_hand/cleaning_hand.gd" id="1_eblbc"]
+[ext_resource type="Texture2D" uid="uid://dfvv3upnux7vx" path="res://assets/cleaning_stuff/hand.svg" id="2_01met"]
+[ext_resource type="Resource" uid="uid://dv4sthl1dsq5r" path="res://scenes/cleaning_tools/cleaning_cloth_base.tres" id="3_jan6h"]
+[ext_resource type="Texture2D" uid="uid://c0rg6aafveqpa" path="res://assets/icons/cleaning_progression.svg" id="4_mmuts"]
+
+[node name="CleaningHand" type="Node2D"]
+script = ExtResource("1_eblbc")
+cleaning_aspect = ExtResource("2_01met")
+cleaning_tool = ExtResource("3_jan6h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_01met")
+
+[node name="CleaningProgress" type="TextureProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+step = 0.01
+fill_mode = 4
+texture_progress = ExtResource("4_mmuts")
+tint_progress = Color(0.198333, 0.7, 0, 1)

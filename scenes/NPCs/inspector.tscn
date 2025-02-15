@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://du8x2iki4sv20"]
+
+[ext_resource type="Texture2D" uid="uid://1dsajn1ndl6m" path="res://assets/characters/inspector.svg" id="1_8kgpf"]
+[ext_resource type="Script" path="res://scenes/player/body_motor.gd" id="1_nciou"]
+[ext_resource type="Script" path="res://scenes/NPCs/inspector_ai.gd" id="2_g806k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qcmp"]
+radius = 4.0
+height = 24.0
+
+[node name="Inspector" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_nciou")
+
+[node name="InspectorAI" type="Node" parent="."]
+script = ExtResource("2_g806k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 0)
+texture = ExtResource("1_8kgpf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_7qcmp")
+
+[node name="DetectionZone" type="Area2D" parent="."]
+position = Vector2(0, 8)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="DetectionZone"]
+position = Vector2(7, -8)
+polygon = PackedVector2Array(-9, 8, -5, 8, 3, 34, -16, 34)

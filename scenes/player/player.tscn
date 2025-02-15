@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbgs44voxm7mh"]
+
+[ext_resource type="Texture2D" uid="uid://bilaqc80wpwuo" path="res://assets/characters/player.svg" id="1_1hxbn"]
+[ext_resource type="Script" path="res://scenes/player/body_motor.gd" id="1_ckfj0"]
+[ext_resource type="Script" path="res://scenes/player/input_player.gd" id="1_fmtji"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jvjy2"]
+radius = 5.0
+height = 24.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cio0i"]
+height = 40.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+script = ExtResource("1_ckfj0")
+
+[node name="InputPlayer" type="Node" parent="."]
+script = ExtResource("1_fmtji")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -1)
+texture = ExtResource("1_1hxbn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_jvjy2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CleaningArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CleaningArea"]
+position = Vector2(0, 9)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_cio0i")
+debug_color = Color(0.99, 0, 0.0164997, 0.298039)

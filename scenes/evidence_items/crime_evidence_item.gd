@@ -1,0 +1,2 @@
+class_name CrimeEvidenceItem
+extends Area2D

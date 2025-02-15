@@ -14,6 +14,7 @@ extends CanvasLayer
 func _ready() -> void:
     settings_menu.main_menu_bttn.pressed.connect(return_to_main_menu)
     settings.pressed.connect(got_to_settings)
+    quit.pressed.connect(get_tree().quit)
     return
     
 # ====== MANAGEMENT ====== #

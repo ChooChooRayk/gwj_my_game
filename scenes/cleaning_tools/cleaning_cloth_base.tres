@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CleaningTool" load_steps=2 format=3 uid="uid://dv4sthl1dsq5r"]
+
+[ext_resource type="Script" path="res://scenes/cleaning_tools/cleaning_tool.gd" id="1_gphbe"]
+
+[resource]
+script = ExtResource("1_gphbe")
+cleaning_duration = 3.0

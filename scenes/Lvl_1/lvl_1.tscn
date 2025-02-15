@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnnlemgdypspb"]
+
+[ext_resource type="PackedScene" uid="uid://dbgs44voxm7mh" path="res://scenes/player/player.tscn" id="1_gofch"]
+[ext_resource type="PackedScene" uid="uid://du8x2iki4sv20" path="res://scenes/NPCs/inspector.tscn" id="2_fpogs"]
+[ext_resource type="PackedScene" uid="uid://bbfjj0iurxsnk" path="res://scenes/evidence_items/crime_evidence_item.tscn" id="3_f7sfc"]
+[ext_resource type="PackedScene" uid="uid://dgcp0hkb0vimr" path="res://scenes/NPCs/forensic_scientist.tscn" id="4_5mpwg"]
+[ext_resource type="PackedScene" uid="uid://dvjp6wn02hyno" path="res://scenes/cleaning_hand/cleaning_hand.tscn" id="5_jhpcq"]
+
+[node name="Lvl1" type="Node"]
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="House1" type="TileMapLayer" parent="Map"]
+
+[node name="NPCs" type="Node2D" parent="Map"]
+
+[node name="Inspector" parent="Map/NPCs" instance=ExtResource("2_fpogs")]
+position = Vector2(40, 0)
+
+[node name="ForensicScientist" parent="Map/NPCs" instance=ExtResource("4_5mpwg")]
+position = Vector2(-58, 75)
+
+[node name="Player" parent="Map" instance=ExtResource("1_gofch")]
+
+[node name="CrimeEvidenceItem" parent="." instance=ExtResource("3_f7sfc")]
+position = Vector2(-89, -43)
+
+[node name="CleaningHand" parent="." instance=ExtResource("5_jhpcq")]
+position = Vector2(-53, 16)
