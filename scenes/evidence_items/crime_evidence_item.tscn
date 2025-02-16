@@ -3,17 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://31ysvnkqrtft" path="res://assets/evidence_items/knife.svg" id="1_j6byr"]
 [ext_resource type="Script" path="res://scenes/evidence_items/crime_evidence_item.gd" id="1_xl5yt"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tg8is"]
-radius = 27.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e3axb"]
+radius = 2.0
+height = 14.0
 
 [node name="CrimeEvidenceItem" type="Area2D" groups=["evidence_items"]]
 collision_layer = 4
 script = ExtResource("1_xl5yt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2, 0)
-rotation = -0.47822
+position = Vector2(2, 1)
 texture = ExtResource("1_j6byr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_tg8is")
+shape = SubResource("CapsuleShape2D_e3axb")

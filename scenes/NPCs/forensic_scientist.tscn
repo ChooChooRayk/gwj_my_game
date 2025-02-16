@@ -7,7 +7,7 @@
 radius = 4.0
 height = 24.0
 
-[node name="ForensicScientist" type="CharacterBody2D"]
+[node name="ForensicScientist" type="CharacterBody2D" groups=["forensic_scientists"]]
 collision_layer = 2
 script = ExtResource("1_ujrbn")
 
@@ -17,3 +17,7 @@ texture = ExtResource("1_3wr87")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_r2wdt")
+
+[node name="FootPosition" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 13)

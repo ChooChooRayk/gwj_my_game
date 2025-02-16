@@ -7,6 +7,7 @@ const SPEED         = 300.0
 const JUMP_VELOCITY = -400.0
 
 var movement_direction : Vector2 = Vector2.ZERO
+@onready var foot_position: Marker2D = %FootPosition
 
 # ====== INITIALIZATION =====+ #
 

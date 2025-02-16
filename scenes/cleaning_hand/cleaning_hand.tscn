@@ -1,33 +1,52 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvjp6wn02hyno"]
+[gd_scene load_steps=11 format=3 uid="uid://dvjp6wn02hyno"]
 
 [ext_resource type="Script" path="res://scenes/cleaning_hand/cleaning_hand.gd" id="1_eblbc"]
 [ext_resource type="Texture2D" uid="uid://dfvv3upnux7vx" path="res://assets/cleaning_stuff/hand.svg" id="2_01met"]
 [ext_resource type="Resource" uid="uid://dv4sthl1dsq5r" path="res://scenes/cleaning_tools/cleaning_cloth_base.tres" id="3_jan6h"]
 [ext_resource type="Texture2D" uid="uid://c0rg6aafveqpa" path="res://assets/icons/cleaning_progression.svg" id="4_mmuts"]
 [ext_resource type="Script" path="res://scenes/cleaning_hand/follow_mouse.gd" id="5_v504h"]
+[ext_resource type="Script" path="res://scenes/cleaning_hand/HandStateMachine.gd" id="6_c13o1"]
+[ext_resource type="Script" path="res://scenes/cleaning_hand/cleaning_hand_states/HandOutZoneState.gd" id="7_csgvi"]
+[ext_resource type="Script" path="res://scenes/cleaning_hand/cleaning_hand_states/HandInZoneState.gd" id="8_qq74t"]
+[ext_resource type="Script" path="res://scenes/cleaning_hand/cleaning_hand_states/HandInCleaningState.gd" id="9_77exu"]
+[ext_resource type="Script" path="res://scenes/cleaning_hand/cleaning_hand_states/HandCleaningDoneState.gd" id="10_5ham1"]
 
 [node name="CleaningHand" type="Node2D"]
 script = ExtResource("1_eblbc")
-cleaning_aspect = ExtResource("2_01met")
 cleaning_tool = ExtResource("3_jan6h")
-
-[node name="FollowMouse" type="Node" parent="."]
-script = ExtResource("5_v504h")
+cleaning_aspect = ExtResource("2_01met")
+cleaning_done_aspect = ExtResource("2_01met")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_01met")
 
-[node name="CleaningProgress" type="TextureProgressBar" parent="."]
+[node name="HandStateMachine" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_c13o1")
+
+[node name="OutZone" type="Node" parent="HandStateMachine"]
+script = ExtResource("7_csgvi")
+
+[node name="InZone" type="Node" parent="HandStateMachine"]
+script = ExtResource("8_qq74t")
+state = 1
+
+[node name="Cleaning" type="Node" parent="HandStateMachine"]
+script = ExtResource("9_77exu")
+state = 2
+
+[node name="CleaningProgress" type="TextureProgressBar" parent="HandStateMachine/Cleaning"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
+offset_left = -300.0
+offset_top = -200.0
+offset_right = -268.0
+offset_bottom = -168.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -35,3 +54,10 @@ step = 0.01
 fill_mode = 4
 texture_progress = ExtResource("4_mmuts")
 tint_progress = Color(0.198333, 0.7, 0, 1)
+
+[node name="FollowMouse" type="Node" parent="HandStateMachine/Cleaning/CleaningProgress"]
+script = ExtResource("5_v504h")
+
+[node name="CleaningDone" type="Node" parent="HandStateMachine"]
+script = ExtResource("10_5ham1")
+state = 3

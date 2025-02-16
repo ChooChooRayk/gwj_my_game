@@ -15,15 +15,16 @@
 [node name="NPCs" type="Node2D" parent="Map"]
 
 [node name="Inspector" parent="Map/NPCs" instance=ExtResource("2_fpogs")]
-position = Vector2(40, 0)
+position = Vector2(61, 57)
 
 [node name="ForensicScientist" parent="Map/NPCs" instance=ExtResource("4_5mpwg")]
-position = Vector2(-58, 75)
 
 [node name="Player" parent="Map" instance=ExtResource("1_gofch")]
+position = Vector2(-91, 14)
 
 [node name="CrimeEvidenceItem" parent="." instance=ExtResource("3_f7sfc")]
 position = Vector2(-89, -43)
+rotation = -0.672806
 
 [node name="CleaningHand" parent="." instance=ExtResource("5_jhpcq")]
 position = Vector2(-53, 16)
