@@ -65,6 +65,7 @@ right={
 [layer_names]
 
 2d_physics/layer_1="MAP"
+2d_navigation/layer_1="INSPECTOR"
 2d_physics/layer_2="BODIES"
 2d_physics/layer_3="EVIDENCE_ITEMS"
 

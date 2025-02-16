@@ -25,6 +25,7 @@ func _process(_delta: float) -> void:
 func process_input(event: InputEvent) -> void:
     if event.is_released():
         ChangeStateRequested.emit(self, STATES.InZone)
+        get_tree().root.set_input_as_handled()
 
 # ====== MANAGEMENT ====== #
 

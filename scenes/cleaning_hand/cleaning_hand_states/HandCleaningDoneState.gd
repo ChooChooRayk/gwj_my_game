@@ -13,6 +13,8 @@ func process_input(event: InputEvent) -> void:
         if is_instance_valid(forensic):
             if cleaning_hand.cleaning_tool.cleanable_zone.is_point_in_zone(forensic.foot_position.global_position):
                 hide_crime_evidence_in_forensic(forensic)
+        get_tree().root.set_input_as_handled()
+
 
 # ====== MANAGEMENT ====== #
 

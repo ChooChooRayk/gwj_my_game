@@ -24,7 +24,6 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
         hand_state_machine.process_input(event)
-        get_tree().root.set_input_as_handled()
 
 # ====== MANAGEMENT ====== #
 

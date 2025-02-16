@@ -26,7 +26,6 @@ func _ready() -> void:
 
 func _draw() -> void:
     var points_arr := PackedVector2Array()
-    var dagl       := TAU / float(pts_nbr)
     for i in range(pts_nbr):
         var agl    := TAU * float(i)/float(pts_nbr) + dash_offset
         var new_pt := Vector2(

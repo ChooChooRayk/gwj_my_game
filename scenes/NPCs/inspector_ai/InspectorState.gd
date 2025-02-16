@@ -1,25 +1,23 @@
-class_name HandState
+class_name InspectorState
 extends Node
-
 
 signal ChangeStateRequested(from_state:HandState, to_state:STATES)
 
 enum STATES {
-    OutZone,
-    InZone,
-    InCleaning,
-    CleaningDone,
+    Idle,
+    Scouting,
+    Chasing,
 }
 @export var state : STATES
 
-var cleaning_hand : CleaningHand
+var inspector_ai : InspectorAI
 
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
-    cleaning_hand = Utilities.find_first_parent_of_type(self, CleaningHand)
-    if not(is_instance_valid(cleaning_hand)):
-        push_error("No parent of type CleaningHand, not normal ...")
+    inspector_ai = Utilities.find_first_parent_of_type(self, InspectorAI)
+    if not(is_instance_valid(inspector_ai)):
+        push_error("No parent of type InspectorAI, not normal ...")
     return
 
 # ====== MANAGEMENT ====== #
@@ -34,4 +32,7 @@ func update_state()->void:
     return
 
 func process_input(_event:InputEvent)->void:
+    return
+    
+func target_reached()->void:
     return
