@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://deselsw2xo2r5"]
+
+[ext_resource type="Texture2D" uid="uid://cfis3sjexdey0" path="res://assets/icons/GWJ-Half-Logo-Orange.svg" id="1_f6hfh"]
+[ext_resource type="Texture2D" uid="uid://buhvai10cyuee" path="res://assets/icons/78-Erase.png" id="2_j2s5r"]
+[ext_resource type="Texture2D" uid="uid://dekvas16qr4mn" path="res://assets/icons/78-All-Cards_optional_Mimic.png" id="3_pfr1k"]
+[ext_resource type="Texture2D" uid="uid://b0u6vthwjtv66" path="res://assets/icons/78-All-Cards_optional_Shopaholic.png" id="4_o1i6x"]
+
+[node name="SplashScreenIntro1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.136826, 0.136826, 0.136826, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="GWJ_logo" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_f6hfh")
+stretch_mode = 5
+
+[node name="GWJ78_main_theme" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("2_j2s5r")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="GWJ78_optional_1" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_pfr1k")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="GWJ78_optional_2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_o1i6x")
+expand_mode = 2
+stretch_mode = 5

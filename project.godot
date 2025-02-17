@@ -11,7 +11,9 @@ config_version=5
 [application]
 
 config/name="GWJ_my_game"
+run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [audio]
@@ -21,6 +23,7 @@ buses/default_bus_layout="res://sound_music_buses.tres"
 [autoload]
 
 EventBus="*res://global_scripts/EventBus.gd"
+SceneManager="*res://global_scripts/SceneManager.gd"
 
 [display]
 

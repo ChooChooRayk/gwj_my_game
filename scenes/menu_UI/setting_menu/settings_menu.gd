@@ -1,15 +1,16 @@
 extends PanelContainer
 
 
-@onready var main_menu_bttn: Button = %MainMenuBttn
-@onready var reset_bttn    : Button = %ResetBttn
-@onready var apply_bttn    : Button = %ApplyBttn
+@onready var main_menu_bttn : Button = %MainMenuBttn
+@onready var reset_bttn     : Button = %ResetBttn
+@onready var apply_bttn     : Button = %ApplyBttn
 
 @onready var input_remap: InputRemappingSettings = %InputRemap
 
-@onready var master_volume: HSlider = %MasterVolume
-@onready var sfx_volume: HSlider = %SFXVolume
-@onready var windowing: OptionButton = %Windowing
+@onready var master_volume: HSlider      = %MasterVolume
+@onready var sfx_volume   : HSlider      = %SFXVolume
+@onready var windowing    : OptionButton = %Windowing
+@onready var tuto_enable  : CheckBox     = %TutoEnable
 
 var default_val_dic  := {}
 var setting_wdgt_dic := {}

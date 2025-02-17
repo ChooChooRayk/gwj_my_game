@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://n0er7ld3b4y"]
+
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_mbb0t"]
+[ext_resource type="PackedScene" uid="uid://duddtd61qo7x" path="res://scenes/menu_UI/game_menu.tscn" id="2_3a1l6"]
+[ext_resource type="PackedScene" uid="uid://cfl4u8ogkvpn3" path="res://scenes/menu_UI/overlays/scene_transition_overlay.tscn" id="2_pb8n7"]
+[ext_resource type="PackedScene" uid="uid://dnnlemgdypspb" path="res://scenes/Lvl_1/lvl_1.tscn" id="2_x7geh"]
+
+[node name="Game" type="Node" node_paths=PackedStringArray("gui_container", "main_scene_container")]
+script = ExtResource("1_mbb0t")
+gui_container = NodePath("GUIContainer")
+main_scene_container = NodePath("MainSceneContainer")
+
+[node name="MainSceneContainer" type="Node2D" parent="."]
+
+[node name="Lvl1" parent="MainSceneContainer" instance=ExtResource("2_x7geh")]
+
+[node name="GUIContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameMenu" parent="GUIContainer" instance=ExtResource("2_3a1l6")]
+
+[node name="SceneTransitionOverlay" parent="GUIContainer" instance=ExtResource("2_pb8n7")]
