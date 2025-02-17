@@ -1,6 +1,7 @@
 class_name NewMissionMenu
 extends Control
 
+@export var next_mission : GlobalSettings.SCENE_KEYS = GlobalSettings.SCENE_KEYS.TEST
 
 @onready var main_menu_bttn    : Button = %MainMenuBttn
 @onready var start_mission_bttn: Button = %StartMissionBttn
@@ -18,5 +19,5 @@ func on_return_to_main_menu()->void:
     return
 
 func on_start_mission()->void:
-    EventBus.ChangeMainSceneRequested.emit(GlobalSettings.SCENE_KEYS.LEVEL_1)
+    EventBus.ChangeMainSceneRequested.emit(next_mission)
     return

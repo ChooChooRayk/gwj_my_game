@@ -19,7 +19,7 @@ func _ready() -> void:
     SceneManager.game_manager = self
     # ---
     current_gui   = gui_container.get_child(0)
-    current_scene = main_scene_container.get_child(0)
+    #current_scene = main_scene_container.get_child(0)
     # ---
     clean_remove_main_scene()
     # ---  --- #
@@ -28,11 +28,14 @@ func _ready() -> void:
     EventBus.ChangeMainUIRequested.connect(change_gui_scene)
     # ---
     EventBus.ChangeMainSceneRequested.connect(change_main_scene)
+    EventBus.PauseMainSceneRequested .connect(pause_main_scene)
     #start_splash_screens("res://scenes/start_spalsh_screens/splash_screens.tscn")
 
 # ====== MANAGEMENT ====== #
 
 func change_main_scene(new_scene_key:GlobalSettings.SCENE_KEYS)->void:
+    reset_game_default_settings()
+    # ---
     var new_scene_path := GlobalSettings.scene_path_dic[new_scene_key] as String
     var new_scene      :PackedScene = load(new_scene_path) as PackedScene
     # ---
@@ -48,14 +51,18 @@ func change_main_scene(new_scene_key:GlobalSettings.SCENE_KEYS)->void:
         # ---
         main_scene_container.add_child(new_main_scene)
         # ---
+        clean_remove_main_scene()
         current_scene      = new_main_scene
     # ---
+    pause_main_scene(false)
     scene_transition_overlay.transition(SceneTransitionOverlay.TRANS_TYPE.FADE_IN)
     await scene_transition_overlay.animation_player.animation_finished
     # ---
     return
 
 func change_gui_scene(new_ui_key:GlobalSettings.UI_KEYS)->void:
+    reset_game_default_settings()
+    # ---
     var new_ui = ui_node_dic[new_ui_key]
     if not(is_instance_valid(new_ui)):
         push_error("new ui invalid")
@@ -87,3 +94,14 @@ func clean_remove_main_scene(delete_scene:bool=true)->void:
             scene_still_loaded.append(current_scene)
             main_scene_container.remove_child(current_scene)
     return
+
+func pause_main_scene(to_pause:bool)->void:
+    if to_pause:
+        current_scene.process_mode = Node.PROCESS_MODE_DISABLED
+    else:
+        current_scene.process_mode = Node.PROCESS_MODE_INHERIT
+
+# ------------ #
+
+func reset_game_default_settings()->void:
+    Engine.time_scale = 1.0

@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6fp51agbm5l5"]
+
+[ext_resource type="Theme" uid="uid://70iajjmvmgls" path="res://scenes/menu_UI/end_mission_menu_theme.tres" id="1_mk4lw"]
+[ext_resource type="Script" path="res://scenes/menu_UI/game_over_menu/game_over_menu.gd" id="2_llgya"]
+
+[node name="GameOverMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mk4lw")
+script = ExtResource("2_llgya")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "What the hell agent !
+We will be sure the criminal will get caught. But for you ... I really hope the admnistration won't be too much much protective so we can get ride of you!"
+fit_content = true
+
+[node name="spacer" type="Control" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MainMenu" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quit"
+
+[node name="Restart" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Retry"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MainMenu" to="." method="return_to_main_menu"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Quit" to="." method="quit_game"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Restart" to="." method="retry_mission"]

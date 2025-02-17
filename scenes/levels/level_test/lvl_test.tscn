@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://dnnlemgdypspb"]
+
+[ext_resource type="PackedScene" uid="uid://du8x2iki4sv20" path="res://scenes/NPCs/inspector.tscn" id="1_pbwmy"]
+[ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_vtotj"]
+[ext_resource type="PackedScene" uid="uid://dgcp0hkb0vimr" path="res://scenes/NPCs/forensic_scientist.tscn" id="2_u6rar"]
+[ext_resource type="Script" path="res://scenes/levels/MissionResource.gd" id="2_wl6d4"]
+[ext_resource type="PackedScene" uid="uid://dbgs44voxm7mh" path="res://scenes/player/player.tscn" id="3_w16gk"]
+[ext_resource type="PackedScene" uid="uid://bbfjj0iurxsnk" path="res://scenes/evidence_items/crime_evidence_item.tscn" id="4_rex5d"]
+[ext_resource type="PackedScene" uid="uid://dvjp6wn02hyno" path="res://scenes/cleaning_hand/cleaning_hand.tscn" id="5_ekda5"]
+
+[sub_resource type="Resource" id="Resource_s8l34"]
+script = ExtResource("2_wl6d4")
+time_to_succeed = 10.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_5sb1g"]
+vertices = PackedVector2Array(170.969, 175.93, -227.227, 181.109, -214.898, -130.188, 159.773, -136.852)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-224.523, -140.033, 169.415, -147.033, 181.33, 185.808, -237.64, 191.252)])
+
+[sub_resource type="Curve2D" id="Curve2D_fys23"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -64, -45, 0, 0, 0, 0, 59, -46)
+}
+point_count = 2
+
+[node name="LvlTest" type="Node"]
+script = ExtResource("1_vtotj")
+mission_res = SubResource("Resource_s8l34")
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Map"]
+rotation = 0.0177667
+navigation_polygon = SubResource("NavigationPolygon_5sb1g")
+
+[node name="House1" type="TileMapLayer" parent="Map"]
+
+[node name="ScoutingPaths" type="Node" parent="Map"]
+
+[node name="Path2D" type="Path2D" parent="Map/ScoutingPaths"]
+curve = SubResource("Curve2D_fys23")
+
+[node name="NPCs" type="Node2D" parent="Map"]
+
+[node name="Inspector" parent="Map/NPCs" node_paths=PackedStringArray("scouting_targets") instance=ExtResource("1_pbwmy")]
+position = Vector2(40, 54)
+scouting_targets = NodePath("../../ScoutingPaths/Path2D")
+
+[node name="ForensicScientist" parent="Map/NPCs" instance=ExtResource("2_u6rar")]
+position = Vector2(-14, -100)
+
+[node name="Player" parent="Map" instance=ExtResource("3_w16gk")]
+position = Vector2(-91, 14)
+
+[node name="CrimeEvidenceItem" parent="Map" instance=ExtResource("4_rex5d")]
+position = Vector2(-89, -43)
+rotation = -0.672806
+
+[node name="CleaningHand" parent="." instance=ExtResource("5_ekda5")]

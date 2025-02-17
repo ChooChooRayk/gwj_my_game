@@ -17,6 +17,16 @@ enum SCENE_KEYS {
     LEVEL_1,
 }
 static var scene_path_dic : Dictionary = {
-    SCENE_KEYS.TEST : "res://scenes/player/player.tscn",
-    SCENE_KEYS.LEVEL_1:"res://scenes/Lvl_1/lvl_1.tscn",
+    SCENE_KEYS.TEST : "res://scenes/levels/level_test/lvl_test.tscn",
+    SCENE_KEYS.LEVEL_1:"",
 }
+
+
+
+
+
+
+
+
+
+static var hud_scene :PackedScene = load("res://scenes/menu_UI/hud/hud.tscn")
