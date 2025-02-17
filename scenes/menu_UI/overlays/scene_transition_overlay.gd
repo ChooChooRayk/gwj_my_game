@@ -1,5 +1,5 @@
 class_name SceneTransitionOverlay
-extends CanvasLayer
+extends Control
 
 enum TRANSITION_TYPE {FADE_IN, FADE_OUT}
 

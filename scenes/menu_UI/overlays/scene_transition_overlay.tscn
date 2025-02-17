@@ -54,11 +54,17 @@ _data = {
 "fade_out": SubResource("Animation_l5218")
 }
 
-[node name="SceneTransitionOverlay" type="CanvasLayer"]
-layer = 100
+[node name="SceneTransitionOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_k0gi0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

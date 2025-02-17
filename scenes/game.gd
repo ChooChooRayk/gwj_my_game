@@ -5,9 +5,9 @@ extends Node
 @onready var scene_transition_overlay: SceneTransitionOverlay = $SceneTransitionOverlay
 
 
-@export var gui_container        : Control
+@export var gui_container        : CanvasLayer
 @export var main_scene_container : Node2D
-var current_gui   : CanvasLayer
+var current_gui   : Control
 var current_scene : Node
 
 var scene_still_loaded : Array = []
@@ -15,7 +15,7 @@ var scene_still_loaded : Array = []
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
-    SceneManager.game_controller = self
+    SceneManager.game_manager = self
     # ---
     current_gui   = gui_container.get_child(0)
     current_scene = main_scene_container.get_child(0)
@@ -23,7 +23,7 @@ func _ready() -> void:
     main_scene_container.remove_child(current_scene)
     scene_still_loaded.append(current_scene)
     # ---  --- #
-    start_splash_screens("res://scenes/start_spalsh_screens/splash_screens.tscn")
+    #start_splash_screens("res://scenes/start_spalsh_screens/splash_screens.tscn")
 
 # ====== MANAGEMENT ====== #
 
@@ -48,4 +48,5 @@ func check_if_scene_already_loaded(scene:PackedScene)->Node:
     return null
 
 func start_splash_screens()->void:
+    var splash_screens := Utilities.find_first_child_of_type(gui_container, SplashScreens) as SplashScreens
     return
