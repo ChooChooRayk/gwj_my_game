@@ -14,7 +14,7 @@ func on_change_scene_requested(path_to_scene:String)->void:
     # ---
     start_change_scene()
     await NextSceneLoaded
-    end_change_scene()
+    #end_change_scene()
     # ---
     return
 
@@ -40,8 +40,8 @@ func start_change_scene()->void:
     wait_for_scene_to_load()
     return
 
-func end_change_scene()->void:
-    var next_scene : PackedScene = ResourceLoader.load_threaded_get(next_scene_path)
-    game_manager.change_main_scene(next_scene)
-    game_manager.scene_transition_overlay.transition(SceneTransitionOverlay.TRANS_TYPE.FADE_OUT)
-    return
+#func end_change_scene()->void:
+    #var next_scene : PackedScene = ResourceLoader.load_threaded_get(next_scene_path)
+    #game_manager.change_main_scene(next_scene)
+    #game_manager.scene_transition_overlay.transition(SceneTransitionOverlay.TRANS_TYPE.FADE_OUT)
+    #return

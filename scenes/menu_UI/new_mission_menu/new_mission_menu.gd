@@ -18,4 +18,5 @@ func on_return_to_main_menu()->void:
     return
 
 func on_start_mission()->void:
+    EventBus.ChangeMainSceneRequested.emit(GlobalSettings.SCENE_KEYS.LEVEL_1)
     return

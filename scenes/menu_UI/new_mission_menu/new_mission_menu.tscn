@@ -76,3 +76,4 @@ layout_mode = 2
 text = "Go to Crime Scene"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MainMenuBttn" to="." method="on_return_to_main_menu"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/StartMissionBttn" to="." method="on_start_mission"]

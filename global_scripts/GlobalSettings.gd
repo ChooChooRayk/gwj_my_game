@@ -11,3 +11,12 @@ enum UI_KEYS {
     MAIN_MENU,
     NEW_MISSION,
 }
+
+enum SCENE_KEYS {
+    TEST,
+    LEVEL_1,
+}
+static var scene_path_dic : Dictionary = {
+    SCENE_KEYS.TEST : "res://scenes/player/player.tscn",
+    SCENE_KEYS.LEVEL_1:"res://scenes/Lvl_1/lvl_1.tscn",
+}
