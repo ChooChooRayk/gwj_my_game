@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=3 uid="uid://kb5ppulyuyb6"]
+
+[ext_resource type="PackedScene" uid="uid://bpies2aij7pjl" path="res://scenes/menu_UI/shop/shop_item_ui.tscn" id="1_l5vay"]
+
+[node name="ShopUI" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Shop"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+columns = 6
+
+[node name="ShopItemUI" parent="VBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_l5vay")]
+layout_mode = 2
+
+[node name="ShopItemUI2" parent="VBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_l5vay")]
+layout_mode = 2
+
+[node name="ShopItemUI3" parent="VBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_l5vay")]
+layout_mode = 2
+
+[node name="ShopItemUI4" parent="VBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_l5vay")]
+layout_mode = 2
+
+[node name="ShopItemUI5" parent="VBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_l5vay")]
+layout_mode = 2
+
+[node name="ShopItemUI6" parent="VBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_l5vay")]
+layout_mode = 2
+
+[node name="ShopItemUI7" parent="VBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_l5vay")]
+layout_mode = 2
+
+[node name="ShopItemUI8" parent="VBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_l5vay")]
+layout_mode = 2
+
+[node name="ShopItemUI9" parent="VBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_l5vay")]
+layout_mode = 2
+
+[node name="ShopItemUI10" parent="VBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_l5vay")]
+layout_mode = 2
+
+[node name="ShopItemUI11" parent="VBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_l5vay")]
+layout_mode = 2
+
+[node name="ShopItemUI12" parent="VBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_l5vay")]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Some description of the selected item"

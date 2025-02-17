@@ -20,7 +20,7 @@ func on_change_scene_requested(path_to_scene:String)->void:
 
 # ====== PROCESS ====== #
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
     ResourceLoader.load_threaded_get_status(next_scene_path, load_scene_progress)
     if load_scene_progress[0]==1.0:
         NextSceneLoaded.emit()
@@ -35,7 +35,7 @@ func wait_for_scene_to_load()->void:
     return
 
 func start_change_scene()->void:
-    game_manager.scene_transition_overlay.transition(SceneTransitionOverlay.TRANSITION_TYPE.FADE_IN)
+    game_manager.scene_transition_overlay.transition(SceneTransitionOverlay.TRANS_TYPE.FADE_IN)
     ResourceLoader.load_threaded_request(next_scene_path)
     wait_for_scene_to_load()
     return
@@ -43,5 +43,5 @@ func start_change_scene()->void:
 func end_change_scene()->void:
     var next_scene : PackedScene = ResourceLoader.load_threaded_get(next_scene_path)
     game_manager.change_main_scene(next_scene)
-    game_manager.scene_transition_overlay.transition(SceneTransitionOverlay.TRANSITION_TYPE.FADE_OUT)
+    game_manager.scene_transition_overlay.transition(SceneTransitionOverlay.TRANS_TYPE.FADE_OUT)
     return

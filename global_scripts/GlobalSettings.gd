@@ -6,3 +6,8 @@ enum LAYER_NAMES {
     BODIES = 1<<1,
     EVIDENCE_ITEM = 1<<2,
 }
+
+enum UI_KEYS {
+    MAIN_MENU,
+    NEW_MISSION,
+}

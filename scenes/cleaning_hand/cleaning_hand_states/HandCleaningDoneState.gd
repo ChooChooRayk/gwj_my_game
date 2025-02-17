@@ -46,7 +46,7 @@ func raycast_check_for_forensic_scientist()->CharacterBody2D:
     # ---
     return null
 
-func hide_crime_evidence_in_forensic(forensic)->void:
+func hide_crime_evidence_in_forensic(_forensic)->void:
     print("crime evidence HIDDEN !!!!!!!!!")
     ChangeStateRequested.emit(self, STATES.OutZone)
     return

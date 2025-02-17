@@ -10,7 +10,7 @@ func _ready() -> void:
 
 # ====== PROCESS ====== #
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
     inspector_ai.move_to(inspector_ai.target_to_chase.global_position)
 
 # ====== MANAGEMENT ====== #

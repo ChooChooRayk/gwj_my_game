@@ -119,6 +119,7 @@ text = "Main Menu"
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
+[connection signal="pressed" from="MainMenu/VBoxContainer/StartButton" to="." method="on_start"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/Settings" to="." method="go_to_settings"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/Credits" to="." method="go_to_credits"]
 [connection signal="pressed" from="Credits/VBoxContainer/MainMenuBttn" to="." method="return_to_main_menu"]

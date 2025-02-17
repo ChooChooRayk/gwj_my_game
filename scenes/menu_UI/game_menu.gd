@@ -1,14 +1,15 @@
+class_name GameMenu
 extends Control
 
 
-@onready var settings_menu: PanelContainer = $SettingsMenu
-@onready var main_menu: PanelContainer = $MainMenu
-@onready var credits: PanelContainer = $Credits
+@onready var settings_menu : PanelContainer = $SettingsMenu
+@onready var main_menu     : PanelContainer = $MainMenu
+@onready var credits       : PanelContainer = $Credits
 
-@onready var start_button: Button = %StartButton
-@onready var settings: Button = %Settings
-@onready var quit: Button = %Quit
-@onready var credits_buttn: Button = %Credits
+@onready var start_button  : Button = %StartButton
+@onready var settings      : Button = %Settings
+@onready var quit          : Button = %Quit
+@onready var credits_buttn : Button = %Credits
 
 # ====== INITIALIZATION ====== #
 
@@ -32,3 +33,8 @@ func go_to_settings()->void:
 func go_to_credits()->void:
     credits.visible       = true
     main_menu.visible     = false
+
+func on_start()->void:
+    EventBus.ChangeMainUIRequested.emit(GlobalSettings.UI_KEYS.NEW_MISSION)
+    return
+    

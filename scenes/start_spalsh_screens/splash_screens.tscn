@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://0bsj5ug7lkfp"]
+[gd_scene load_steps=5 format=3 uid="uid://0bsj5ug7lkfp"]
 
 [ext_resource type="PackedScene" uid="uid://twd0myqwmadb" path="res://scenes/start_spalsh_screens/splash_screen_intro_0.tscn" id="1_nskat"]
 [ext_resource type="Script" path="res://scenes/start_spalsh_screens/splash_screens.gd" id="1_xtxop"]
 [ext_resource type="PackedScene" uid="uid://deselsw2xo2r5" path="res://scenes/start_spalsh_screens/splash_screen_intro_1.tscn" id="2_7wexu"]
+[ext_resource type="PackedScene" uid="uid://cfl4u8ogkvpn3" path="res://scenes/menu_UI/overlays/scene_transition_overlay.tscn" id="4_u1d8a"]
 
 [node name="SplashScreens" type="Control"]
 layout_mode = 3
@@ -21,11 +22,6 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
-[node name="TransOverlay" type="ColorRect" parent="."]
+[node name="SceneTransitionOverlay" parent="." instance=ExtResource("4_u1d8a")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+init_visible = true

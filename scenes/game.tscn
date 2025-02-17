@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://n0er7ld3b4y"]
+[gd_scene load_steps=7 format=3 uid="uid://n0er7ld3b4y"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_mbb0t"]
 [ext_resource type="PackedScene" uid="uid://duddtd61qo7x" path="res://scenes/menu_UI/game_menu.tscn" id="2_3a1l6"]
 [ext_resource type="PackedScene" uid="uid://cfl4u8ogkvpn3" path="res://scenes/menu_UI/overlays/scene_transition_overlay.tscn" id="2_pb8n7"]
 [ext_resource type="PackedScene" uid="uid://dnnlemgdypspb" path="res://scenes/Lvl_1/lvl_1.tscn" id="2_x7geh"]
 [ext_resource type="PackedScene" uid="uid://0bsj5ug7lkfp" path="res://scenes/start_spalsh_screens/splash_screens.tscn" id="5_f0521"]
+[ext_resource type="PackedScene" uid="uid://72ox32181fxs" path="res://scenes/menu_UI/new_mission_menu/new_mission_menu.tscn" id="5_lkfpt"]
 
 [node name="Game" type="Node" node_paths=PackedStringArray("gui_container", "main_scene_container")]
 script = ExtResource("1_mbb0t")
@@ -19,7 +20,11 @@ main_scene_container = NodePath("MainSceneContainer")
 
 [node name="GameMenu" parent="UIContainer" instance=ExtResource("2_3a1l6")]
 
-[node name="SceneTransitionOverlay" parent="UIContainer" instance=ExtResource("2_pb8n7")]
+[node name="NewMissionMenu" parent="UIContainer" instance=ExtResource("5_lkfpt")]
 visible = false
 
+[node name="SceneTransitionOverlay" parent="UIContainer" instance=ExtResource("2_pb8n7")]
+unique_name_in_owner = true
+
 [node name="SplashScreens" parent="UIContainer" instance=ExtResource("5_f0521")]
+visible = false
