@@ -7,6 +7,7 @@ enum STATES {
     Idle,
     Scouting,
     Chasing,
+    LookingAround,
 }
 @export var state : STATES
 

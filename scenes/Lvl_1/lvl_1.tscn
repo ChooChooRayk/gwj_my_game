@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnnlemgdypspb"]
+[gd_scene load_steps=9 format=3 uid="uid://dnnlemgdypspb"]
 
 [ext_resource type="PackedScene" uid="uid://dbgs44voxm7mh" path="res://scenes/player/player.tscn" id="1_gofch"]
 [ext_resource type="PackedScene" uid="uid://du8x2iki4sv20" path="res://scenes/NPCs/inspector.tscn" id="2_fpogs"]
 [ext_resource type="PackedScene" uid="uid://bbfjj0iurxsnk" path="res://scenes/evidence_items/crime_evidence_item.tscn" id="3_f7sfc"]
 [ext_resource type="PackedScene" uid="uid://dgcp0hkb0vimr" path="res://scenes/NPCs/forensic_scientist.tscn" id="4_5mpwg"]
 [ext_resource type="PackedScene" uid="uid://dvjp6wn02hyno" path="res://scenes/cleaning_hand/cleaning_hand.tscn" id="5_jhpcq"]
+[ext_resource type="Script" path="res://scenes/menu_UI/overlays/overlays.gd" id="6_btkwd"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5sb1g"]
 vertices = PackedVector2Array(170.969, 175.93, -227.227, 181.109, -214.898, -130.188, 159.773, -136.852)
@@ -35,9 +36,11 @@ curve = SubResource("Curve2D_fys23")
 [node name="NPCs" type="Node2D" parent="Map"]
 
 [node name="Inspector" parent="Map/NPCs" node_paths=PackedStringArray("scouting_targets") instance=ExtResource("2_fpogs")]
+position = Vector2(40, 54)
 scouting_targets = NodePath("../../ScoutingPaths/Path2D")
 
 [node name="ForensicScientist" parent="Map/NPCs" instance=ExtResource("4_5mpwg")]
+position = Vector2(-14, -100)
 
 [node name="Player" parent="Map" instance=ExtResource("1_gofch")]
 position = Vector2(-91, 14)
@@ -47,4 +50,56 @@ position = Vector2(-89, -43)
 rotation = -0.672806
 
 [node name="CleaningHand" parent="." instance=ExtResource("5_jhpcq")]
-position = Vector2(-53, 16)
+
+[node name="Overlays" type="CanvasLayer" parent="."]
+script = ExtResource("6_btkwd")
+
+[node name="Victory" type="Control" parent="Overlays"]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Overlays/Victory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Overlays/Victory/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Overlays/Victory/PanelContainer/CenterContainer"]
+layout_mode = 2
+text = "Victory"
+
+[node name="Defeat" type="Control" parent="Overlays"]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Overlays/Defeat"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Overlays/Defeat/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Overlays/Defeat/PanelContainer/CenterContainer"]
+layout_mode = 2
+text = "Game Over"

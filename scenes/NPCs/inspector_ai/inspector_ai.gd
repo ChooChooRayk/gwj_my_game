@@ -1,6 +1,8 @@
 class_name InspectorAI
 extends Node
 
+var cleaning_hand : CleaningHand
+
 var npc_body       : BodyMotor
 var detection_zone : Area2D
 var looking_speed  := 10.
@@ -8,18 +10,18 @@ var looking_speed  := 10.
 
 @onready var nav_agent_2d: NavigationAgent2D = %NavigationAgent2D
 var target_position : Vector2 = Vector2.ZERO
+var target_to_chase : BodyMotor
 
 var go_to_target  := true
 
-var follow_path   := true
 var current_path_pos_idx := 0
 var path_index_list :Array[int]= []
 
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
-    npc_body        = get_parent() as BodyMotor
-    npc_body.SPEED  = 100.
+    npc_body        = get_parent() as Inspector
+    npc_body.SPEED  = npc_body.scouting_speed
     # ---
     detection_zone  = Utilities.find_first_child_of_type(npc_body, Area2D)
     # ---
@@ -31,6 +33,8 @@ func _ready() -> void:
     if path_length>=3:
         for i in range(path_length-2):
             path_index_list.append(path_length-2-i)
+    # ---
+    cleaning_hand = Utilities.find_first_child_of_type(get_tree().root, CleaningHand) as CleaningHand
     return
 
 # ====== PROCESS ====== #
@@ -41,6 +45,7 @@ func _process(delta: float) -> void:
         manage_detection_zone(delta)
     else:
         npc_body.movement_direction  = Vector2.ZERO
+
 # ====== MANAGEMENT ====== #
 
 func move_to(target_pos:Vector2)->void:
@@ -58,7 +63,6 @@ func move_to_next_path_position()->void:
     # ---
     var next_path_pos_idx := path_index_list[current_path_pos_idx]
     var next_target_pos   := (npc_body as Inspector).scouting_targets.curve.get_point_position(next_path_pos_idx)
-    print(next_target_pos)
     move_to(next_target_pos)
     go_to_target = true
     return
@@ -69,4 +73,9 @@ func manage_detection_zone(delta:float)->void:
     
 func on_player_deteted(body:Node2D)->void:
     if body.is_in_group("player"):
+        var player := body as BodyMotor
+        var cleaning_state:HandState.STATES = cleaning_hand.hand_state_machine.current_state.state
+        if cleaning_state==HandState.STATES.InCleaning or cleaning_state==HandState.STATES.CleaningDone:
+            EventBus.SuspectDetected.emit(player)
+            target_to_chase = player
         pass

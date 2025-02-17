@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://du8x2iki4sv20"]
+[gd_scene load_steps=10 format=3 uid="uid://du8x2iki4sv20"]
 
 [ext_resource type="Texture2D" uid="uid://1dsajn1ndl6m" path="res://assets/characters/inspector.svg" id="1_8kgpf"]
 [ext_resource type="Script" path="res://scenes/NPCs/inspector.gd" id="1_wwls3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/NPCs/inspector_ai/InspectorStateMachine.gd" id="3_atvjc"]
 [ext_resource type="Script" path="res://scenes/NPCs/inspector_ai/InspectorIdleState.gd" id="5_iot2s"]
 [ext_resource type="Script" path="res://scenes/NPCs/inspector_ai/InspectorScoutingState.gd" id="6_wtgjy"]
+[ext_resource type="Script" path="res://scenes/NPCs/inspector_ai/InspectorLookAroundState.gd" id="7_3ggu2"]
 [ext_resource type="Script" path="res://scenes/NPCs/inspector_ai/InspectorChasingState.gd" id="7_74pd8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qcmp"]
@@ -33,6 +34,10 @@ state = 1
 script = ExtResource("7_74pd8")
 state = 2
 
+[node name="InspectorLookAroundState" type="Node" parent="InspectorAI/InspectorStateMachine"]
+script = ExtResource("7_3ggu2")
+state = 3
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2, 0)
 texture = ExtResource("1_8kgpf")
@@ -44,6 +49,8 @@ shape = SubResource("CapsuleShape2D_7qcmp")
 unique_name_in_owner = true
 position = Vector2(0, 8)
 rotation = -1.57079
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="DetectionZone"]
 position = Vector2(7, -8)
@@ -55,4 +62,7 @@ position = Vector2(0, 13)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
+target_desired_distance = 5.0
 debug_enabled = true
+
+[connection signal="body_entered" from="DetectionZone" to="InspectorAI" method="on_player_deteted"]

@@ -7,3 +7,6 @@ signal EvidenceCleaned(item:CrimeEvidenceItem)
 signal FrozePlayerRequested(is_frozen:bool)
 
 signal EvidenceHidden(item:CrimeEvidenceItem)
+
+signal SuspectDetected(body:BodyMotor)
+signal SuspectCaught(body:BodyMotor)

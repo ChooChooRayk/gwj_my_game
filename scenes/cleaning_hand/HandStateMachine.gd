@@ -44,5 +44,5 @@ func on_change_state_requested(from_state:HandState, next_state:HandState.STATES
     new_state    .enter()
     # ---
     current_state = new_state
-    #print("hand state : ", current_state.state)
+    print("hand state : ", current_state.state)
     return
