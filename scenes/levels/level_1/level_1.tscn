@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://0hlsng4af6gk"]
+[gd_scene load_steps=12 format=3 uid="uid://0hlsng4af6gk"]
 
 [ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_5pwur"]
 [ext_resource type="Resource" uid="uid://do30bgvqc3y7t" path="res://resources/missions/mission_level_1.tres" id="2_0gwuu"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d0hfjvtdhptl1" path="res://scenes/maps/start_level_position.tscn" id="4_j22tu"]
 [ext_resource type="PackedScene" uid="uid://dgcp0hkb0vimr" path="res://scenes/NPCs/forensic_scientist.tscn" id="5_64wes"]
 [ext_resource type="PackedScene" uid="uid://bbfjj0iurxsnk" path="res://scenes/evidence_items/crime_evidence_item.tscn" id="6_tcgm5"]
+[ext_resource type="PackedScene" uid="uid://dgqm4oevr1gf4" path="res://scenes/menu_UI/tutorial/tutorial.tscn" id="9_h7v5d"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6ublb"]
 vertices = PackedVector2Array(682.047, -41.0313, 684.938, 447.953, -48.2188, 445.031, -59.75, -43.9531)
@@ -68,3 +69,5 @@ rotation = -0.674617
 
 [node name="StartLevelPosition" parent="Map" instance=ExtResource("4_j22tu")]
 position = Vector2(318, 397)
+
+[node name="Tutorial" parent="." instance=ExtResource("9_h7v5d")]

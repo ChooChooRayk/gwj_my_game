@@ -63,6 +63,7 @@ func change_to_main_scene(new_scene_key:GlobalSettings.SCENE_KEYS)->void:
     scene_transition_overlay.transition(SceneTransitionOverlay.TRANS_TYPE.FADE_IN)
     await scene_transition_overlay.animation_player.animation_finished
     # ---
+    EventBus.ChangeSceneFinished.emit()
     return
 
 func change_to_gui_scene(new_ui_key:GlobalSettings.UI_KEYS)->void:
@@ -82,6 +83,8 @@ func change_to_gui_scene(new_ui_key:GlobalSettings.UI_KEYS)->void:
     # ---
     scene_transition_overlay.transition(SceneTransitionOverlay.TRANS_TYPE.FADE_IN)
     await scene_transition_overlay.animation_player.animation_finished
+    # ---
+    EventBus.ChangeSceneFinished.emit()
     return
 
 func check_if_scene_already_loaded(scene:PackedScene)->Node:

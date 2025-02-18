@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgqm4oevr1gf4"]
+
+[ext_resource type="Script" path="res://scenes/menu_UI/tutorial/tutorial.gd" id="1_t0jk6"]
+
+[node name="Tutorial" type="CanvasLayer"]
+script = ExtResource("1_t0jk6")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TutoPanel1" type="PanelContainer" parent="Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/TutoPanel1"]
+layout_mode = 2
+text = "Tuto 1"
+horizontal_alignment = 1
+
+[node name="TutoPanel2" type="PanelContainer" parent="Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="Control/TutoPanel2"]
+layout_mode = 2
+text = "Tuto 2"
+horizontal_alignment = 1
+
+[node name="TutoPanel3" type="PanelContainer" parent="Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label3" type="Label" parent="Control/TutoPanel3"]
+layout_mode = 2
+text = "Tuto 3"
+horizontal_alignment = 1

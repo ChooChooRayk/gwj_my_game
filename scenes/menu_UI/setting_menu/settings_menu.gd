@@ -1,3 +1,4 @@
+class_name SettingsMenu
 extends PanelContainer
 
 
@@ -20,18 +21,20 @@ var setting_wdgt_dic := {}
 
 func _ready() -> void:
     setting_wdgt_dic = {
-        "master_vol":master_volume,
-        "sfx_vol":sfx_volume,
-        "windowing":windowing,
+        "master_vol" : master_volume,
+        "sfx_vol"    : sfx_volume,
+        "windowing"  : windowing,
+        "tutorial"   : tuto_enable,
     }
     init_default_settings()
     return
 
 func init_default_settings()->void:
     default_val_dic = {
-        "master_vol":master_volume.value,
-        "sfx_vol":sfx_volume.value,
-        "windowing":windowing.selected,
+        "master_vol" : master_volume.value,
+        "sfx_vol"    : sfx_volume.value,
+        "windowing"  : windowing.selected,
+        "tutorial"   : tuto_enable.button_pressed,
     }
     return
 
@@ -40,9 +43,10 @@ func init_default_settings()->void:
 func on_reset_settings()->void:
     input_remap.reset_settings()
     # ---
-    setting_wdgt_dic["windowing" ].selected = default_val_dic["windowing" ]
-    setting_wdgt_dic["master_vol"].value    = default_val_dic["master_vol"]
-    setting_wdgt_dic["sfx_vol"   ].value    = default_val_dic["sfx_vol"   ]
+    setting_wdgt_dic["windowing" ].selected       = default_val_dic["windowing" ]
+    setting_wdgt_dic["master_vol"].value          = default_val_dic["master_vol"]
+    setting_wdgt_dic["sfx_vol"   ].value          = default_val_dic["sfx_vol"   ]
+    setting_wdgt_dic["tutorial"  ].button_pressed = default_val_dic["tutorial"  ]
     # ---
     on_apply_settings()
     return
