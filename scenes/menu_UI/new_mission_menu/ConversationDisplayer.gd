@@ -2,9 +2,11 @@ class_name ConversationDisplayer
 extends RichTextLabel
 
 @export var conversation_key : MissionConversations.CONV
-@export var writing_speed       := 1. # [char/s]
+@export var writing_speed       := 10. # [char/s]
 @export var next_line_time      := 0.5 # [s]
 @export var number_of_caller    :int=2
+@export var auto_start          := false
+@export var auto_start_delay    := 2.0 # [s]
 
 var auto_writer : PhoneCallAutoWrite = PhoneCallAutoWrite.new()
 
@@ -38,7 +40,9 @@ func _ready() -> void:
     # ---
     set_process(false)
     # ---
-    start_conversation()
+    if auto_start:
+        await get_tree().create_timer(auto_start_delay).timeout
+        start_conversation()
 
 # ====== PROCESS ====== #
 
@@ -48,9 +52,9 @@ func _process(_delta: float) -> void:
 # ====== MANAGEMENT ====== #
 
 func start_conversation()->void:
-    print("starting conversation")
-    caller_text       = ""
-    finished_text     = ""
+    caller_text   = ""
+    caller_title  = ""
+    finished_text = ""
     # ---
     set_process(true)
     make_caller_text()
@@ -58,7 +62,6 @@ func start_conversation()->void:
 
 func stop_conversation()->void:
     set_process(false)
-    print("conversation finished")
     return
 
 func next_caller_text()->void:
