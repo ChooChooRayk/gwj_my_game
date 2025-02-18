@@ -12,7 +12,8 @@
 script = ExtResource("2_oaclp")
 time_to_succeed = 10.0
 crime_evidence_number = 0
-phone_call_text = ""
+mission_call = 0
+money_reward = 100
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5sb1g"]
 vertices = PackedVector2Array(170.969, 175.93, -227.227, 181.109, -214.898, -130.188, 159.773, -136.852)

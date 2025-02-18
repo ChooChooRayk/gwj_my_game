@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvmm8squ78d8y"]
+
+[ext_resource type="Script" path="res://scenes/menu_UI/inventory/inventory_ui.gd" id="1_x10oq"]
+
+[node name="InventoryUI" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_x10oq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Inventory"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ItemContainer" type="GridContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 5

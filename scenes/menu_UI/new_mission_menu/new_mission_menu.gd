@@ -6,7 +6,10 @@ extends Control
 @onready var main_menu_bttn    : Button = %MainMenuBttn
 @onready var start_mission_bttn: Button = %StartMissionBttn
 
-@onready var mission_call_display: ConversationDisplayer = %MissionCallDisplay
+@onready var mission_call_display : ConversationDisplayer = %MissionCallDisplay
+@onready var shop_ui              : ShopUI                = %ShopUI
+@onready var inventory_ui         : InventoryUI           = %InventoryUI
+@onready var popup_panel          : PopupPanel            = %PopupPanel
 
 # ====== INITIALIZATION ====== #
 
@@ -22,7 +25,11 @@ func on_return_to_main_menu()->void:
     return
 
 func on_start_mission()->void:
-    EventBus.ChangeMainSceneRequested.emit(next_mission)
+    if is_instance_valid(inventory_ui.current_selected_item):
+        PlayerStatistics.current_cleaning_tool = inventory_ui.current_selected_item.item_res
+        EventBus.ChangeMainSceneRequested.emit(next_mission)
+    else:
+        popup_panel.visible = true
     return
 
 func on_set_visible()->void:

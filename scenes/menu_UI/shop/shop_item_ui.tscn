@@ -1,5 +1,15 @@
-[gd_scene format=3 uid="uid://bpies2aij7pjl"]
+[gd_scene load_steps=3 format=3 uid="uid://bpies2aij7pjl"]
+
+[ext_resource type="Texture2D" uid="uid://brum7uqsoo0l" path="res://assets/cleaning_stuff/cleaning_cloth.svg" id="1_0llkb"]
+[ext_resource type="Script" path="res://scenes/menu_UI/shop/shop_item_ui.gd" id="1_ylkgr"]
 
 [node name="ShopItemUI" type="Button"]
 size_flags_horizontal = 3
 size_flags_vertical = 3
+toggle_mode = true
+action_mode = 0
+text = "cost : 10$"
+icon = ExtResource("1_0llkb")
+icon_alignment = 1
+vertical_icon_alignment = 0
+script = ExtResource("1_ylkgr")
