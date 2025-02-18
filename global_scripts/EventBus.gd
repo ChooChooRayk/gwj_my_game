@@ -17,3 +17,6 @@ signal NewItemInInventoryAdded()
 signal ItemInInventoryRemoved()
 
 signal ResetMissionRequested()
+
+signal MissionValidated()
+signal MissionFailled()

@@ -1,6 +1,7 @@
 class_name StartLevelPosition
 extends Marker2D
 
+var player : Player
 
 # ====== INITIALIZATION ====== #
 
@@ -14,5 +15,13 @@ func _ready() -> void:
     if player_L.size()==0:
         push_warning("problem in finding a player un the current level")
         return
-    var player := player_L[0] as BodyMotor
+    player = player_L[0] as Player
+
+# ====== MANAGEMENT ====== #
+
+func set_player_to_start_pos()->void:
+    player = get_tree().get_nodes_in_group("player")[0] as Player
+    print(get_tree().get_nodes_in_group("player"))
+    print("before pos : ", player.global_position)
     player.global_position = global_position
+    print("after  pos : ", player.global_position)

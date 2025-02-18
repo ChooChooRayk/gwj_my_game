@@ -1,7 +1,7 @@
 extends Node
 
 
-var current_level_idx : int = -1
+var current_level_idx : int = 0
 var level_list : Array[GlobalSettings.SCENE_KEYS] = [
     GlobalSettings.SCENE_KEYS.LEVEL_1,
 ]
@@ -19,11 +19,16 @@ func _ready() -> void:
 
 # ====== MANAGEMENT ====== #
 
-func get_next_level()->GlobalSettings.SCENE_KEYS:
-    current_level_idx += 1
-    if current_level_idx>=level_list.size():
+func get_level()->GlobalSettings.SCENE_KEYS:
+    if current_level_idx==-1:
         return GlobalSettings.SCENE_KEYS.LEVEL_FINAL
     return level_list[current_level_idx]
+
+func set_next_level()->void:
+    current_level_idx += 1
+    if current_level_idx>=level_list.size():
+        current_level_idx = -1
+    
 
 func add_new_item_to_inventory(item:CleaningTool)->void:
     if inventory.has(item):
@@ -44,5 +49,5 @@ func remove_item_to_inventory(item:CleaningTool)->void:
 # ------------ #
 
 func reset_stats()->void:
-    current_level_idx = -1
+    current_level_idx = 0
     return

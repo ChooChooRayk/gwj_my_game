@@ -11,6 +11,7 @@ var cleaning_hand : CleaningHand
 var mission_timer := Timer.new()
 var hud_canvas    := CanvasLayer.new()
 var hud           : HUD
+var start_pos     : StartLevelPosition
 
 var victory_panel_scene : PackedScene = load("res://scenes/menu_UI/victory_menu/victory_menu.tscn")
 var defeat_panel_scene  : PackedScene = load("res://scenes/menu_UI/game_over_menu/game_over_menu.tscn")
@@ -24,22 +25,33 @@ func _ready() -> void:
     if is_instance_valid(cleaning_hand):
         cleaning_hand.cleaning_tool = PlayerStatistics.current_cleaning_tool
     # ---
-    item_left_to_hide = mission_res.crime_evidence_number
+    start_pos = Utilities.find_first_child_of_type(self, StartLevelPosition) as StartLevelPosition
     # ---
     hud = GlobalSettings.hud_scene.instantiate()
     hud_canvas.add_child(hud)
     add_child(hud_canvas)
     # ---
-    mission_timer.autostart = true
+    mission_timer.autostart = false
     mission_timer.wait_time = mission_res.time_to_succeed
     mission_timer.one_shot  = true
     mission_timer.timeout.connect(mission_failed)
     add_child(mission_timer)
     # ---
+    EventBus.SuspectCaught  .connect(func (_body): mission_failed())
     EventBus.EvidenceCleaned.connect(on_evidence_cleaned)
     EventBus.EvidenceHidden .connect(on_evidence_hidden )
+
+func init_level()->void:
+    item_left_to_hide = mission_res.crime_evidence_number
+    # ---
+    print("start pos valid : ", is_instance_valid(start_pos))
+    if is_instance_valid(start_pos):
+        start_pos.set_player_to_start_pos()
+    # ---
+    mission_timer.start()
     # ---
     LevelUpdated.emit()
+    return
 
 # ====== PROCESS ====== #
 
@@ -50,11 +62,23 @@ func mission_failed()->void:
     # ---
     var gameover_menu = defeat_panel_scene.instantiate()
     hud_canvas.add_child(gameover_menu)
+    # ---
+    EventBus.MissionFailled.emit()
+    end_level()
     return
 
 func mission_succeeded()->void:
+    Engine.time_scale = 0.1
+    # ---
     var victory_menu = victory_panel_scene.instantiate()
     hud_canvas.add_child(victory_menu)
+    # ---
+    EventBus.MissionValidated.emit()
+    end_level()
+    return
+
+func end_level()->void:
+    mission_timer.stop()
     return
 
 func on_evidence_cleaned(item:CrimeEvidenceItem)->void:

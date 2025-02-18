@@ -25,16 +25,17 @@ func _ready() -> void:
     # ---  --- #
     ui_node_dic[GlobalSettings.UI_KEYS.MAIN_MENU  ] = Utilities.find_first_child_of_type(gui_container, GameMenu) as GameMenu
     ui_node_dic[GlobalSettings.UI_KEYS.NEW_MISSION] = Utilities.find_first_child_of_type(gui_container, NewMissionMenu) as NewMissionMenu
-    EventBus.ChangeMainUIRequested.connect(change_gui_scene)
+    EventBus.ChangeMainUIRequested.connect(change_to_gui_scene)
     # ---
-    EventBus.ChangeMainSceneRequested.connect(change_main_scene)
+    EventBus.ChangeMainSceneRequested.connect(change_to_main_scene)
     EventBus.PauseMainSceneRequested .connect(pause_main_scene )
     EventBus.ResetMissionRequested   .connect(reset_missions   )
+    EventBus.MissionValidated        .connect(func (): PlayerStatistics.set_next_level())
     #start_splash_screens("res://scenes/start_spalsh_screens/splash_screens.tscn")
 
 # ====== MANAGEMENT ====== #
 
-func change_main_scene(new_scene_key:GlobalSettings.SCENE_KEYS)->void:
+func change_to_main_scene(new_scene_key:GlobalSettings.SCENE_KEYS)->void:
     reset_game_default_settings()
     # ---
     var new_scene_path := GlobalSettings.scene_path_dic[new_scene_key] as String
@@ -55,13 +56,16 @@ func change_main_scene(new_scene_key:GlobalSettings.SCENE_KEYS)->void:
         clean_remove_main_scene()
         current_scene      = new_main_scene
     # ---
+    if current_scene is Level:
+        current_scene.init_level()
+    # ---
     pause_main_scene(false)
     scene_transition_overlay.transition(SceneTransitionOverlay.TRANS_TYPE.FADE_IN)
     await scene_transition_overlay.animation_player.animation_finished
     # ---
     return
 
-func change_gui_scene(new_ui_key:GlobalSettings.UI_KEYS)->void:
+func change_to_gui_scene(new_ui_key:GlobalSettings.UI_KEYS)->void:
     reset_game_default_settings()
     # ---
     var new_ui = ui_node_dic[new_ui_key]
@@ -90,10 +94,11 @@ func check_if_scene_already_loaded(scene:PackedScene)->Node:
 func clean_remove_main_scene(delete_scene:bool=true)->void:
     if is_instance_valid(current_scene):
         if delete_scene:
-            current_scene.queue_free()
+            current_scene. free()#queue_free()
         else:
             scene_still_loaded.append(current_scene)
             main_scene_container.remove_child(current_scene)
+    print("still loaded scene : ", scene_still_loaded)
     return
 
 func pause_main_scene(to_pause:bool)->void:

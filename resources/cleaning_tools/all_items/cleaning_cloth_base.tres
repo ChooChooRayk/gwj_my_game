@@ -16,5 +16,5 @@ script = ExtResource("3_067n1")
 cleaning_duration = 3.0
 cleanable_zone = SubResource("Resource_2hqif")
 icon = ExtResource("2_x4pum")
-description_txt = "This is base cleaning cloth"
-price = 200
+description_txt = ""
+price = 0

@@ -27,7 +27,7 @@ func on_return_to_main_menu()->void:
 func on_start_mission()->void:
     if is_instance_valid(inventory_ui.current_selected_item):
         PlayerStatistics.current_cleaning_tool = inventory_ui.current_selected_item.item_res
-        next_mission = PlayerStatistics.get_next_level()
+        next_mission = PlayerStatistics.get_level()
         EventBus.ChangeMainSceneRequested.emit(next_mission)
     else:
         popup_panel.visible = true
