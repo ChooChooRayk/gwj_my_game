@@ -12,7 +12,9 @@ var mission_timer := Timer.new()
 var hud_canvas    := CanvasLayer.new()
 var hud           : HUD
 var start_pos     : StartLevelPosition
+var pause_menu    : PauseMenu
 
+var pause_menu_scene    : PackedScene= load("res://scenes/menu_UI/pause_menu/pause_menu.tscn")
 var victory_panel_scene : PackedScene = load("res://scenes/menu_UI/victory_menu/victory_menu.tscn")
 var defeat_panel_scene  : PackedScene = load("res://scenes/menu_UI/game_over_menu/game_over_menu.tscn")
 
@@ -30,6 +32,9 @@ func _ready() -> void:
     hud = GlobalSettings.hud_scene.instantiate()
     hud_canvas.add_child(hud)
     add_child(hud_canvas)
+    # ---
+    pause_menu = pause_menu_scene.instantiate() as PauseMenu
+    hud_canvas.add_child(pause_menu)
     # ---
     mission_timer.autostart = false
     mission_timer.wait_time = mission_res.time_to_succeed
@@ -53,6 +58,11 @@ func init_level()->void:
     return
 
 # ====== PROCESS ====== #
+
+func _unhandled_input(event: InputEvent) -> void:
+    if event.is_action("pause_game"):
+        pause_menu.visible = true
+        get_tree().paused  = true
 
 # ====== MANAGEMENT ====== #
 

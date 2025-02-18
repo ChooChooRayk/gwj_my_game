@@ -68,6 +68,7 @@ func change_to_main_scene(new_scene_key:GlobalSettings.SCENE_KEYS)->void:
 
 func change_to_gui_scene(new_ui_key:GlobalSettings.UI_KEYS)->void:
     reset_game_default_settings()
+    pause_main_scene(true)
     # ---
     var new_ui = ui_node_dic[new_ui_key]
     if not(is_instance_valid(new_ui)):
