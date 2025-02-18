@@ -4,7 +4,7 @@ extends Node
 signal WritingFinished()
 signal TextUpdated(char:String)
 
-@export var phone_transcription : PackedStringArray  = ["first line","second [b]line[/b]"]
+@export var phone_transcription : PackedStringArray
 var writing_speed       := 1. # [char/s]
 var next_line_time      := 0.5 # [s]
 
