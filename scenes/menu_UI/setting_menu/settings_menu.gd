@@ -13,47 +13,45 @@ extends PanelContainer
 @onready var windowing    : OptionButton = %Windowing
 @onready var tuto_enable  : CheckBox     = %TutoEnable
 
-var default_val_dic  := {}
-var setting_wdgt_dic := {}
-
 
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
-    setting_wdgt_dic = {
-        "master_vol" : master_volume,
-        "sfx_vol"    : sfx_volume,
-        "windowing"  : windowing,
-        "tutorial"   : tuto_enable,
-    }
     init_default_settings()
     return
 
 func init_default_settings()->void:
-    default_val_dic = {
-        "master_vol" : master_volume.value,
-        "sfx_vol"    : sfx_volume.value,
-        "windowing"  : windowing.selected,
-        "tutorial"   : tuto_enable.button_pressed,
-    }
+    GlobalSettings.default_game_settings["master_vol"] = master_volume.value
+    GlobalSettings.default_game_settings["sfx_vol"   ] = sfx_volume.value
+    GlobalSettings.default_game_settings["windowing" ] = windowing.selected
+    GlobalSettings.default_game_settings["tutorial"  ] = tuto_enable.button_pressed
     return
 
 # ====== MANAGEMENT ====== #
 
+func set_custom_settings()->void:
+    GlobalSettings.current_game_settings["master_vol"] = master_volume.value
+    GlobalSettings.current_game_settings["sfx_vol"   ] = sfx_volume.value
+    GlobalSettings.current_game_settings["windowing" ] = windowing.selected
+    GlobalSettings.current_game_settings["tutorial"  ] = tuto_enable.button_pressed
+    return
+
+
 func on_reset_settings()->void:
     input_remap.reset_settings()
     # ---
-    setting_wdgt_dic["windowing" ].selected       = default_val_dic["windowing" ]
-    setting_wdgt_dic["master_vol"].value          = default_val_dic["master_vol"]
-    setting_wdgt_dic["sfx_vol"   ].value          = default_val_dic["sfx_vol"   ]
-    setting_wdgt_dic["tutorial"  ].button_pressed = default_val_dic["tutorial"  ]
+    master_volume.value          = GlobalSettings.default_game_settings["master_vol"]
+    sfx_volume   .value          = GlobalSettings.default_game_settings["sfx_vol"   ]
+    windowing    .selected       = GlobalSettings.default_game_settings["windowing" ]
+    tuto_enable  .button_pressed = GlobalSettings.default_game_settings["tutorial"  ]
     # ---
     on_apply_settings()
     return
 
 func on_apply_settings()->void:
+    set_custom_settings()
     # --- windowing
-    match setting_wdgt_dic["windowing" ].selected:
+    match GlobalSettings.current_game_settings["windowing" ]:
         0:
             get_tree().root.mode = Window.MODE_FULLSCREEN
         1:

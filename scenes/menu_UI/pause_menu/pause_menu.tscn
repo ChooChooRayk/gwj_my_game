@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://jp4vr5jimcmp"]
+[gd_scene load_steps=3 format=3 uid="uid://jp4vr5jimcmp"]
 
 [ext_resource type="Script" path="res://scenes/menu_UI/pause_menu/pause_menu.gd" id="1_q0sp8"]
+[ext_resource type="PackedScene" uid="uid://boa4w0vx84ybe" path="res://scenes/menu_UI/setting_menu/settings_menu.tscn" id="2_da3et"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
@@ -12,7 +13,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q0sp8")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.576471)
+
+[node name="PauseButtons" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,34 +32,54 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="PauseButtons"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseButtons/CenterContainer"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="PauseButtons/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Game Paused"
 
-[node name="spacer" type="Control" parent="PanelContainer/CenterContainer/VBoxContainer"]
+[node name="spacer" type="Control" parent="PauseButtons/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Continue" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
+[node name="Continue" type="Button" parent="PauseButtons/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Continue"
 
-[node name="MainMenu" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="PauseButtons/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Settings"
+
+[node name="MainMenu" type="Button" parent="PauseButtons/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Main Menu"
 
-[node name="Quit" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="PauseButtons/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/Continue" to="." method="continue_game"]
-[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/MainMenu" to="." method="return_to_main_menu"]
-[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/Quit" to="." method="quit_game"]
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SettingsMenu" parent="CenterContainer" instance=ExtResource("2_da3et")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="PauseButtons/CenterContainer/VBoxContainer/Continue" to="." method="continue_game"]
+[connection signal="pressed" from="PauseButtons/CenterContainer/VBoxContainer/Settings" to="." method="on_settings"]
+[connection signal="pressed" from="PauseButtons/CenterContainer/VBoxContainer/MainMenu" to="." method="return_to_main_menu"]
+[connection signal="pressed" from="PauseButtons/CenterContainer/VBoxContainer/Quit" to="." method="quit_game"]

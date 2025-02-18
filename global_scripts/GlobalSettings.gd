@@ -1,4 +1,4 @@
-class_name GlobalSettings
+#class_name GlobalSettings
 extends Node
 
 enum LAYER_NAMES {
@@ -23,9 +23,18 @@ static var scene_path_dic : Dictionary = {
     SCENE_KEYS.LEVEL_FINAL: "res://scenes/levels/level_final/level_final.tscn",    
 }
 
-
-
-
+var current_game_settings := {
+    "master_vol" : 0.,
+    "sfx_vol"    : 0.,
+    "windowing"  : 0,
+    "tutorial"   : true,
+}
+var default_game_settings := {
+    "master_vol" : 0.,
+    "sfx_vol"    : 0.,
+    "windowing"  : 0,
+    "tutorial"   : true,
+}
 
 
 

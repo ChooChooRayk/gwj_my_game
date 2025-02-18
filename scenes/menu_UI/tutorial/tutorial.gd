@@ -18,12 +18,10 @@ func _ready() -> void:
     # ---
     process_mode = PROCESS_MODE_WHEN_PAUSED
     # ---
-    var settings := Utilities.find_first_child_of_type(get_tree().root, SettingsMenu) as SettingsMenu
-    if is_instance_valid(settings):
-        if not(settings.setting_wdgt_dic["tutorial"]):
-            queue_free()
-        else:
-            EventBus.ChangeSceneFinished.connect(func ():start_tuto_panel())
+    if not(GlobalSettings.current_game_settings["tutorial"]):
+        queue_free()
+    else:
+        EventBus.ChangeSceneFinished.connect(func ():start_tuto_panel())
     return
 
 # ====== PROCESS ====== #

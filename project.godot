@@ -26,6 +26,7 @@ EventBus="*res://global_scripts/EventBus.gd"
 SceneManager="*res://global_scripts/SceneManager.gd"
 GlobalColors="*res://global_scripts/GlobalColors.gd"
 PlayerStatistics="*res://global_scripts/PlayerStatistics.gd"
+GlobalSettings="*res://global_scripts/GlobalSettings.gd"
 
 [display]
 
