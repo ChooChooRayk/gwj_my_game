@@ -51,8 +51,6 @@ func init_conversation()->void:
     finished_text = ""
     side_count    = 0
     caller_count  = 0
-    # ---
-    print("conversation : ", conversation_key)
     return
 
 # ====== PROCESS ====== #

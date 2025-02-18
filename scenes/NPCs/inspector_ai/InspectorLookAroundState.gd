@@ -17,6 +17,8 @@ func _ready() -> void:
     next_head_look_timer.one_shot  = true
     next_head_look_timer.timeout.connect(look_around)
     add_child(next_head_look_timer)
+    # ---
+    EventBus.SuspectDetected.connect(suspect_detected)
 
 # ====== PROCESS ====== #
 
@@ -50,4 +52,8 @@ func rotate_detection_zone_random()->void:
     tween.tween_property(inspector_ai.detection_zone, "rotation", rot_agl, twen_duration)
     tween.play()
     tween.finished.connect(func (): next_head_look_timer.start())
+    return
+
+func suspect_detected(_player:BodyMotor)->void:
+    ChangeStateRequested.emit(self, STATES.Chasing)
     return

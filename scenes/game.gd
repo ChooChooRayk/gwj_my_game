@@ -98,7 +98,6 @@ func clean_remove_main_scene(delete_scene:bool=true)->void:
         else:
             scene_still_loaded.append(current_scene)
             main_scene_container.remove_child(current_scene)
-    print("still loaded scene : ", scene_still_loaded)
     return
 
 func pause_main_scene(to_pause:bool)->void:

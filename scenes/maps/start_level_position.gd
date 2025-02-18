@@ -20,8 +20,4 @@ func _ready() -> void:
 # ====== MANAGEMENT ====== #
 
 func set_player_to_start_pos()->void:
-    player = get_tree().get_nodes_in_group("player")[0] as Player
-    print(get_tree().get_nodes_in_group("player"))
-    print("before pos : ", player.global_position)
     player.global_position = global_position
-    print("after  pos : ", player.global_position)

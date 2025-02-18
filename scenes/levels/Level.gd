@@ -44,7 +44,6 @@ func _ready() -> void:
 func init_level()->void:
     item_left_to_hide = mission_res.crime_evidence_number
     # ---
-    print("start pos valid : ", is_instance_valid(start_pos))
     if is_instance_valid(start_pos):
         start_pos.set_player_to_start_pos()
     # ---
