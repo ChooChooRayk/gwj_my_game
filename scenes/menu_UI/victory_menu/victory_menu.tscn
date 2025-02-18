@@ -39,7 +39,8 @@ horizontal_alignment = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Thanks! Here's the rest of the money. I might need your help again soon."
+bbcode_enabled = true
+text = "Thanks! Here's the rest of the money. I might need your help again soon.[b]test[/b]"
 fit_content = true
 
 [node name="spacer" type="Control" parent="PanelContainer/VBoxContainer"]

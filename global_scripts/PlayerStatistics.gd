@@ -5,7 +5,7 @@ var current_cleaning_tool : CleaningTool
 
 var current_level_idx : int
 var level_list : Array[GlobalSettings.SCENE_KEYS] = [
-    GlobalSettings.SCENE_KEYS.LEVEL_1
+    GlobalSettings.SCENE_KEYS.TEST,
 ]
 
 # ====== MANAGEMENT ====== #

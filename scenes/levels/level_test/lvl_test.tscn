@@ -2,15 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://du8x2iki4sv20" path="res://scenes/NPCs/inspector.tscn" id="1_pbwmy"]
 [ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_vtotj"]
+[ext_resource type="Script" path="res://resources/missions/MissionResource.gd" id="2_oaclp"]
 [ext_resource type="PackedScene" uid="uid://dgcp0hkb0vimr" path="res://scenes/NPCs/forensic_scientist.tscn" id="2_u6rar"]
-[ext_resource type="Script" path="res://scenes/levels/MissionResource.gd" id="2_wl6d4"]
 [ext_resource type="PackedScene" uid="uid://dbgs44voxm7mh" path="res://scenes/player/player.tscn" id="3_w16gk"]
 [ext_resource type="PackedScene" uid="uid://bbfjj0iurxsnk" path="res://scenes/evidence_items/crime_evidence_item.tscn" id="4_rex5d"]
 [ext_resource type="PackedScene" uid="uid://dvjp6wn02hyno" path="res://scenes/cleaning_hand/cleaning_hand.tscn" id="5_ekda5"]
 
 [sub_resource type="Resource" id="Resource_s8l34"]
-script = ExtResource("2_wl6d4")
+script = ExtResource("2_oaclp")
 time_to_succeed = 10.0
+crime_evidence_number = 0
+phone_call_text = ""
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5sb1g"]
 vertices = PackedVector2Array(170.969, 175.93, -227.227, 181.109, -214.898, -130.188, 159.773, -136.852)

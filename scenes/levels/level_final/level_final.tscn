@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://kfljhtw1ucb0"]
+
+[ext_resource type="Script" path="res://scenes/levels/level_final/level_final.gd" id="1_65k5d"]
+
+[node name="LevelFinal" type="Node"]
+script = ExtResource("1_65k5d")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "You finished all your missions. Now you can go and enjoy your profits."
+horizontal_alignment = 1
+
+[node name="spacer" type="Control" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MainMenu" type="Button" parent="Control/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Main menu"
+
+[node name="Quit" type="Button" parent="Control/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quit"
+
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/HBoxContainer/MainMenu" to="." method="return_to_main_menu"]
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/HBoxContainer/Quit" to="." method="quit_game"]
