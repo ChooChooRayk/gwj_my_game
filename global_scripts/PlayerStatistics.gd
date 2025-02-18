@@ -1,7 +1,7 @@
 extends Node
 
 
-var current_level_idx : int
+var current_level_idx : int = -1
 var level_list : Array[GlobalSettings.SCENE_KEYS] = [
     GlobalSettings.SCENE_KEYS.TEST,
 ]
