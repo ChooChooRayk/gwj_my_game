@@ -28,7 +28,8 @@ func _ready() -> void:
     EventBus.ChangeMainUIRequested.connect(change_gui_scene)
     # ---
     EventBus.ChangeMainSceneRequested.connect(change_main_scene)
-    EventBus.PauseMainSceneRequested .connect(pause_main_scene)
+    EventBus.PauseMainSceneRequested .connect(pause_main_scene )
+    EventBus.ResetMissionRequested   .connect(reset_missions   )
     #start_splash_screens("res://scenes/start_spalsh_screens/splash_screens.tscn")
 
 # ====== MANAGEMENT ====== #
@@ -96,6 +97,9 @@ func clean_remove_main_scene(delete_scene:bool=true)->void:
     return
 
 func pause_main_scene(to_pause:bool)->void:
+    if not(is_instance_valid(current_scene)):
+        return
+    # ---
     if to_pause:
         current_scene.process_mode = Node.PROCESS_MODE_DISABLED
     else:
@@ -105,3 +109,7 @@ func pause_main_scene(to_pause:bool)->void:
 
 func reset_game_default_settings()->void:
     Engine.time_scale = 1.0
+
+func reset_missions()->void:
+    PlayerStatistics.reset_stats()
+    return

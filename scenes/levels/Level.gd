@@ -1,9 +1,12 @@
 class_name Level
 extends Node
 
+signal LevelUpdated()
+
 @export var mission_res : MissionResource
 
-var player_stat : PlayerStatistics
+#var player_stat : PlayerStatistics
+var cleaning_hand : CleaningHand
 
 var mission_timer := Timer.new()
 var hud_canvas    := CanvasLayer.new()
@@ -17,6 +20,10 @@ var item_left_to_hide : int
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
+    cleaning_hand     = Utilities.find_first_child_of_type(self, CleaningHand) as CleaningHand
+    if is_instance_valid(cleaning_hand):
+        cleaning_hand.cleaning_tool = PlayerStatistics.current_cleaning_tool
+    # ---
     item_left_to_hide = mission_res.crime_evidence_number
     # ---
     hud = GlobalSettings.hud_scene.instantiate()
@@ -31,6 +38,8 @@ func _ready() -> void:
     # ---
     EventBus.EvidenceCleaned.connect(on_evidence_cleaned)
     EventBus.EvidenceHidden .connect(on_evidence_hidden )
+    # ---
+    LevelUpdated.emit()
 
 # ====== PROCESS ====== #
 
@@ -55,6 +64,7 @@ func on_evidence_cleaned(item:CrimeEvidenceItem)->void:
 func on_evidence_hidden(_item:CrimeEvidenceItem)->void:
     item_left_to_hide -= 1
     check_for_mission_success()
+    LevelUpdated.emit()
 
 func check_for_mission_success()->void:
     if item_left_to_hide==0:

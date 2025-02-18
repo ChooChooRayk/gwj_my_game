@@ -12,14 +12,14 @@ var current_selected_item : InventoryItemUI
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
-    EventBus.NewItemInInventoryAdded.connect(update_shop_ui)
+    EventBus.NewItemInInventoryAdded.connect(update_inventory_ui)
     # ---
     init_inventory()
     return
 
 func init_inventory()->void:
     clear_item_container()
-    update_shop_ui()
+    update_inventory_ui()
     return
 
 # ====== MANAGEMENT ====== #
@@ -29,7 +29,7 @@ func clear_item_container()->void:
         child.queue_free()
     return
 
-func update_shop_ui()->void:
+func update_inventory_ui()->void:
     for i in range(PlayerStatistics.inventory.size()):
         var item_res = PlayerStatistics.inventory[i]
         var invtry_item : InventoryItemUI = invtry_item_scene.instantiate()

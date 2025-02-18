@@ -1,25 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbgs44voxm7mh"]
+[gd_scene load_steps=6 format=3 uid="uid://dbgs44voxm7mh"]
 
 [ext_resource type="Texture2D" uid="uid://bilaqc80wpwuo" path="res://assets/characters/player.svg" id="1_1hxbn"]
-[ext_resource type="Script" path="res://scenes/player/body_motor.gd" id="1_ckfj0"]
 [ext_resource type="Script" path="res://scenes/player/input_player.gd" id="1_fmtji"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_kxmgy"]
 [ext_resource type="Script" path="res://scenes/player/allowed_cleaning_zone.gd" id="4_hdr3f"]
-[ext_resource type="Script" path="res://resources/cleaning_tools/CleanableZone.gd" id="5_jp5x2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jvjy2"]
 radius = 5.0
 height = 24.0
 
-[sub_resource type="Resource" id="Resource_ghtj1"]
-script = ExtResource("5_jp5x2")
-ellps_a = 40.0
-ellps_b = 20.0
-center_offset = Vector2(0, 10)
-center_zone = Vector2(0, 0)
-
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
-script = ExtResource("1_ckfj0")
+script = ExtResource("1_kxmgy")
 
 [node name="InputPlayer" type="Node" parent="."]
 script = ExtResource("1_fmtji")
@@ -36,7 +28,6 @@ shape = SubResource("CapsuleShape2D_jvjy2")
 [node name="DrawAllowedCleaningZone" type="Node2D" parent="."]
 z_index = -1
 script = ExtResource("4_hdr3f")
-cleanable_zone = SubResource("Resource_ghtj1")
 line_width = 1.0
 color = Color(1, 0, 0, 1)
 

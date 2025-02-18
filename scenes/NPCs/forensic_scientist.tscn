@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgcp0hkb0vimr"]
 
 [ext_resource type="Texture2D" uid="uid://dd1c38d3v1ue5" path="res://assets/characters/forensic_scientist.svg" id="1_3wr87"]
-[ext_resource type="Script" path="res://scenes/player/body_motor.gd" id="1_ujrbn"]
+[ext_resource type="Script" path="res://global_scripts/body_motor.gd" id="1_ujrbn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r2wdt"]
 radius = 4.0

@@ -10,7 +10,7 @@
 
 [sub_resource type="Resource" id="Resource_s8l34"]
 script = ExtResource("2_oaclp")
-time_to_succeed = 10.0
+time_to_succeed = 100.0
 crime_evidence_number = 0
 mission_call = 0
 money_reward = 100

@@ -48,5 +48,6 @@ func raycast_check_for_forensic_scientist()->CharacterBody2D:
 
 func hide_crime_evidence_in_forensic(_forensic)->void:
     print("crime evidence HIDDEN !!!!!!!!!")
+    EventBus.EvidenceHidden.emit(cleaning_hand.item_to_clean)
     ChangeStateRequested.emit(self, STATES.OutZone)
     return

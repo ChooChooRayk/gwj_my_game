@@ -35,5 +35,6 @@ func on_start_mission()->void:
 
 func on_set_visible()->void:
     if visible and is_instance_valid(mission_call_display):
+        mission_call_display.init_conversation()
         await get_tree().create_timer(mission_call_display.auto_start_delay).timeout
         mission_call_display.start_conversation()

@@ -19,7 +19,7 @@ enum SCENE_KEYS {
 }
 static var scene_path_dic : Dictionary = {
     SCENE_KEYS.TEST       : "res://scenes/levels/level_test/lvl_test.tscn",
-    SCENE_KEYS.LEVEL_1    : "",
+    SCENE_KEYS.LEVEL_1    : "res://scenes/levels/level_1/level_1.tscn",
     SCENE_KEYS.LEVEL_FINAL: "res://scenes/levels/level_final/level_final.tscn",    
 }
 

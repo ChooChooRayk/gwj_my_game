@@ -33,7 +33,6 @@ func exit()->void:
     return
 
 func look_around()->void:
-    print("looking around : ", looking_count)
     if looking_count>=nbr_of_looking:
         ChangeStateRequested.emit(self, STATES.Scouting)
         return

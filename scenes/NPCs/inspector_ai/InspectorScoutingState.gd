@@ -25,7 +25,6 @@ func exit()->void:
 
 func target_reached()->void:
     var is_looking_around = rng.randf()>0.75
-    print("Is going to look around : ", is_looking_around)
     if is_looking_around:
         ChangeStateRequested.emit(self, STATES.LookingAround)
         return

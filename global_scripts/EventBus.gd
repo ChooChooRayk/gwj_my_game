@@ -10,9 +10,10 @@ signal SuspectCaught(body:BodyMotor)
 
 signal ChangeMainUIRequested(ui_key:GlobalSettings.UI_KEYS)
 signal ChangeMainSceneRequested(scene_key:GlobalSettings.SCENE_KEYS)
-
 signal PauseMainSceneRequested(to_pause:bool)
 
 signal AddItemToInventory(item:CleaningTool)
 signal NewItemInInventoryAdded()
 signal ItemInInventoryRemoved()
+
+signal ResetMissionRequested()

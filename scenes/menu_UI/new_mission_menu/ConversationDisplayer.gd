@@ -10,19 +10,18 @@ extends RichTextLabel
 
 var auto_writer : PhoneCallAutoWrite = PhoneCallAutoWrite.new()
 
+var caller_display_stye := {
+    0 : {"side":"left", "color":"green"},
+    1 : {"side":"right", "color":"red"},
+    2 : {"side":"left", "color":"blue"},
+}
+var side_count    : int = 0
 var conversation  : Array
 var caller_count  : int = 0
 var finished_text := ""
 var caller_title  := ""
 var caller_text   := ""
 var wrapped_text  := ""
-
-var caller_display_stye := {
-    0 : {"side":"left", "color":"green"},
-    1 : {"side":"right", "color":"red"},
-    2 : {"side":"left", "color":"blue"},
-}
-var side_count : int = 0
 
 # ====== INITIALIZATION ====== #
 
@@ -43,6 +42,18 @@ func _ready() -> void:
     if auto_start:
         await get_tree().create_timer(auto_start_delay).timeout
         start_conversation()
+
+func init_conversation()->void:
+    set_process(false)
+    text          = ""
+    caller_text   = ""
+    caller_title  = ""
+    finished_text = ""
+    side_count    = 0
+    caller_count  = 0
+    # ---
+    print("conversation : ", conversation_key)
+    return
 
 # ====== PROCESS ====== #
 

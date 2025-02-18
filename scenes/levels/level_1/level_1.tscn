@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://0hlsng4af6gk"]
+
+[ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_5pwur"]
+[ext_resource type="Resource" uid="uid://do30bgvqc3y7t" path="res://resources/missions/mission_level_1.tres" id="2_0gwuu"]
+[ext_resource type="PackedScene" uid="uid://dvjp6wn02hyno" path="res://scenes/cleaning_hand/cleaning_hand.tscn" id="2_44beu"]
+[ext_resource type="PackedScene" uid="uid://dbgs44voxm7mh" path="res://scenes/player/player.tscn" id="3_hy12e"]
+[ext_resource type="PackedScene" uid="uid://du8x2iki4sv20" path="res://scenes/NPCs/inspector.tscn" id="4_86pr6"]
+[ext_resource type="PackedScene" uid="uid://d0hfjvtdhptl1" path="res://scenes/maps/start_level_position.tscn" id="4_j22tu"]
+[ext_resource type="PackedScene" uid="uid://dgcp0hkb0vimr" path="res://scenes/NPCs/forensic_scientist.tscn" id="5_64wes"]
+[ext_resource type="PackedScene" uid="uid://bbfjj0iurxsnk" path="res://scenes/evidence_items/crime_evidence_item.tscn" id="6_tcgm5"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6ublb"]
+vertices = PackedVector2Array(682.047, -41.0313, 684.938, 447.953, -48.2188, 445.031, -59.75, -43.9531)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-70, -54, 692, -51, 695, 458, -58, 455)])
+
+[sub_resource type="Curve2D" id="Curve2D_41khl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 540, 32, 0, 0, 0, 0, 547, 84, 0, 0, 0, 0, 511, 155, 0, 0, 0, 0, 378, 161, 0, 0, 0, 0, 256, 135, 0, 0, 0, 0, 157, 93, 0, 0, 0, 0, 100, 168, 0, 0, 0, 0, 57, 256, 0, 0, 0, 0, 112, 310, 0, 0, 0, 0, 232, 328)
+}
+point_count = 10
+
+[node name="Level1" type="Node"]
+script = ExtResource("1_5pwur")
+mission_res = ExtResource("2_0gwuu")
+
+[node name="CleaningHand" parent="." instance=ExtResource("2_44beu")]
+cleaning_tool = null
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Map"]
+navigation_polygon = SubResource("NavigationPolygon_6ublb")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Map"]
+
+[node name="ScoutingPaths" type="Node" parent="Map"]
+
+[node name="ScoutingPath1" type="Path2D" parent="Map/ScoutingPaths"]
+curve = SubResource("Curve2D_41khl")
+
+[node name="Inspectors" type="Node" parent="Map"]
+
+[node name="Inspector" parent="Map/Inspectors" node_paths=PackedStringArray("scouting_targets") instance=ExtResource("4_86pr6")]
+position = Vector2(430, 191)
+scouting_targets = NodePath("../../ScoutingPaths/ScoutingPath1")
+
+[node name="Forensics" type="Node" parent="Map"]
+
+[node name="ForensicScientist" parent="Map/Forensics" instance=ExtResource("5_64wes")]
+position = Vector2(156, 253)
+
+[node name="CrimeItems" type="Node" parent="Map"]
+
+[node name="CrimeEvidenceItem" parent="Map/CrimeItems" instance=ExtResource("6_tcgm5")]
+position = Vector2(198, 149)
+rotation = -0.674617
+
+[node name="CrimeEvidenceItem2" parent="Map/CrimeItems" instance=ExtResource("6_tcgm5")]
+position = Vector2(87, 340)
+rotation = -0.674617
+
+[node name="CrimeEvidenceItem3" parent="Map/CrimeItems" instance=ExtResource("6_tcgm5")]
+position = Vector2(433, 121)
+rotation = -0.674617
+
+[node name="Player" parent="Map" instance=ExtResource("3_hy12e")]
+
+[node name="StartLevelPosition" parent="Map" instance=ExtResource("4_j22tu")]
+position = Vector2(318, 397)

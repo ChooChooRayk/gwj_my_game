@@ -3,12 +3,14 @@ extends Node
 
 var current_level_idx : int = -1
 var level_list : Array[GlobalSettings.SCENE_KEYS] = [
-    GlobalSettings.SCENE_KEYS.TEST,
+    GlobalSettings.SCENE_KEYS.LEVEL_1,
 ]
 
-var current_cleaning_tool : CleaningTool
+var current_cleaning_tool : CleaningTool = load("res://resources/cleaning_tools/all_items/cleaning_cloth_base.tres") as CleaningTool
 var inventory             : Array[CleaningTool]
 var current_money         : int = 250 # [$USD]
+
+var crime_item_tempering_time : float = 10. # [s]
 
 # ====== INITIALIZATION ====== #
 
@@ -38,3 +40,9 @@ func remove_item_to_inventory(item:CleaningTool)->void:
     # ---
     inventory.remove_at(inventory.find(item))
     EventBus.ItemInInventoryRemoved.emit()
+
+# ------------ #
+
+func reset_stats()->void:
+    current_level_idx = -1
+    return
