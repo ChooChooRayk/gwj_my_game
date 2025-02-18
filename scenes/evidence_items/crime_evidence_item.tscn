@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbfjj0iurxsnk"]
+[gd_scene load_steps=5 format=3 uid="uid://bbfjj0iurxsnk"]
 
 [ext_resource type="Texture2D" uid="uid://31ysvnkqrtft" path="res://assets/evidence_items/knife.svg" id="1_j6byr"]
 [ext_resource type="Script" path="res://scenes/evidence_items/crime_evidence_item.gd" id="1_xl5yt"]
+[ext_resource type="Material" uid="uid://dlbfgulh65673" path="res://resources/shaders/highlight_effect_material.tres" id="2_1aew6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e3axb"]
 radius = 2.0
@@ -11,7 +12,9 @@ height = 14.0
 collision_layer = 4
 script = ExtResource("1_xl5yt")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="ItemAspect" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = ExtResource("2_1aew6")
 position = Vector2(2, 1)
 texture = ExtResource("1_j6byr")
 

@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dlbfgulh65673"]
+
+[ext_resource type="Shader" path="res://resources/shaders/highlight_effect.gdshader" id="1_xvk8v"]
+
+[resource]
+shader = ExtResource("1_xvk8v")
+shader_parameter/size_effect = 0.0500001
+shader_parameter/speed = 0.75
+shader_parameter/highlight_strength = 0.5
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = false
+shader_parameter/pause_duration = 1.0
