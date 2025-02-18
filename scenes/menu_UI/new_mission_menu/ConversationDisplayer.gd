@@ -1,26 +1,24 @@
 class_name ConversationDisplayer
 extends RichTextLabel
 
+@export var conversation_key : MissionConversations.CONV
 @export var writing_speed       := 1. # [char/s]
 @export var next_line_time      := 0.5 # [s]
-
-@export var conversation : Array = [
-    ["caller", ["first line","second [b]line[/b]"]],
-    ["agent", ["first response","second [i]response[/i]"]],
-    ["caller", ["first line","second [b]line[/b]"]],
-    ["agent", ["first response","second [i]response[/i]"]],
-]
-var caller_count : int = 0
+@export var number_of_caller    :int=2
 
 var auto_writer : PhoneCallAutoWrite = PhoneCallAutoWrite.new()
-var finished_text     := ""
-var caller_title      := ""
-var caller_text       := ""
-var wrapped_text      := ""
+
+var conversation  : Array
+var caller_count  : int = 0
+var finished_text := ""
+var caller_title  := ""
+var caller_text   := ""
+var wrapped_text  := ""
 
 var caller_display_stye := {
     0 : {"side":"left", "color":"green"},
     1 : {"side":"right", "color":"red"},
+    2 : {"side":"left", "color":"blue"},
 }
 var side_count : int = 0
 
@@ -29,6 +27,8 @@ var side_count : int = 0
 func _ready() -> void:
     bbcode_enabled   = true
     scroll_following = true
+    # ---
+    conversation = MissionConversations.conversation_dic[conversation_key]
     # ---
     auto_writer.writing_speed  = writing_speed
     auto_writer.next_line_time = next_line_time
@@ -64,7 +64,7 @@ func stop_conversation()->void:
 func next_caller_text()->void:
     finished_text  += wrapped_text + "[/{side}]".format({"side":caller_display_stye[side_count]["side"]})
     caller_count   += 1
-    side_count      = (side_count+1)%2
+    side_count      = (side_count+1)%number_of_caller
     make_caller_text()
     return
 
