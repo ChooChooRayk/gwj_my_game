@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0rg6aafveqpa"
-path="res://.godot/imported/cleaning_progression.svg-48066a0a0641e0b61beb3679765216ed.ctex"
+uid="uid://c1iw761eqct4a"
+path="res://.godot/imported/inspector_detect_zone.svg-758b594d827f8f5c20be7a9a6471d6e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/cleaning_progression.svg"
-dest_files=["res://.godot/imported/cleaning_progression.svg-48066a0a0641e0b61beb3679765216ed.ctex"]
+source_file="res://assets/utils/inspector_detect_zone.svg"
+dest_files=["res://.godot/imported/inspector_detect_zone.svg-758b594d827f8f5c20be7a9a6471d6e7.ctex"]
 
 [params]
 

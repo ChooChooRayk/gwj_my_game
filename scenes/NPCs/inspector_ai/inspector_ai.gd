@@ -69,7 +69,7 @@ func move_to_next_path_position()->void:
     return
 
 func manage_detection_zone(delta:float)->void:
-    detection_zone.rotation = lerp(detection_zone.rotation, npc_body.movement_direction.angle()-PI/2., looking_speed*delta)
+    detection_zone.rotation = lerp(detection_zone.rotation, npc_body.movement_direction.angle(), looking_speed*delta)
     return
     
 func on_player_deteted(body:Node2D)->void:

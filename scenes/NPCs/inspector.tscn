@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://du8x2iki4sv20"]
+[gd_scene load_steps=11 format=3 uid="uid://du8x2iki4sv20"]
 
 [ext_resource type="Texture2D" uid="uid://1dsajn1ndl6m" path="res://assets/characters/inspector.svg" id="1_8kgpf"]
 [ext_resource type="Script" path="res://scenes/NPCs/inspector.gd" id="1_wwls3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/NPCs/inspector_ai/InspectorScoutingState.gd" id="6_wtgjy"]
 [ext_resource type="Script" path="res://scenes/NPCs/inspector_ai/InspectorLookAroundState.gd" id="7_3ggu2"]
 [ext_resource type="Script" path="res://scenes/NPCs/inspector_ai/InspectorChasingState.gd" id="7_74pd8"]
+[ext_resource type="Texture2D" uid="uid://c1iw761eqct4a" path="res://assets/utils/inspector_detect_zone.svg" id="9_deaxd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qcmp"]
 radius = 4.0
@@ -47,14 +48,17 @@ shape = SubResource("CapsuleShape2D_7qcmp")
 
 [node name="DetectionZone" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, 8)
-rotation = -1.57079
+position = Vector2(0, 11)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="DetectionZone"]
-position = Vector2(7, -8)
-polygon = PackedVector2Array(-9, 8, -5, 8, 10.0002, 56.9999, -21.9998, 57.0001)
+position = Vector2(7, -7)
+polygon = PackedVector2Array(-4, 8, -4, 6, 100, -20, 107, -2, 107, 17, 100, 34)
+
+[node name="Sprite2D" type="Sprite2D" parent="DetectionZone"]
+position = Vector2(60, 0)
+texture = ExtResource("9_deaxd")
 
 [node name="FootPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
@@ -63,6 +67,5 @@ position = Vector2(0, 13)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
 target_desired_distance = 5.0
-debug_enabled = true
 
 [connection signal="body_entered" from="DetectionZone" to="InspectorAI" method="on_player_deteted"]
