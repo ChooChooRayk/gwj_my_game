@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6fp51agbm5l5"]
 
-[ext_resource type="Theme" uid="uid://70iajjmvmgls" path="res://scenes/menu_UI/end_mission_menu_theme.tres" id="1_mk4lw"]
+[ext_resource type="Theme" uid="uid://70iajjmvmgls" path="res://assets/themes/end_mission_menu_theme.tres" id="1_mk4lw"]
 [ext_resource type="Script" path="res://scenes/menu_UI/game_over_menu/game_over_menu.gd" id="2_llgya"]
 
 [node name="GameOverMenu" type="Control"]

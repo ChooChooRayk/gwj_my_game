@@ -12,6 +12,8 @@ signal transition_finished()
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
+    visible = true
+    # ---
     animation_player.animation_finished.connect(func (_anim_name:String):transition_finished.emit())
     if init_visible:
         animation_player.play(&"STATE_VISIBLE")

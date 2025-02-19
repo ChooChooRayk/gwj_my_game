@@ -23,6 +23,7 @@ visible = false
 
 [node name="SceneTransitionOverlay" parent="UIContainer" instance=ExtResource("2_pb8n7")]
 unique_name_in_owner = true
+visible = false
 
 [node name="SplashScreens" parent="UIContainer" instance=ExtResource("5_f0521")]
 visible = false

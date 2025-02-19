@@ -1,0 +1,33 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://c7u02sp50jxf8"]
+
+[ext_resource type="Texture2D" uid="uid://dio0cqeoetfvj" path="res://assets/ui/shop_item_container.png" id="1_s7lxk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ox2hk"]
+texture = ExtResource("1_s7lxk")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+modulate_color = Color(0.4503, 0.57, 0.536085, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7aej2"]
+texture = ExtResource("1_s7lxk")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+modulate_color = Color(0.686275, 0.866667, 0.815686, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5xjbe"]
+texture = ExtResource("1_s7lxk")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+modulate_color = Color(0.933333, 0.188235, 0.329412, 1)
+
+[resource]
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxTexture_ox2hk")
+Button/styles/normal = SubResource("StyleBoxTexture_7aej2")
+Button/styles/pressed = SubResource("StyleBoxTexture_5xjbe")

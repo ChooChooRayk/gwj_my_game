@@ -1,14 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://fj78pc8owlf2"]
+[gd_scene load_steps=6 format=3 uid="uid://fj78pc8owlf2"]
 
+[ext_resource type="Theme" uid="uid://c7u02sp50jxf8" path="res://assets/themes/shop_item_theme.tres" id="1_6b35c"]
 [ext_resource type="Texture2D" uid="uid://brum7uqsoo0l" path="res://assets/cleaning_stuff/cleaning_cloth.svg" id="1_qrk6w"]
+[ext_resource type="Texture2D" uid="uid://dio0cqeoetfvj" path="res://assets/ui/shop_item_container.png" id="2_8kr37"]
 [ext_resource type="Script" path="res://scenes/menu_UI/inventory/inventory_item_ui.gd" id="2_wkdwm"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b0eda"]
+texture = ExtResource("2_8kr37")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+modulate_color = Color(0.968627, 0.74902, 0.164706, 1)
+
 [node name="InventoryItemUI" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_6b35c")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b0eda")
 toggle_mode = true
 action_mode = 0
 icon = ExtResource("1_qrk6w")
 icon_alignment = 1
 vertical_icon_alignment = 0
+expand_icon = true
 script = ExtResource("2_wkdwm")

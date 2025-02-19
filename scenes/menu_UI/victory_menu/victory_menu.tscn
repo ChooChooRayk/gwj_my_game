@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfxb7uw370upc"]
+[gd_scene load_steps=5 format=3 uid="uid://cfxb7uw370upc"]
 
+[ext_resource type="Theme" uid="uid://cmtub874cpkew" path="res://assets/themes/main_menu_theme.tres" id="1_1w02l"]
 [ext_resource type="Script" path="res://scenes/menu_UI/victory_menu/victory_menu.gd" id="1_bx4cb"]
-[ext_resource type="Theme" uid="uid://70iajjmvmgls" path="res://scenes/menu_UI/end_mission_menu_theme.tres" id="2_4uh4q"]
+[ext_resource type="Theme" uid="uid://70iajjmvmgls" path="res://assets/themes/end_mission_menu_theme.tres" id="2_4uh4q"]
+[ext_resource type="PackedScene" uid="uid://1hexkrc65pk5" path="res://scenes/menu_UI/conversation_ui/conversation_displayer.tscn" id="4_xhjm7"]
 
 [node name="VictoryMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_1w02l")
 script = ExtResource("1_bx4cb")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -36,12 +39,10 @@ text = "Well done !
 You succeeded in helping a criminal escape."
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer"]
+[node name="ConversationDisplayer" parent="PanelContainer/VBoxContainer" instance=ExtResource("4_xhjm7")]
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
-size_flags_vertical = 3
-bbcode_enabled = true
 text = "Thanks! Here's the rest of the money. I might need your help again soon.[b]test[/b]"
-fit_content = true
 
 [node name="spacer" type="Control" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2

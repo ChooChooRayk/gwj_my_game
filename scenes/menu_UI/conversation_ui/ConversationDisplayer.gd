@@ -1,6 +1,7 @@
 class_name ConversationDisplayer
 extends RichTextLabel
 
+@export var title_text       : String = ""
 @export var conversation_key : MissionConversations.CONV
 @export var writing_speed       := 10. # [char/s]
 @export var next_line_time      := 0.5 # [s]
@@ -22,13 +23,14 @@ var finished_text := ""
 var caller_title  := ""
 var caller_text   := ""
 var wrapped_text  := ""
-
+var start_title   := ""
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
     bbcode_enabled   = true
     scroll_following = true
     # ---
+    start_title  = "[left][b]{text}[/b][/left]:\n\n".format({"text":title_text})
     conversation = MissionConversations.conversation_dic[conversation_key]
     # ---
     auto_writer.writing_speed  = writing_speed
@@ -56,7 +58,7 @@ func init_conversation()->void:
 # ====== PROCESS ====== #
 
 func _process(_delta: float) -> void:
-    text = finished_text + wrapped_text
+    text = start_title + finished_text + wrapped_text
 
 # ====== MANAGEMENT ====== #
 
