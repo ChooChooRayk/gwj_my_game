@@ -1,7 +1,7 @@
 class_name ShopItemUI
 extends Button
 
-var item_res : CleaningTool
+var item_res : TemperingTool
 
 # ====== INITIALIZATION ====== #
 

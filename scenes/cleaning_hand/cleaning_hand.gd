@@ -2,8 +2,9 @@ class_name CleaningHand
 extends Node2D
 
 
-@export var framing_tool         : TemperingTool
-@export var cleaning_tool        : CleaningTool
+#@export var framing_tool         : TemperingTool
+#@export var cleaning_tool        : TemperingTool
+# ---
 @export var cleaning_aspect      : Texture2D
 @export var cleaning_done_aspect : Texture2D
 @export var framing_zone         : ClickableZone # zone for framing forensics
@@ -20,7 +21,6 @@ var cleaning_timer :Timer = Timer.new()
 # ====== PROCESS ====== #
 
 func _process(_delta: float) -> void:
-    #print(cleaning_tool.cleanable_zone.is_point_in_zone(get_global_mouse_position()))
     hand_state_machine.update_state()
     return
 
@@ -30,8 +30,17 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # ====== MANAGEMENT ====== #
 
-func set_new_cleaning_tool(tool:CleaningTool)->void:
-    cleaning_tool = tool
+#func set_new_tool(tool:TemperingTool)->void:
+    #if   tool.type==TemperingTool.TYPE.CLEANING:
+        #cleaning_tool = tool
+    #elif tool.type==TemperingTool.TYPE.FRAMING:
+        #framing_tool  = tool
 
 func crime_evidence_cleaned()->void:
     EventBus.EvidenceCleaned.emit(item_to_clean)
+    EventBus.RemoveItemFromInventory.emit(PlayerStatistics.current_cleaning_tool) # maybe replace by PlayerStatistics.current_cleaning_tool
+
+func crime_evidence_hidden()->void:
+    EventBus.EvidenceHidden.emit(item_to_clean)
+    EventBus.RemoveItemFromInventory.emit(PlayerStatistics.current_framing_tool) # maybe replace by PlayerStatistics.current_cleaning_tool
+    return

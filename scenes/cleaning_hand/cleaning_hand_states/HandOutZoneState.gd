@@ -21,6 +21,6 @@ func exit()->void:
     return
 
 func update_state()->void:
-    if cleaning_hand.cleaning_tool.clickable_zone.is_point_in_zone(cleaning_hand.get_global_mouse_position()):
+    if PlayerStatistics.current_cleaning_tool.clickable_zone.is_point_in_zone(cleaning_hand.get_global_mouse_position()):
         ChangeStateRequested.emit(self, STATES.InZone)
     return

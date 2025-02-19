@@ -4,8 +4,12 @@ extends Resource
 enum TYPE {CLEANING, FRAMING}
 @export var type : TYPE
 
-@export var clickable_zone : ClickableZone
+@export var cleaning_duration : float = 0. # [s]
+@export var clickable_zone    : ClickableZone
 
-@export var icon  : Texture2D
+@export var price           : int
 @export var description_txt : String
-@export var price : int
+
+@export var icon                  : Texture2D
+@export var cleaning_aspect       : Texture2D
+@export var cleaning_aspect_dirty : Texture2D

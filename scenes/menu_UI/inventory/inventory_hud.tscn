@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://biqdtaub2n3gl"]
+[gd_scene load_steps=3 format=3 uid="uid://biqdtaub2n3gl"]
 
 [ext_resource type="Script" path="res://scenes/menu_UI/inventory/inventory_hud.gd" id="1_0j5sp"]
+[ext_resource type="PackedScene" uid="uid://ljkd8ba5dvhp" path="res://scenes/menu_UI/inventory/inventory_tool_stack.tscn" id="2_ro3ux"]
 
 [node name="InventoryHUD" type="PanelContainer"]
 anchors_preset = 2
@@ -12,20 +13,61 @@ grow_vertical = 0
 size_flags_vertical = 3
 script = ExtResource("1_0j5sp")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 3
+
+[node name="InUseLbl" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "In Use"
+
+[node name="VSeparator2" type="VSeparator" parent="GridContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="InvtLbl2" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "Inventory"
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="GridContainer"]
 layout_mode = 2
 
-[node name="ItemContainer" type="GridContainer" parent="VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="GridContainer"]
+layout_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="GridContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="CurrentCleaningTool" type="TextureRect" parent="GridContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CurrentFramingTool" type="TextureRect" parent="GridContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator" type="VSeparator" parent="GridContainer"]
+layout_mode = 2
+
+[node name="ToolsContainer" type="GridContainer" parent="GridContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+size_flags_horizontal = 3
+columns = 4
+
+[node name="InventoryToolStack" parent="GridContainer/ToolsContainer" instance=ExtResource("2_ro3ux")]
+layout_mode = 2
+tool_nbr = 2
+
+[node name="InventoryToolStack2" parent="GridContainer/ToolsContainer" instance=ExtResource("2_ro3ux")]
+layout_mode = 2
+
+[node name="InventoryToolStack3" parent="GridContainer/ToolsContainer" instance=ExtResource("2_ro3ux")]
+layout_mode = 2
+tool_nbr = 4

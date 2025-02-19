@@ -11,10 +11,9 @@ func process_input(event: InputEvent) -> void:
     if event.is_pressed():
         var forensic := raycast_check_for_forensic_scientist() as BodyMotor
         if is_instance_valid(forensic):
-            if cleaning_hand.framing_tool.clickable_zone.is_point_in_zone(forensic.foot_position.global_position):
+            if PlayerStatistics.current_framing_tool.clickable_zone.is_point_in_zone(forensic.foot_position.global_position):
                 hide_crime_evidence_in_forensic(forensic)
         get_tree().root.set_input_as_handled()
-
 
 # ====== MANAGEMENT ====== #
 
@@ -26,9 +25,6 @@ func enter()->void:
     
 func exit()->void:
     EventBus.EnableCleaningZoneDisplay.emit()
-    return
-
-func update_state()->void:
     return
 
 func raycast_check_for_forensic_scientist()->CharacterBody2D:
@@ -49,7 +45,6 @@ func raycast_check_for_forensic_scientist()->CharacterBody2D:
     return null
 
 func hide_crime_evidence_in_forensic(_forensic)->void:
-    print("crime evidence HIDDEN !!!!!!!!!")
-    EventBus.EvidenceHidden.emit(cleaning_hand.item_to_clean)
+    cleaning_hand.crime_evidence_hidden()
     ChangeStateRequested.emit(self, STATES.OutZone)
     return

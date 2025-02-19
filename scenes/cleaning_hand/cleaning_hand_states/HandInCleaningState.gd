@@ -18,7 +18,8 @@ func _ready() -> void:
 # ====== PROCESS ====== #
 
 func _process(_delta: float) -> void:
-    update_state()
+    if not PlayerStatistics.current_cleaning_tool.clickable_zone.is_point_in_zone(cleaning_hand.get_global_mouse_position()):
+        ChangeStateRequested.emit(self, STATES.OutZone)
     if not(cleaning_timer.is_stopped()):
         cleaning_progress.value = 100. * (1 - cleaning_timer.time_left / cleaning_timer.wait_time)
 
@@ -34,7 +35,7 @@ func enter()->void:
     cleaning_progress.visible = true
     follow_mouse.follow_mouse_enable = true
     # ---
-    cleaning_timer.wait_time = cleaning_hand.cleaning_tool.cleaning_duration
+    cleaning_timer.wait_time = PlayerStatistics.current_cleaning_tool.cleaning_duration
     cleaning_timer.start()
     # ---
     EventBus.FrozePlayerRequested.emit(true)
@@ -52,10 +53,6 @@ func exit()->void:
     EventBus.FrozePlayerRequested.emit(false)
     return
 
-func update_state()->void:
-    if not cleaning_hand.cleaning_tool.clickable_zone.is_point_in_zone(cleaning_hand.get_global_mouse_position()):
-        ChangeStateRequested.emit(self, STATES.OutZone)
-    return
-
 func on_cleaning_done()->void:
+    cleaning_hand.crime_evidence_cleaned()
     ChangeStateRequested.emit(self, STATES.CleaningDone)

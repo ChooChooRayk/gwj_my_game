@@ -24,14 +24,17 @@ func on_return_to_main_menu()->void:
     EventBus.ChangeMainUIRequested.emit(GlobalSettings.UI_KEYS.MAIN_MENU)
     return
 
-func on_start_mission()->void:
-    if is_instance_valid(inventory_ui.current_selected_item):
-        PlayerStatistics.current_cleaning_tool = inventory_ui.current_selected_item.item_res
-        next_mission = PlayerStatistics.get_level()
-        EventBus.ChangeMainSceneRequested.emit(next_mission)
-    else:
+func on_start_mission_pressed()->void:
+    if inventory_ui.inventory_ui_tools.is_empty():
         popup_panel.visible = true
+    else:
+        start_mission()
     return
+
+func start_mission()->void:
+    next_mission = PlayerStatistics.get_level()
+    EventBus.ChangeMainSceneRequested.emit(next_mission)
+    
 
 func on_set_visible()->void:
     if visible and is_instance_valid(mission_call_display):

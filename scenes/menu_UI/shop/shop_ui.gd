@@ -2,7 +2,7 @@ class_name ShopUI
 extends PanelContainer
 
 
-@export var storage : Array[CleaningTool]
+@export var storage : Array[TemperingTool]
 
 var shop_item_scene :PackedScene = load("res://scenes/menu_UI/shop/shop_item_ui.tscn")
 var button_grp : ButtonGroup = ButtonGroup.new()
@@ -54,9 +54,10 @@ func on_buying()->void:
     if PlayerStatistics.current_money>=selected_item.item_res.price:
         EventBus.AddItemToInventory.emit(selected_item.item_res)
         PlayerStatistics.current_money -= selected_item.item_res.price
-        selected_item.queue_free()
+        #selected_item.queue_free()
     else:
         print("Not enough money !")
     # ---
     print(PlayerStatistics.current_money)
+    print(PlayerStatistics.inventory)
     return

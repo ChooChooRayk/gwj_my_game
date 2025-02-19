@@ -13,9 +13,9 @@ signal ChangeMainSceneRequested(scene_key:GlobalSettings.SCENE_KEYS)
 signal PauseMainSceneRequested(to_pause:bool)
 signal ChangeSceneFinished()
 
-signal AddItemToInventory(item:CleaningTool)
-signal NewItemInInventoryAdded()
-signal ItemInInventoryRemoved()
+signal AddItemToInventory(item:TemperingTool)
+signal RemoveItemFromInventory(item:TemperingTool)
+signal InventoryUpdated()
 
 signal ResetMissionRequested()
 

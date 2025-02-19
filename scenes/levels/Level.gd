@@ -25,9 +25,9 @@ var item_left_to_hide : int
 
 func _ready() -> void:
     cleaning_hand     = Utilities.find_first_child_of_type(self, CleaningHand) as CleaningHand
-    if is_instance_valid(cleaning_hand):
-        cleaning_hand.cleaning_tool = PlayerStatistics.current_cleaning_tool
-        cleaning_hand.framing_tool  = PlayerStatistics.current_framing_tool
+    # if is_instance_valid(cleaning_hand):
+        # cleaning_hand.set_new_tool(PlayerStatistics.current_cleaning_tool)
+        # cleaning_hand.set_new_tool(PlayerStatistics.current_framing_tool )
     # ---
     player    = Utilities.find_first_child_of_type(self, Player) as Player
     start_pos = Utilities.find_first_child_of_type(self, StartLevelPosition) as StartLevelPosition
