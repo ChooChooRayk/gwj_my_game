@@ -20,6 +20,9 @@ var enable_cleaning_zone :bool = true:
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
+    #cleanable_zone._init()
+    #print(cleanable_zone.ellps_a)
+    #print(cleanable_zone.ellps_b)
     player_body = get_parent()
 
 # ====== PROCESS ====== #
