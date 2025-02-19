@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=17 format=4 uid="uid://cmtub874cpkew"]
+[gd_resource type="Theme" load_steps=18 format=4 uid="uid://cmtub874cpkew"]
 
 [ext_resource type="FontFile" uid="uid://d365r4065j2rf" path="res://assets/fontstyles/c64esque.ttf" id="1_0tp50"]
 
@@ -51,6 +51,10 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_d7xni"]
+color = Color(0.0627451, 0.0784314, 0.141176, 1)
+thickness = 2
 
 [sub_resource type="Image" id="Image_kcref"]
 data = {
@@ -1718,6 +1722,7 @@ Button/styles/focus = SubResource("StyleBoxEmpty_6qlb2")
 Button/styles/hover = SubResource("StyleBoxFlat_70gnd")
 Button/styles/normal = SubResource("StyleBoxFlat_gwraf")
 Button/styles/pressed = SubResource("StyleBoxFlat_agrdd")
+HSeparator/styles/separator = SubResource("StyleBoxLine_d7xni")
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 1)

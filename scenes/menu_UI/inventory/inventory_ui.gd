@@ -57,6 +57,4 @@ func update_selected_item()->void:
     current_selected_item = selected_item
 
 func update_player_money_display()->void:
-    print("updating money")
-    print(PlayerStatistics.current_money)
     player_money.text = "money : {money}$".format({"money":PlayerStatistics.current_money})

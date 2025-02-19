@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://kb5ppulyuyb6"]
+[gd_scene load_steps=6 format=3 uid="uid://kb5ppulyuyb6"]
 
 [ext_resource type="Script" path="res://scenes/menu_UI/shop/shop_ui.gd" id="1_f8jyl"]
+[ext_resource type="Texture2D" uid="uid://qsstmwb5g3ln" path="res://assets/ui/ConversationPanel.png" id="1_xrvjf"]
 [ext_resource type="Script" path="res://resources/cleaning_tools/CleaningTool.gd" id="2_7sar5"]
 [ext_resource type="Resource" uid="uid://dv4sthl1dsq5r" path="res://resources/cleaning_tools/all_items/cleaning_cloth_base.tres" id="3_4r2iq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v7nwk"]
+texture = ExtResource("1_xrvjf")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
 
 [node name="ShopUI" type="PanelContainer"]
 anchors_preset = 15
@@ -12,6 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_v7nwk")
 script = ExtResource("1_f8jyl")
 storage = Array[ExtResource("2_7sar5")]([ExtResource("3_4r2iq"), ExtResource("3_4r2iq"), ExtResource("3_4r2iq"), ExtResource("3_4r2iq"), ExtResource("3_4r2iq")])
 
@@ -37,22 +46,26 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 columns = 5
 
-[node name="ShopItemDescription" type="RichTextLabel" parent="VBoxContainer/VBoxContainer"]
-unique_name_in_owner = true
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-text = "Some description of the selected item"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="spacer" type="Control" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="ShopItemDescription" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Some description of the selected item"
+
+[node name="spacer" type="Control" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
 
 [node name="BuyBttn" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
 text = "Buy"
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/HBoxContainer/BuyBttn" to="." method="on_buying"]

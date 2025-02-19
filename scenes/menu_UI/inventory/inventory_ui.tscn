@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvmm8squ78d8y"]
+[gd_scene load_steps=4 format=3 uid="uid://cvmm8squ78d8y"]
 
+[ext_resource type="Texture2D" uid="uid://qsstmwb5g3ln" path="res://assets/ui/ConversationPanel.png" id="1_b3bic"]
 [ext_resource type="Script" path="res://scenes/menu_UI/inventory/inventory_ui.gd" id="1_x10oq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mkn1p"]
+texture = ExtResource("1_b3bic")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
 
 [node name="InventoryUI" type="PanelContainer"]
 anchors_preset = 15
@@ -9,6 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_mkn1p")
 script = ExtResource("1_x10oq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
