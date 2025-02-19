@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/cleaning_hand/cleaning_hand.gd" id="1_eblbc"]
 [ext_resource type="Texture2D" uid="uid://dfvv3upnux7vx" path="res://assets/cleaning_stuff/hand.svg" id="2_01met"]
-[ext_resource type="Resource" uid="uid://dv4sthl1dsq5r" path="res://resources/cleaning_tools/all_items/cleaning_cloth_base.tres" id="3_jan6h"]
+[ext_resource type="Resource" uid="uid://dv4sthl1dsq5r" path="res://resources/cleaning_tools/cleaning_cloth_base.tres" id="3_jan6h"]
 [ext_resource type="Texture2D" uid="uid://c0rg6aafveqpa" path="res://assets/utils/cleaning_progression.svg" id="4_mmuts"]
 [ext_resource type="Script" path="res://scenes/cleaning_hand/follow_mouse.gd" id="5_v504h"]
 [ext_resource type="Script" path="res://scenes/cleaning_hand/HandStateMachine.gd" id="6_c13o1"]

@@ -1,4 +1,4 @@
-class_name CleanableZone
+class_name ClickableZone
 extends Resource
 
 

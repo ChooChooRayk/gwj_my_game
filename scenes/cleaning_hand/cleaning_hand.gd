@@ -1,9 +1,12 @@
 class_name CleaningHand
 extends Node2D
 
+
+@export var framing_tool         : TemperingTool
 @export var cleaning_tool        : CleaningTool
 @export var cleaning_aspect      : Texture2D
 @export var cleaning_done_aspect : Texture2D
+@export var framing_zone         : ClickableZone # zone for framing forensics
 
 var item_to_clean  : CrimeEvidenceItem
 var cleaning_timer :Timer = Timer.new()

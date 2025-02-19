@@ -7,6 +7,7 @@ signal LevelUpdated()
 
 #var player_stat : PlayerStatistics
 var cleaning_hand : CleaningHand
+var player        : Player
 
 var mission_timer := Timer.new()
 var hud_canvas    := CanvasLayer.new()
@@ -26,7 +27,9 @@ func _ready() -> void:
     cleaning_hand     = Utilities.find_first_child_of_type(self, CleaningHand) as CleaningHand
     if is_instance_valid(cleaning_hand):
         cleaning_hand.cleaning_tool = PlayerStatistics.current_cleaning_tool
+        cleaning_hand.framing_tool  = PlayerStatistics.current_framing_tool
     # ---
+    player    = Utilities.find_first_child_of_type(self, Player) as Player
     start_pos = Utilities.find_first_child_of_type(self, StartLevelPosition) as StartLevelPosition
     # ---
     hud = GlobalSettings.hud_scene.instantiate()
@@ -49,8 +52,8 @@ func _ready() -> void:
 func init_level()->void:
     item_left_to_hide = mission_res.crime_evidence_number
     # ---
-    if is_instance_valid(start_pos):
-        start_pos.set_player_to_start_pos()
+    if is_instance_valid(start_pos) and is_instance_valid(player):
+        player.global_position = start_pos.global_position
     # ---
     mission_timer.start()
     # ---

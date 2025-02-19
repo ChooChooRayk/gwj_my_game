@@ -5,7 +5,7 @@ extends Resource
 #@export var type : TYPE
 
 @export var cleaning_duration : float = 3. # [s]
-@export var cleanable_zone    : CleanableZone
+@export var clickable_zone    : ClickableZone
 
 @export var icon  : Texture2D
 @export var description_txt : String

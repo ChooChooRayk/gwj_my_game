@@ -7,7 +7,8 @@ var level_list : Array[GlobalSettings.SCENE_KEYS] = [
     GlobalSettings.SCENE_KEYS.LEVEL_1,
 ]
 
-var current_cleaning_tool : CleaningTool = load("res://resources/cleaning_tools/all_items/cleaning_cloth_base.tres") as CleaningTool
+var current_framing_tool  : TemperingTool = load("res://resources/framing_tool/default_framing_tool.tres") as TemperingTool
+var current_cleaning_tool : CleaningTool  = load("res://resources/cleaning_tools/cleaning_cloth_base.tres") as CleaningTool
 var inventory             : Array[CleaningTool]
 var current_money         : int = 250: # [$USD]
     set(value):

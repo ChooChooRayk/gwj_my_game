@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/menu_UI/shop/shop_ui.gd" id="1_f8jyl"]
 [ext_resource type="Texture2D" uid="uid://qsstmwb5g3ln" path="res://assets/ui/ConversationPanel.png" id="1_xrvjf"]
-[ext_resource type="Script" path="res://resources/cleaning_tools/CleaningTool.gd" id="2_7sar5"]
-[ext_resource type="Resource" uid="uid://dv4sthl1dsq5r" path="res://resources/cleaning_tools/all_items/cleaning_cloth_base.tres" id="3_4r2iq"]
+[ext_resource type="Script" path="res://resources/CleaningTool.gd" id="2_7sar5"]
+[ext_resource type="Resource" uid="uid://dv4sthl1dsq5r" path="res://resources/cleaning_tools/cleaning_cloth_base.tres" id="3_4r2iq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v7nwk"]
 texture = ExtResource("1_xrvjf")

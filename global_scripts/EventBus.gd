@@ -21,3 +21,6 @@ signal ResetMissionRequested()
 
 signal MissionValidated()
 signal MissionFailled()
+
+signal EnableCleaningZoneDisplay()
+signal EnableFramingZoneDisplay()

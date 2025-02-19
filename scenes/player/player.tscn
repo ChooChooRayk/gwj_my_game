@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bilaqc80wpwuo" path="res://assets/characters/player.svg" id="1_1hxbn"]
 [ext_resource type="Script" path="res://scenes/player/input_player.gd" id="1_fmtji"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_kxmgy"]
-[ext_resource type="Script" path="res://scenes/player/allowed_cleaning_zone.gd" id="4_hdr3f"]
+[ext_resource type="Script" path="res://scenes/player/ClickableZoneDisplayer.gd" id="4_hdr3f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jvjy2"]
 radius = 5.0
@@ -25,11 +25,19 @@ shape = SubResource("CapsuleShape2D_jvjy2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="DrawAllowedCleaningZone" type="Node2D" parent="."]
+[node name="DrawCleaningZone" type="Node2D" parent="."]
+unique_name_in_owner = true
 z_index = -1
 script = ExtResource("4_hdr3f")
 line_width = 1.0
-color = Color(1, 0, 0, 1)
+color = Color(0.933333, 0.188235, 0.329412, 1)
+
+[node name="DrawFramingZone" type="Node2D" parent="."]
+unique_name_in_owner = true
+z_index = -1
+script = ExtResource("4_hdr3f")
+line_width = 1.0
+color = Color(0.686275, 0.866667, 0.815686, 1)
 
 [node name="FootPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true

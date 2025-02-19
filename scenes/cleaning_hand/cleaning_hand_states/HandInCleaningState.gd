@@ -53,7 +53,7 @@ func exit()->void:
     return
 
 func update_state()->void:
-    if not cleaning_hand.cleaning_tool.cleanable_zone.is_point_in_zone(cleaning_hand.get_global_mouse_position()):
+    if not cleaning_hand.cleaning_tool.clickable_zone.is_point_in_zone(cleaning_hand.get_global_mouse_position()):
         ChangeStateRequested.emit(self, STATES.OutZone)
     return
 

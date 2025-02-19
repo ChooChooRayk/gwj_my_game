@@ -11,7 +11,7 @@ func process_input(event: InputEvent) -> void:
     if event.is_pressed():
         var forensic := raycast_check_for_forensic_scientist() as BodyMotor
         if is_instance_valid(forensic):
-            if cleaning_hand.cleaning_tool.cleanable_zone.is_point_in_zone(forensic.foot_position.global_position):
+            if cleaning_hand.framing_tool.clickable_zone.is_point_in_zone(forensic.foot_position.global_position):
                 hide_crime_evidence_in_forensic(forensic)
         get_tree().root.set_input_as_handled()
 
@@ -21,9 +21,11 @@ func process_input(event: InputEvent) -> void:
 func enter()->void:
     #Input.set_custom_mouse_cursor(cleaning_done_aspect)
     EventBus.FrozePlayerRequested.emit(false)
+    EventBus.EnableFramingZoneDisplay.emit()
     return
     
 func exit()->void:
+    EventBus.EnableCleaningZoneDisplay.emit()
     return
 
 func update_state()->void:
