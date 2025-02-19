@@ -2,7 +2,8 @@ class_name InventoryUI
 extends PanelContainer
 
 
-@onready var item_container: GridContainer = %ItemContainer
+@onready var item_container : GridContainer = %ItemContainer
+@onready var player_money   : Label         = %PlayerMoney
 
 var invtry_item_scene :PackedScene = load("res://scenes/menu_UI/inventory/inventory_item_ui.tscn")
 var button_grp : ButtonGroup = ButtonGroup.new()
@@ -13,6 +14,7 @@ var current_selected_item : InventoryItemUI
 
 func _ready() -> void:
     EventBus.NewItemInInventoryAdded.connect(update_inventory_ui)
+    PlayerStatistics.MoneyUpdated.connect(update_player_money_display)
     # ---
     init_inventory()
     return
@@ -38,6 +40,8 @@ func update_inventory_ui()->void:
         invtry_item.pressed.connect(update_selected_item)
         # ---
         item_container.add_child(invtry_item)
+    # ---
+    update_player_money_display()
     return
     
 func get_selected_item()->InventoryItemUI:
@@ -51,3 +55,8 @@ func update_selected_item()->void:
         return
     # ---
     current_selected_item = selected_item
+
+func update_player_money_display()->void:
+    print("updating money")
+    print(PlayerStatistics.current_money)
+    player_money.text = "money : {money}$".format({"money":PlayerStatistics.current_money})

@@ -1,5 +1,6 @@
 extends Node
 
+signal MoneyUpdated()
 
 var current_level_idx : int = 0
 var level_list : Array[GlobalSettings.SCENE_KEYS] = [
@@ -8,7 +9,10 @@ var level_list : Array[GlobalSettings.SCENE_KEYS] = [
 
 var current_cleaning_tool : CleaningTool = load("res://resources/cleaning_tools/all_items/cleaning_cloth_base.tres") as CleaningTool
 var inventory             : Array[CleaningTool]
-var current_money         : int = 250 # [$USD]
+var current_money         : int = 250: # [$USD]
+    set(value):
+        current_money = value
+        MoneyUpdated.emit()
 
 var crime_item_tempering_time : float = 10. # [s]
 

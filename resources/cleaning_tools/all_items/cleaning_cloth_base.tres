@@ -17,4 +17,4 @@ cleaning_duration = 3.0
 cleanable_zone = SubResource("Resource_2hqif")
 icon = ExtResource("2_x4pum")
 description_txt = ""
-price = 0
+price = 200

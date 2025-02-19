@@ -57,4 +57,6 @@ func on_buying()->void:
         selected_item.queue_free()
     else:
         print("Not enough money !")
+    # ---
+    print(PlayerStatistics.current_money)
     return
