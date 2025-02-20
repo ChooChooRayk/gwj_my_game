@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgcp0hkb0vimr"]
+[gd_scene load_steps=5 format=3 uid="uid://dgcp0hkb0vimr"]
 
 [ext_resource type="Texture2D" uid="uid://dd1c38d3v1ue5" path="res://assets/characters/forensic_scientist.svg" id="1_3wr87"]
 [ext_resource type="Script" path="res://global_scripts/body_motor.gd" id="1_ujrbn"]
+[ext_resource type="SpriteFrames" uid="uid://dxqxapxnf8g5y" path="res://resources/character_animation/forensic_scientist_animation.tres" id="3_206ve"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r2wdt"]
 radius = 4.0
@@ -21,3 +22,9 @@ shape = SubResource("CapsuleShape2D_r2wdt")
 [node name="FootPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, 13)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("3_206ve")
+animation = &"idle_right"
+frame = 2
+frame_progress = 0.427957
