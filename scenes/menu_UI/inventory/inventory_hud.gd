@@ -18,15 +18,14 @@ var inventory_hud_tools := {}
 
 func _ready() -> void:
     clear_item_container()
-    init_inventory()
+    update_inventory_hud()
     # ---
     EventBus.InventoryUpdated.connect(update_inventory_hud)
     return
 
-func init_inventory()->void:
-    update_inventory_hud()
-    update_current_tools()
-    return
+#func init_inventory()->void:
+    #update_inventory_hud()
+    #return
 
 # ====== MANAGEMENT ====== #
 
@@ -35,7 +34,11 @@ func clear_item_container()->void:
         child.queue_free()
     return
 
-func update_inventory_hud()->void:# may need in-game if implementation of finding Tempering tool in level
+func update_inventory_hud()->void:
+    update_current_tools()
+    update_tool_stacks()
+
+func update_tool_stacks()->void:# may need in-game if implementation of finding Tempering tool in level
     for item:TemperingTool in PlayerStatistics.inventory.keys():
         if inventory_hud_tools.has(item):
             var tool_stack := inventory_hud_tools[item] as InventoryToolStack
@@ -47,6 +50,11 @@ func update_inventory_hud()->void:# may need in-game if implementation of findin
             # ---
             item_container.add_child(tool_stack)
             inventory_hud_tools[item] = tool_stack
+    # ---
+    for item:TemperingTool in inventory_hud_tools.keys():
+        if not(PlayerStatistics.inventory.has(item)):
+            (inventory_hud_tools[item] as InventoryToolStack).queue_free()
+            inventory_hud_tools.erase(item)
     return
 
 func update_current_tools()->void:
@@ -57,5 +65,5 @@ func update_current_tools()->void:
 
 func on_tool_selected(tool)->void:
     PlayerStatistics.tool_selected(tool)
-    update_current_tools()
+    update_inventory_hud()
     return

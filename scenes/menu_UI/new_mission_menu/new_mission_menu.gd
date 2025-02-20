@@ -32,6 +32,7 @@ func on_start_mission_pressed()->void:
     return
 
 func start_mission()->void:
+    popup_panel.visible = false
     next_mission = PlayerStatistics.get_level()
     EventBus.ChangeMainSceneRequested.emit(next_mission)
     

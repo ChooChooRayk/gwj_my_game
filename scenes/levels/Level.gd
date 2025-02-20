@@ -32,7 +32,7 @@ func _ready() -> void:
     player    = Utilities.find_first_child_of_type(self, Player) as Player
     start_pos = Utilities.find_first_child_of_type(self, StartLevelPosition) as StartLevelPosition
     # ---
-    hud = GlobalSettings.hud_scene.instantiate()
+    hud = GlobalSettings.hud_scene.instantiate()# as HUD
     hud_canvas.add_child(hud)
     add_child(hud_canvas)
     # ---
@@ -55,6 +55,7 @@ func init_level()->void:
     if is_instance_valid(start_pos) and is_instance_valid(player):
         player.global_position = start_pos.global_position
     # ---
+    hud.init_hud()
     mission_timer.start()
     # ---
     LevelUpdated.emit()

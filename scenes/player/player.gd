@@ -24,4 +24,13 @@ func _ready() -> void:
             framing_zone .enable_zone_aspect(true)
     )
     # ---
+    PlayerStatistics.CurrentToolUpdated.connect(set_draw_zone_res)
     EventBus.EnableCleaningZoneDisplay.emit()
+
+# ====== MANAGEMENT ====== #
+
+func set_draw_zone_res()->void:
+    if is_instance_valid(cleaning_zone):
+        cleaning_zone.clickable_zone = PlayerStatistics.current_cleaning_tool.clickable_zone
+    if is_instance_valid(framing_zone):
+        framing_zone .clickable_zone = PlayerStatistics.current_framing_tool .clickable_zone

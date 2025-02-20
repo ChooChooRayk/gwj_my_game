@@ -37,7 +37,4 @@ var default_game_settings := {
 }
 
 
-
-
-
 static var hud_scene :PackedScene = load("res://scenes/menu_UI/hud/hud.tscn")

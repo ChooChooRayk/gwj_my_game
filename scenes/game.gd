@@ -21,7 +21,7 @@ func _ready() -> void:
     current_gui   = gui_container.get_child(0)
     #current_scene = main_scene_container.get_child(0)
     # ---
-    clean_remove_main_scene()
+    clean_remove_current_scene()
     # ---  --- #
     ui_node_dic[GlobalSettings.UI_KEYS.MAIN_MENU  ] = Utilities.find_first_child_of_type(gui_container, GameMenu) as GameMenu
     ui_node_dic[GlobalSettings.UI_KEYS.NEW_MISSION] = Utilities.find_first_child_of_type(gui_container, NewMissionMenu) as NewMissionMenu
@@ -51,9 +51,9 @@ func change_to_main_scene(new_scene_key:GlobalSettings.SCENE_KEYS)->void:
         if not(is_instance_valid(new_main_scene)):
             new_main_scene = new_scene.instantiate()
         # ---
+        clean_remove_current_scene()
         main_scene_container.add_child(new_main_scene)
         # ---
-        clean_remove_main_scene()
         current_scene      = new_main_scene
     # ---
     if current_scene is Level:
@@ -95,7 +95,7 @@ func check_if_scene_already_loaded(scene:PackedScene)->Node:
             return scene_still_loaded.pop_at(i)
     return null
 
-func clean_remove_main_scene(delete_scene:bool=true)->void:
+func clean_remove_current_scene(delete_scene:bool=true)->void:
     if is_instance_valid(current_scene):
         if delete_scene:
             current_scene. free()#queue_free()

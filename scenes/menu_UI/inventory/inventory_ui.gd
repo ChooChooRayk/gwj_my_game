@@ -49,6 +49,11 @@ func update_inventory_ui()->void:
             item_container.add_child(invtry_item_stack)
             inventory_ui_tools[item_res] = invtry_item_stack
     # ---
+    for item:TemperingTool in inventory_ui_tools.keys():
+        if not(PlayerStatistics.inventory.has(item)):
+            (inventory_ui_tools[item] as InventoryToolStack).queue_free()
+            inventory_ui_tools.erase(item)
+    # ---
     update_player_money_display()
     return
     

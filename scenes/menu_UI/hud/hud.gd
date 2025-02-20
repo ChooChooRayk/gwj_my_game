@@ -4,9 +4,9 @@ extends Control
 var current_level : Level
 var player_stats  : PlayerStatistics
 
-@onready var mission_timer: Label = %MissionTimer
-@onready var inventory_hud: InventoryHUD = %InventoryHUD
-@onready var nbr_item: Label = %NbrItem
+@onready var mission_timer : Label        = %MissionTimer
+@onready var inventory_hud : InventoryHUD = %InventoryHUD
+@onready var nbr_item      : Label        = %NbrItem
 
 # ====== INITIALIZATION ====== #
 
@@ -14,6 +14,12 @@ func _ready() -> void:
     current_level = Utilities.find_first_parent_of_type(self, Level) as Level
     if is_instance_valid(current_level):
         current_level.LevelUpdated.connect(update_mission_status)
+
+func init_hud()->void:
+    update_timer_display()
+    update_mission_status()
+    update_inventory_hud()
+    return
 
 # ====== PROCESS ====== #
 
@@ -31,4 +37,8 @@ func update_timer_display()->void:
     
 func update_mission_status()->void:
     nbr_item.text = "{nbr}".format({"nbr":current_level.item_left_to_hide})
+    return
+
+func update_inventory_hud()->void:
+    inventory_hud.update_inventory_hud()
     return
