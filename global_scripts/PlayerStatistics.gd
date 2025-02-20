@@ -55,9 +55,6 @@ func add_new_item_to_inventory(item:TemperingTool)->void:
     EventBus.InventoryUpdated.emit()
 
 func remove_item_from_inventory(item:TemperingTool)->void:
-    print("remove item : ", item)
-    print("current cleaning tool : ", current_cleaning_tool)
-    print("current framing  tool : ", current_framing_tool)
     if not(inventory.has(item)):
         push_warning("item not in inventory")
         return
@@ -67,20 +64,15 @@ func remove_item_from_inventory(item:TemperingTool)->void:
         inventory.erase(item)
     # ---
     if item.type == TemperingTool.TYPE.CLEANING:
-        print("is current item : ", item == current_cleaning_tool)
         if item == current_cleaning_tool:
             current_cleaning_tool = default_tools["cleaning"]
     if item.type == TemperingTool.TYPE.FRAMING:
-        print("is current item : ", item == current_framing_tool)
         if item == current_framing_tool:
             current_framing_tool = default_tools["framing"]
     # ---
     EventBus.InventoryUpdated.emit()
 
 func tool_selected(item:TemperingTool)->void:
-    print("tool selected in PlayerStat : ", inventory)
-    print("current cleaning tool : ", current_cleaning_tool)
-    print("current framing  tool : ", current_framing_tool)
     if not(inventory.has(item)):
         push_error("something wrong with the implementation of tool selection")
     match item.type:

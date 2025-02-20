@@ -38,6 +38,7 @@ unique_name_in_owner = true
 z_index = -1
 script = ExtResource("4_hdr3f")
 color = Color(0.686275, 0.866667, 0.815686, 1)
+dash_speed = -0.1
 
 [node name="FootPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true

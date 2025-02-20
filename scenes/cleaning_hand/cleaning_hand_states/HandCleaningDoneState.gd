@@ -9,7 +9,7 @@ extends HandState
 
 func process_input(event: InputEvent) -> void:
     if event.is_pressed():
-        var forensic := raycast_check_for_forensic_scientist() as BodyMotor
+        var forensic := raycast_check_for_forensic_scientist() as ForensicScientist
         if is_instance_valid(forensic):
             if PlayerStatistics.current_framing_tool.clickable_zone.is_point_in_zone(forensic.foot_position.global_position):
                 hide_crime_evidence_in_forensic(forensic)

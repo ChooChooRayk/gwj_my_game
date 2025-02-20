@@ -1,6 +1,9 @@
 class_name ForensicScientist
 extends CharacterBody2D
 
+
+@onready var foot_position: Marker2D = %FootPosition
+
 enum DIRECTION_TYPE {UP,DOWN,LEFT,RIGHT}
 @export var idle_direction : DIRECTION_TYPE
 @export var change_behaviour_time :float = 2. # [s]

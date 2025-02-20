@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_nevre"]
 script = ExtResource("1_d8fv4")
-radius = 20.0
+radius = 30.0
 ellps_e = 0.5
 center_offset = Vector2(0, 10)
 center_zone = Vector2(0, 0)

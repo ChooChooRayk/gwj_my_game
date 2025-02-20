@@ -21,7 +21,7 @@ static  func find_first_parent_of_type(node:Node, type)->Node:
     if is_instance_of(parent, type):
         return parent
     elif parent == node.get_tree().root:
-        push_warning("no parent found to root")
+        push_warning("no parent of type {type} found before reaching root".format({"type":type}))
         return null
     # ---
     return find_first_parent_of_type(parent, type)
