@@ -5,26 +5,28 @@
 [ext_resource type="SpriteFrames" uid="uid://dxqxapxnf8g5y" path="res://resources/character_animation/forensic_scientist_animation.tres" id="3_206ve"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r2wdt"]
-radius = 4.0
-height = 24.0
+radius = 13.0
+height = 44.0
 
 [node name="ForensicScientist" type="CharacterBody2D" groups=["forensic_scientists"]]
 collision_layer = 2
 script = ExtResource("1_ujrbn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(2, 0)
 texture = ExtResource("1_3wr87")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = ExtResource("3_206ve")
+animation = &"searching_down"
+autoplay = "searching_down"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_r2wdt")
 
 [node name="FootPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, 13)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("3_206ve")
-animation = &"idle_right"
-frame = 2
-frame_progress = 0.427957
