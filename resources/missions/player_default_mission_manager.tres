@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MissionManager" load_steps=2 format=3 uid="uid://488cppl6gxt1"]
+
+[ext_resource type="Script" path="res://resources/missions/MissionManager.gd" id="2_dtode"]
+
+[resource]
+script = ExtResource("2_dtode")
+mission_list = Array[int]([0, 1])
+current_mission_idx = 0

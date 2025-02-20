@@ -15,8 +15,8 @@ var inventory_ui_tools := {}
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
-    EventBus.InventoryUpdated.connect(update_inventory_ui)
-    PlayerStatistics.MoneyUpdated.connect(update_player_money_display)
+    EventBus        .InventoryUpdated.connect(update_inventory_ui)
+    PlayerStatistics.MoneyUpdated    .connect(update_player_money_display)
     # ---
     init_inventory()
     return

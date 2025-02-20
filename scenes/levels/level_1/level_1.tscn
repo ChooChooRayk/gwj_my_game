@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://0hlsng4af6gk"]
+[gd_scene load_steps=11 format=3 uid="uid://0hlsng4af6gk"]
 
 [ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_5pwur"]
-[ext_resource type="Resource" uid="uid://do30bgvqc3y7t" path="res://resources/missions/mission_level_1.tres" id="2_0gwuu"]
 [ext_resource type="PackedScene" uid="uid://dvjp6wn02hyno" path="res://scenes/cleaning_hand/cleaning_hand.tscn" id="2_44beu"]
 [ext_resource type="PackedScene" uid="uid://dbgs44voxm7mh" path="res://scenes/player/player.tscn" id="3_hy12e"]
 [ext_resource type="PackedScene" uid="uid://du8x2iki4sv20" path="res://scenes/NPCs/inspector.tscn" id="4_86pr6"]
@@ -23,7 +22,6 @@ point_count = 10
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_5pwur")
-mission_res = ExtResource("2_0gwuu")
 
 [node name="CleaningHand" parent="." instance=ExtResource("2_44beu")]
 

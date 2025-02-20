@@ -12,15 +12,10 @@ enum UI_KEYS {
     NEW_MISSION,
 }
 
-enum SCENE_KEYS {
-    TEST,
-    LEVEL_1,
-    LEVEL_FINAL,
-}
-static var scene_path_dic : Dictionary = {
-    SCENE_KEYS.TEST       : "res://scenes/levels/level_test/lvl_test.tscn",
-    SCENE_KEYS.LEVEL_1    : "res://scenes/levels/level_1/level_1.tscn",
-    SCENE_KEYS.LEVEL_FINAL: "res://scenes/levels/level_final/level_final.tscn",    
+enum MISSION_KEYS {LEVEL_1, LEVEL_FINAL}
+static var missions_dic : Dictionary = {
+    MISSION_KEYS.LEVEL_1    : load("res://resources/missions/mission_level_1.tres") as MissionResource,
+    MISSION_KEYS.LEVEL_FINAL: load("res://resources/missions/mission_level_final.tres") as MissionResource,    
 }
 
 var current_game_settings := {

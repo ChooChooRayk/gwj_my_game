@@ -3,7 +3,7 @@ extends Node
 
 signal LevelUpdated()
 
-@export var mission_res : MissionResource
+var mission_res : MissionResource
 
 #var player_stat : PlayerStatistics
 var cleaning_hand : CleaningHand
@@ -15,7 +15,7 @@ var hud           : HUD
 var start_pos     : StartLevelPosition
 var pause_menu    : PauseMenu
 
-var pause_menu_scene    : PackedScene= load("res://scenes/menu_UI/pause_menu/pause_menu.tscn")
+var pause_menu_scene    : PackedScene = load("res://scenes/menu_UI/pause_menu/pause_menu.tscn")
 var victory_panel_scene : PackedScene = load("res://scenes/menu_UI/victory_menu/victory_menu.tscn")
 var defeat_panel_scene  : PackedScene = load("res://scenes/menu_UI/game_over_menu/game_over_menu.tscn")
 
@@ -24,6 +24,11 @@ var item_left_to_hide : int
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
+    var mission_key :GlobalSettings.MISSION_KEYS = PlayerStatistics.mission_manager.get_current_mission()
+    if mission_key==-1:
+        push_error("error in current mission in MissionManager")
+    mission_res = GlobalSettings.missions_dic[mission_key] as MissionResource
+    # ---
     cleaning_hand     = Utilities.find_first_child_of_type(self, CleaningHand) as CleaningHand
     # if is_instance_valid(cleaning_hand):
         # cleaning_hand.set_new_tool(PlayerStatistics.current_cleaning_tool)
@@ -83,7 +88,7 @@ func mission_failed()->void:
 func mission_succeeded()->void:
     Engine.time_scale = 0.1
     # ---
-    var victory_menu = victory_panel_scene.instantiate()
+    var victory_menu := victory_panel_scene.instantiate() as VictoryMenu
     hud_canvas.add_child(victory_menu)
     # ---
     EventBus.MissionValidated.emit()

@@ -54,20 +54,24 @@ size_flags_vertical = 3
 [node name="VSeparator" type="VSeparator" parent="GridContainer"]
 layout_mode = 2
 
-[node name="ToolsContainer" type="GridContainer" parent="GridContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="GridContainer"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="ToolsContainer" type="HBoxContainer" parent="GridContainer/ScrollContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
-columns = 4
 
-[node name="InventoryToolStack" parent="GridContainer/ToolsContainer" instance=ExtResource("2_ro3ux")]
+[node name="InventoryToolStack" parent="GridContainer/ScrollContainer/ToolsContainer" instance=ExtResource("2_ro3ux")]
 layout_mode = 2
 tool_nbr = 2
 
-[node name="InventoryToolStack2" parent="GridContainer/ToolsContainer" instance=ExtResource("2_ro3ux")]
+[node name="InventoryToolStack2" parent="GridContainer/ScrollContainer/ToolsContainer" instance=ExtResource("2_ro3ux")]
 layout_mode = 2
 
-[node name="InventoryToolStack3" parent="GridContainer/ToolsContainer" instance=ExtResource("2_ro3ux")]
+[node name="InventoryToolStack3" parent="GridContainer/ScrollContainer/ToolsContainer" instance=ExtResource("2_ro3ux")]
 layout_mode = 2
 tool_nbr = 4

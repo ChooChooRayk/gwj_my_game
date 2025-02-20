@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="MissionResource" load_steps=2 format=3 uid="uid://do30bgvqc3y7t"]
+[gd_resource type="Resource" script_class="MissionResource" load_steps=3 format=3 uid="uid://do30bgvqc3y7t"]
 
+[ext_resource type="PackedScene" uid="uid://0hlsng4af6gk" path="res://scenes/levels/level_1/level_1.tscn" id="1_m73up"]
 [ext_resource type="Script" path="res://resources/missions/MissionResource.gd" id="1_p1n5b"]
 
 [resource]
@@ -7,4 +8,7 @@ script = ExtResource("1_p1n5b")
 time_to_succeed = 300.0
 crime_evidence_number = 3
 mission_call = 0
-money_reward = 100
+mission_call_start = 0
+money_reward = 200
+money_start_mission = 100
+mision_level = ExtResource("1_m73up")

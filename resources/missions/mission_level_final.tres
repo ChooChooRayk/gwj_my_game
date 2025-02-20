@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MissionResource" load_steps=3 format=3 uid="uid://c8yclod8pao15"]
+
+[ext_resource type="PackedScene" uid="uid://kfljhtw1ucb0" path="res://scenes/levels/level_final/level_final.tscn" id="1_5npnh"]
+[ext_resource type="Script" path="res://resources/missions/MissionResource.gd" id="1_s2eut"]
+
+[resource]
+script = ExtResource("1_s2eut")
+time_to_succeed = 0.0
+crime_evidence_number = 0
+mission_call = 0
+mission_call_start = 0
+money_reward = 200
+money_start_mission = 100
+mision_level = ExtResource("1_5npnh")

@@ -3,10 +3,7 @@ extends Node
 signal MoneyUpdated()
 signal CurrentToolUpdated()
 
-var current_level_idx : int = 0
-var level_list : Array[GlobalSettings.SCENE_KEYS] = [
-    GlobalSettings.SCENE_KEYS.LEVEL_1,
-]
+@export var mission_manager : MissionManager = load("res://resources/missions/player_default_mission_manager.tres") as MissionManager
 
 var default_tools := {
     "cleaning": load("res://resources/cleaning_tools/default_cleaning_tool.tres") as TemperingTool,
@@ -40,15 +37,12 @@ func _ready() -> void:
 
 # ====== MANAGEMENT ====== #
 
-func get_level()->GlobalSettings.SCENE_KEYS:
-    if current_level_idx==-1:
-        return GlobalSettings.SCENE_KEYS.LEVEL_FINAL
-    return level_list[current_level_idx]
+func get_mission()->MissionResource:
+    var mission_key := mission_manager.get_current_mission()
+    return GlobalSettings.missions_dic[mission_key]
 
 func set_next_level()->void:
-    current_level_idx += 1
-    if current_level_idx>=level_list.size():
-        current_level_idx = -1
+    mission_manager.set_next_mission()
     
 # ------ INVENTORY MANAGEMENT ------ #
 
@@ -101,5 +95,5 @@ func tool_selected(item:TemperingTool)->void:
 # ------------ #
 
 func reset_stats()->void:
-    current_level_idx = 0
+    mission_manager.reset_missions()
     return

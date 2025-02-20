@@ -9,7 +9,7 @@ signal SuspectDetected(body:BodyMotor)
 signal SuspectCaught(body:BodyMotor)
 
 signal ChangeMainUIRequested(ui_key:GlobalSettings.UI_KEYS)
-signal ChangeMainSceneRequested(scene_key:GlobalSettings.SCENE_KEYS)
+signal ChangeMainSceneRequested(scene:PackedScene)
 signal PauseMainSceneRequested(to_pause:bool)
 signal ChangeSceneFinished()
 

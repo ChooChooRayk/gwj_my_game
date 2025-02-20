@@ -25,8 +25,8 @@ func _ready() -> void:
     # ---  --- #
     ui_node_dic[GlobalSettings.UI_KEYS.MAIN_MENU  ] = Utilities.find_first_child_of_type(gui_container, GameMenu) as GameMenu
     ui_node_dic[GlobalSettings.UI_KEYS.NEW_MISSION] = Utilities.find_first_child_of_type(gui_container, NewMissionMenu) as NewMissionMenu
-    EventBus.ChangeMainUIRequested.connect(change_to_gui_scene)
     # ---
+    EventBus.ChangeMainUIRequested   .connect(change_to_gui_scene )
     EventBus.ChangeMainSceneRequested.connect(change_to_main_scene)
     EventBus.PauseMainSceneRequested .connect(pause_main_scene )
     EventBus.ResetMissionRequested   .connect(reset_missions   )
@@ -35,11 +35,8 @@ func _ready() -> void:
 
 # ====== MANAGEMENT ====== #
 
-func change_to_main_scene(new_scene_key:GlobalSettings.SCENE_KEYS)->void:
+func change_to_main_scene(new_scene:PackedScene)->void:
     reset_game_default_settings()
-    # ---
-    var new_scene_path := GlobalSettings.scene_path_dic[new_scene_key] as String
-    var new_scene      :PackedScene = load(new_scene_path) as PackedScene
     # ---
     scene_transition_overlay.transition(SceneTransitionOverlay.TRANS_TYPE.FADE_OUT)
     await scene_transition_overlay.animation_player.animation_finished

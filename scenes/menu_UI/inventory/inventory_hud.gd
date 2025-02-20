@@ -2,7 +2,7 @@ class_name InventoryHUD
 extends PanelContainer
 
 
-@onready var item_container: GridContainer = %ToolsContainer
+@onready var item_container: Container = %ToolsContainer
 
 var invtry_item_scene : PackedScene = load("res://scenes/menu_UI/inventory/inventory_item_ui.tscn")
 var invtry_tool_stack : PackedScene = load("res://scenes/menu_UI/inventory/inventory_tool_stack.tscn")
