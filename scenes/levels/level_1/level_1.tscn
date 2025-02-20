@@ -11,15 +11,15 @@
 [ext_resource type="PackedScene" uid="uid://dgqm4oevr1gf4" path="res://scenes/menu_UI/tutorial/tutorial.tscn" id="9_h7v5d"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6ublb"]
-vertices = PackedVector2Array(682.047, -41.0313, 684.938, 447.953, -48.2188, 445.031, -59.75, -43.9531)
+vertices = PackedVector2Array(805.148, -31.0703, 816.844, 721.008, -4, 721.977, -4, -36.9219)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-70, -54, 692, -51, 695, 458, -58, 455)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-14, -47, 815, -41, 827, 731, -14, 732)])
 
-[sub_resource type="Curve2D" id="Curve2D_41khl"]
+[sub_resource type="Curve2D" id="Curve2D_6bgst"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 609, -98, 0, 0, 0, 0, 541, -88, 0, 0, 0, 0, 362, -88, 0, 0, 0, 0, 303, -24, 0, 0, 0, 0, 302, 61, 0, 0, 0, 0, 298, 165, 0, 0, 0, 0, 411, 214, 0, 0, 0, 0, 419, 292, -1.68179, 0.840897, 1.68179, -0.840897, 295, 255, 0, 0, 0, 0, 36, 291, 0, 0, 0, 0, -41, 258, 0, 0, 0, 0, 52, 146)
+"points": PackedVector2Array(0, 0, 0, 0, 684, 67, 0, 0, 0, 0, 624, 89, 0, 0, 0, 0, 541, 171, 0, 0, 0, 0, 562, 322, 0, 0, 0, 0, 506, 444, 0, 0, 0, 0, 380, 432, 0, 0, 0, 0, 332, 353, 0, 0, 0, 0, 238, 353, 0, 0, 0, 0, 64, 404, 0, 0, 0, 0, 108, 493, 0, 0, 0, 0, 237, 492)
 }
-point_count = 12
+point_count = 11
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_5pwur")
@@ -38,21 +38,23 @@ navigation_polygon = SubResource("NavigationPolygon_6ublb")
 [node name="ScoutingPaths" type="Node" parent="Map"]
 
 [node name="ScoutingPath1" type="Path2D" parent="Map/ScoutingPaths"]
-position = Vector2(120, 170)
-curve = SubResource("Curve2D_41khl")
+curve = SubResource("Curve2D_6bgst")
 
-[node name="Inspectors" type="Node" parent="Map"]
+[node name="Inspectors" type="Node2D" parent="Map"]
+z_index = 2
 
 [node name="Inspector" parent="Map/Inspectors" node_paths=PackedStringArray("scouting_targets") instance=ExtResource("4_86pr6")]
 position = Vector2(728, 155)
 scouting_targets = NodePath("../../ScoutingPaths/ScoutingPath1")
 
-[node name="Forensics" type="Node" parent="Map"]
+[node name="Forensics" type="Node2D" parent="Map"]
+z_index = 2
 
 [node name="ForensicScientist" parent="Map/Forensics" instance=ExtResource("5_64wes")]
 position = Vector2(729, 404)
 
-[node name="CrimeItems" type="Node" parent="Map"]
+[node name="CrimeItems" type="Node2D" parent="Map"]
+z_index = 2
 
 [node name="CrimeEvidenceItem" parent="Map/CrimeItems" instance=ExtResource("6_tcgm5")]
 position = Vector2(701, 117)
@@ -67,7 +69,7 @@ position = Vector2(413, 383)
 rotation = -0.674617
 
 [node name="Player" parent="Map" instance=ExtResource("3_hy12e")]
-z_index = 1
+z_index = 2
 
 [node name="StartLevelPosition" parent="Map" instance=ExtResource("4_j22tu")]
 position = Vector2(0, 63)

@@ -7,6 +7,14 @@ enum LAYER_NAMES {
     EVIDENCE_ITEM = 1<<2,
 }
 
+enum Z_ORDER {
+    FLOOR      = 0,
+    WALL       = 1,
+    CONTENT    = 2,
+    OVERLAY    = 3,
+    NAVIGATION = 4,
+}
+
 enum UI_KEYS {
     MAIN_MENU,
     NEW_MISSION,

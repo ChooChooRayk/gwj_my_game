@@ -1,6 +1,5 @@
 [gd_scene load_steps=11 format=3 uid="uid://du8x2iki4sv20"]
 
-[ext_resource type="Texture2D" uid="uid://1dsajn1ndl6m" path="res://assets/characters/inspector.svg" id="1_8kgpf"]
 [ext_resource type="Script" path="res://scenes/NPCs/inspector.gd" id="1_wwls3"]
 [ext_resource type="Script" path="res://scenes/NPCs/inspector_ai/inspector_ai.gd" id="2_g806k"]
 [ext_resource type="Script" path="res://scenes/NPCs/inspector_ai/InspectorStateMachine.gd" id="3_atvjc"]
@@ -9,10 +8,11 @@
 [ext_resource type="Script" path="res://scenes/NPCs/inspector_ai/InspectorLookAroundState.gd" id="7_3ggu2"]
 [ext_resource type="Script" path="res://scenes/NPCs/inspector_ai/InspectorChasingState.gd" id="7_74pd8"]
 [ext_resource type="Texture2D" uid="uid://c1iw761eqct4a" path="res://assets/utils/inspector_detect_zone.svg" id="9_deaxd"]
+[ext_resource type="SpriteFrames" uid="uid://dp6xyia83m7tr" path="res://resources/character_animation/inspector_animation.tres" id="10_dp6gs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qcmp"]
-radius = 4.0
-height = 24.0
+radius = 13.0
+height = 44.0
 
 [node name="Inspector" type="CharacterBody2D" groups=["inspectors"]]
 collision_layer = 2
@@ -39,13 +39,6 @@ state = 2
 script = ExtResource("7_3ggu2")
 state = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2, 0)
-texture = ExtResource("1_8kgpf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_7qcmp")
-
 [node name="DetectionZone" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, 11)
@@ -60,6 +53,15 @@ polygon = PackedVector2Array(-4, 8, -4, 6, 100, -20, 107, -2, 107, 17, 100, 34)
 self_modulate = Color(1, 1, 1, 0.588235)
 position = Vector2(60, 0)
 texture = ExtResource("9_deaxd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = ExtResource("10_dp6gs")
+animation = &"walk_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_7qcmp")
 
 [node name="FootPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true

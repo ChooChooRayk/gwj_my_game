@@ -8,6 +8,8 @@ extends BodyMotor
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
+    super()
+    # ---
     if is_instance_valid(cleaning_zone):
         cleaning_zone.clickable_zone = PlayerStatistics.current_cleaning_tool.clickable_zone
     if is_instance_valid(framing_zone):

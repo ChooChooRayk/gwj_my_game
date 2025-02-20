@@ -46,6 +46,7 @@ func _process(delta: float) -> void:
         manage_detection_zone(delta)
     else:
         npc_body.movement_direction  = Vector2.ZERO
+    # ---
 
 # ====== MANAGEMENT ====== #
 
@@ -69,7 +70,9 @@ func move_to_next_path_position()->void:
     return
 
 func manage_detection_zone(delta:float)->void:
-    detection_zone.rotation = lerp(detection_zone.rotation, npc_body.movement_direction.angle(), looking_speed*delta)
+    var to_agl := npc_body.movement_direction.angle()
+    detection_zone.rotation = lerp(detection_zone.rotation, to_agl, looking_speed*delta)
+    detection_zone.scale    = Vector2(0.5+abs(cos(to_agl))/2., 1.)
     return
     
 func on_player_deteted(body:Node2D)->void:

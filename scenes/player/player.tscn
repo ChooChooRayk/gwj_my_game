@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://dbgs44voxm7mh"]
 
-[ext_resource type="Texture2D" uid="uid://bilaqc80wpwuo" path="res://assets/characters/player.svg" id="1_1hxbn"]
 [ext_resource type="Script" path="res://scenes/player/input_player.gd" id="1_fmtji"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_kxmgy"]
 [ext_resource type="Script" path="res://scenes/player/ClickableZoneDisplayer.gd" id="4_hdr3f"]
+[ext_resource type="SpriteFrames" uid="uid://clyjpqs8gef1a" path="res://resources/character_animation/cop_default_animation.tres" id="5_8ge5m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jvjy2"]
-radius = 5.0
-height = 24.0
+radius = 13.0
+height = 44.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
@@ -16,11 +16,13 @@ script = ExtResource("1_kxmgy")
 [node name="InputPlayer" type="Node" parent="."]
 script = ExtResource("1_fmtji")
 
-[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
-position = Vector2(2, -1)
-texture = ExtResource("1_1hxbn")
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -17)
+sprite_frames = ExtResource("5_8ge5m")
+animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_jvjy2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -29,14 +31,12 @@ shape = SubResource("CapsuleShape2D_jvjy2")
 unique_name_in_owner = true
 z_index = -1
 script = ExtResource("4_hdr3f")
-line_width = 1.0
 color = Color(0.933333, 0.188235, 0.329412, 1)
 
 [node name="DrawFramingZone" type="Node2D" parent="."]
 unique_name_in_owner = true
 z_index = -1
 script = ExtResource("4_hdr3f")
-line_width = 1.0
 color = Color(0.686275, 0.866667, 0.815686, 1)
 
 [node name="FootPosition" type="Marker2D" parent="."]

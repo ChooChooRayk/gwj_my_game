@@ -4,8 +4,8 @@ extends Node2D
 
 @export var clickable_zone : ClickableZone
 
-@export var pts_nbr     := 50
-@export var line_width  := 5.
+@export var pts_nbr     : int = 50
+@export var line_width  : int = 4
 @export var color       := Color.WHITE
 @export var dash_speed  := 0.1
 var dash_offset         := 0.
