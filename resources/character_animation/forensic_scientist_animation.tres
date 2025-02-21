@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=66 format=3 uid="uid://dxqxapxnf8g5y"]
+[gd_resource type="SpriteFrames" load_steps=70 format=3 uid="uid://dxqxapxnf8g5y"]
 
 [ext_resource type="Texture2D" uid="uid://c7damljmcj3xf" path="res://assets/characters/forensic_scientist_modif.png" id="1_smr4w"]
+[ext_resource type="Texture2D" uid="uid://c3hyyvimv0lrg" path="res://assets/characters/inspector.png" id="2_hbujt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cxen1"]
 atlas = ExtResource("1_smr4w")
@@ -97,6 +98,18 @@ region = Rect2(320, 64, 32, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohuga"]
 atlas = ExtResource("1_smr4w")
 region = Rect2(352, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el5er"]
+atlas = ExtResource("2_hbujt")
+region = Rect2(288, 1216, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygy23"]
+atlas = ExtResource("2_hbujt")
+region = Rect2(320, 1216, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8r43g"]
+atlas = ExtResource("2_hbujt")
+region = Rect2(352, 1216, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ac5kg"]
 atlas = ExtResource("1_smr4w")
@@ -350,6 +363,20 @@ animations = [{
 }],
 "loop": false,
 "name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el5er")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygy23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8r43g")
+}],
+"loop": true,
+"name": &"inspector_reveal",
 "speed": 5.0
 }, {
 "frames": [{

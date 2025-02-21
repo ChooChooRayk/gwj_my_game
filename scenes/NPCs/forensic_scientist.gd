@@ -53,3 +53,9 @@ func change_behaviour()->void:
     #behaviour_timer.start()
     change_behaviour()
     return
+
+func play_inspector_reveal()->void:
+    if is_instance_valid(animation_sprite_2d):
+        animation_sprite_2d.play("inspector_reveal")
+    return
+    

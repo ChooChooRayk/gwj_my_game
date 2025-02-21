@@ -10,14 +10,11 @@ height = 44.0
 [node name="ForensicScientist" type="CharacterBody2D" groups=["forensic_scientists"]]
 collision_layer = 2
 script = ExtResource("1_geek6")
-is_inspector = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = ExtResource("3_206ve")
-animation = &"reveal_down"
-frame = 27
-frame_progress = 1.0
+animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)

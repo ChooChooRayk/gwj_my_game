@@ -51,7 +51,13 @@ scouting_targets = NodePath("../../ScoutingPaths/ScoutingPath1")
 z_index = 2
 
 [node name="ForensicScientist" parent="Map/Forensics" instance=ExtResource("5_64wes")]
-position = Vector2(729, 404)
+position = Vector2(701, 419)
+idle_direction = 1
+is_inspector = true
+
+[node name="ForensicScientist2" parent="Map/Forensics" instance=ExtResource("5_64wes")]
+position = Vector2(411, 216)
+idle_direction = 2
 
 [node name="CrimeItems" type="Node2D" parent="Map"]
 z_index = 2
