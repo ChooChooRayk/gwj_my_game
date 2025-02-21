@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://duddtd61qo7x"]
+[gd_scene load_steps=18 format=4 uid="uid://duddtd61qo7x"]
 
 [ext_resource type="FontFile" uid="uid://d365r4065j2rf" path="res://assets/fontstyles/c64esque.ttf" id="1_cvefy"]
 [ext_resource type="Script" path="res://scenes/menu_UI/game_menu.gd" id="1_s7q0w"]
 [ext_resource type="PackedScene" uid="uid://boa4w0vx84ybe" path="res://scenes/menu_UI/setting_menu/settings_menu.tscn" id="2_5vv5r"]
 [ext_resource type="Texture2D" uid="uid://b7p76anfdow7t" path="res://assets/ui/GameTitle.png" id="3_fq5sx"]
+[ext_resource type="PackedScene" uid="uid://cvgqncv8ub5jh" path="res://scenes/menu_UI/swipe_clean_overlay/animated_overlay.tscn" id="4_tnerg"]
 
 [sub_resource type="Image" id="Image_kcref"]
 data = {
@@ -1805,20 +1806,47 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Start"
 
+[node name="AnimatedOverlay" parent="MainMenu/VBoxContainer/VBoxContainer/StartButton" instance=ExtResource("4_tnerg")]
+layout_mode = 1
+
 [node name="Settings" type="Button" parent="MainMenu/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Settings"
+
+[node name="AnimatedOverlay" parent="MainMenu/VBoxContainer/VBoxContainer/Settings" instance=ExtResource("4_tnerg")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Quit" type="Button" parent="MainMenu/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
 
+[node name="AnimatedOverlay" parent="MainMenu/VBoxContainer/VBoxContainer/Quit" instance=ExtResource("4_tnerg")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
 [node name="Credits" type="Button" parent="MainMenu/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Credits"
+
+[node name="AnimatedOverlay" parent="MainMenu/VBoxContainer/VBoxContainer/Credits" instance=ExtResource("4_tnerg")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="SettingsMenu" parent="." instance=ExtResource("2_5vv5r")]
 visible = false

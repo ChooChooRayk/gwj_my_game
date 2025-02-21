@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvgqncv8ub5jh"]
+
+[ext_resource type="Script" path="res://scenes/menu_UI/swipe_clean_overlay/animated_overlay.gd" id="1_k4d6b"]
+[ext_resource type="SpriteFrames" uid="uid://bise2dxarq1jg" path="res://resources/main_menu_ui_button_animation.tres" id="1_maet5"]
+
+[node name="AnimatedOverlay" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("1_k4d6b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = ExtResource("1_maet5")
