@@ -32,7 +32,9 @@ func _ready() -> void:
     EventBus.ResetMissionRequested   .connect(reset_missions   )
     EventBus.MissionValidated        .connect(func (): PlayerStatistics.set_next_level())
     #start_splash_screens("res://scenes/start_spalsh_screens/splash_screens.tscn")
-
+    # ---
+    (ui_node_dic[GlobalSettings.UI_KEYS.MAIN_MENU] as GameMenu).settings_menu.on_apply_settings()
+    
 # ====== MANAGEMENT ====== #
 
 func change_to_main_scene(new_scene:PackedScene)->void:

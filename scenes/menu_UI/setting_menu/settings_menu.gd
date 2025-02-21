@@ -8,11 +8,11 @@ extends PanelContainer
 
 @onready var input_remap: InputRemappingSettings = %InputRemap
 
-@onready var master_volume: HSlider      = %MasterVolume
-@onready var sfx_volume   : HSlider      = %SFXVolume
-@onready var windowing    : OptionButton = %Windowing
-@onready var tuto_enable  : CheckBox     = %TutoEnable
-
+@onready var master_volume  : HSlider      = %MasterVolume
+@onready var sfx_volume     : HSlider      = %SFXVolume
+@onready var windowing      : OptionButton = %Windowing
+@onready var tuto_enable    : CheckBox     = %TutoEnable
+@onready var windowing_size : OptionButton = %WindowingSize
 
 # ====== INITIALIZATION ====== #
 

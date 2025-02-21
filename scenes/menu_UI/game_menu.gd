@@ -2,7 +2,7 @@ class_name GameMenu
 extends Control
 
 
-@onready var settings_menu : PanelContainer = $SettingsMenu
+@onready var settings_menu : SettingsMenu   = $SettingsMenu
 @onready var main_menu     : PanelContainer = $MainMenu
 @onready var credits       : PanelContainer = $Credits
 
