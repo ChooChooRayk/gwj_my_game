@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5l5gc1xxygqw"
-path="res://.godot/imported/murder_knife_32.png-1b08721cccbf882f201261f22d800c11.ctex"
+uid="uid://5wauwj63cf3m"
+path="res://.godot/imported/murder_knife_32_cleaned.png-d7ff509bbfb538f4f93be1401a04520e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/evidence_items/murder_knife_32.png"
-dest_files=["res://.godot/imported/murder_knife_32.png-1b08721cccbf882f201261f22d800c11.ctex"]
+source_file="res://assets/evidence_items/murder_knife/murder_knife_32_cleaned.png"
+dest_files=["res://.godot/imported/murder_knife_32_cleaned.png-d7ff509bbfb538f4f93be1401a04520e.ctex"]
 
 [params]
 

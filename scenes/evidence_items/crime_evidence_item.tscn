@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/evidence_items/crime_evidence_item.gd" id="1_xl5yt"]
 [ext_resource type="Material" uid="uid://dlbfgulh65673" path="res://resources/shaders/highlight_effect_material.tres" id="2_1aew6"]
-[ext_resource type="Texture2D" uid="uid://dtimhta6y0a5e" path="res://assets/evidence_items/murder_knife_32_bloody.png" id="3_41kjq"]
+[ext_resource type="Texture2D" uid="uid://dtimhta6y0a5e" path="res://assets/evidence_items/murder_knife/murder_knife_32_bloody.png" id="3_41kjq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e3axb"]
 radius = 3.53553
