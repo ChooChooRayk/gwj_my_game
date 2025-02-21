@@ -58,6 +58,4 @@ func on_buying()->void:
     else:
         print("Not enough money !")
     # ---
-    print(PlayerStatistics.current_money)
-    print(PlayerStatistics.inventory)
     return

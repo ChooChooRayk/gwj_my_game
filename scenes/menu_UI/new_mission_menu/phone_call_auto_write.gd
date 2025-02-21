@@ -63,7 +63,6 @@ func start_new_line()->void:
     display_text += "\n"
     TextUpdated.emit("\n")
     # ---
-    print()
     next_char_line_timer.start()
     return
 

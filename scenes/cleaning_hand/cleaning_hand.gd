@@ -37,6 +37,9 @@ func _ready() -> void:
         cursor_inzone_aspect = hand_cursor_inzone_list[PlayerStatistics.mission_manager.current_mission_idx]
     else:
         cursor_inzone_aspect = default_cursor_inzone_aspect
+    # ---
+    Input.set_custom_mouse_cursor(default_cursor_outzone_aspect, Input.CURSOR_ARROW, Vector2(1,1))
+
         
 # ====== PROCESS ====== #
 

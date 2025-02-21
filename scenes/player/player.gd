@@ -2,6 +2,9 @@ class_name Player
 extends BodyMotor
 
 
+@export var walking_speed : float = 100.
+@export var running_speed : float = 100.
+
 @onready var cleaning_zone: ClickableZoneDisplayer = %DrawCleaningZone
 @onready var framing_zone : ClickableZoneDisplayer = %DrawFramingZone
 
@@ -9,6 +12,8 @@ extends BodyMotor
 
 func _ready() -> void:
     super()
+    # ---
+    SPEED = walking_speed
     # ---
     if is_instance_valid(cleaning_zone):
         cleaning_zone.clickable_zone = PlayerStatistics.current_cleaning_tool.clickable_zone

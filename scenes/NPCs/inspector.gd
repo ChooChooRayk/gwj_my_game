@@ -2,7 +2,9 @@ class_name Inspector
 extends BodyMotor
 
 @export var scouting_targets: Path2D
-@export var scouting_speed  := 50.
+@export var scouting_speed  : float = 50.
+@export var walking_speed   : float = 100.
+@export var running_speed   : float = 100.
 
 @onready var catching_zone: Area2D = %CatchingZone
 

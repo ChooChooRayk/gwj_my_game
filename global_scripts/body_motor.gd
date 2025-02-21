@@ -23,10 +23,11 @@ func _physics_process(delta: float) -> void:
         velocity       = movement_direction * SPEED
         last_direction = movement_direction.normalized()
     else:
-        velocity = lerp(velocity, Vector2.ZERO, SPEED*delta/10.)
+        velocity = lerp(velocity, Vector2.ZERO, delta * SPEED/10.)
     # ---
     manage_animation()
     move_and_slide()
+    #print("velocity : ", velocity.length())
 
 # ====== MANAGEMENT =====+ #
 

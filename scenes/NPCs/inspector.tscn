@@ -21,6 +21,8 @@ height = 36.0
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_wwls3")
+walking_speed = 50.0
+running_speed = 125.0
 
 [node name="InspectorAI" type="Node" parent="."]
 script = ExtResource("2_g806k")
@@ -78,6 +80,7 @@ position = Vector2(0, 13)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
 target_desired_distance = 5.0
+avoidance_mask = 3
 
 [node name="CatchingZone" type="Area2D" parent="."]
 unique_name_in_owner = true

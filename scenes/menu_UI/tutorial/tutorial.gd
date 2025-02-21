@@ -41,7 +41,6 @@ func start_tuto_panel()->void:
     return
 
 func next_tuto_panel()->void:
-    print(panel_count)
     match panel_count:
         0:
             tuto_panel_1.visible = true
@@ -52,7 +51,6 @@ func next_tuto_panel()->void:
             tuto_panel_2.visible = false
             tuto_panel_3.visible = true
         _:
-            print("tuto finished")
             get_tree().paused = false
             queue_free()
             return

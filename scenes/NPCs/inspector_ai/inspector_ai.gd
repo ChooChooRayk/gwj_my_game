@@ -42,7 +42,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
     if go_to_target:
-        npc_body.movement_direction  = npc_body.global_position.direction_to(nav_agent_2d.get_next_path_position())
+        npc_body.movement_direction  = npc_body.global_position.direction_to(nav_agent_2d.get_next_path_position()).normalized()
         manage_detection_zone(delta)
     else:
         npc_body.movement_direction  = Vector2.ZERO
