@@ -4,7 +4,7 @@ extends Node
 
 @onready var scene_transition_overlay: SceneTransitionOverlay = %SceneTransitionOverlay
 
-
+@export var game_cursor          : Texture2D = load("res://assets/icons/game_cursor.png") as Texture2D
 @export var gui_container        : CanvasLayer
 @export var main_scene_container : Node2D
 var current_gui   : Control
@@ -19,7 +19,6 @@ func _ready() -> void:
     SceneManager.game_manager = self
     # ---
     current_gui   = gui_container.get_child(0)
-    #current_scene = main_scene_container.get_child(0)
     # ---
     clean_remove_current_scene()
     # ---  --- #
@@ -31,9 +30,10 @@ func _ready() -> void:
     EventBus.PauseMainSceneRequested .connect(pause_main_scene )
     EventBus.ResetMissionRequested   .connect(reset_missions   )
     EventBus.MissionValidated        .connect(func (): PlayerStatistics.set_next_level())
-    #start_splash_screens("res://scenes/start_spalsh_screens/splash_screens.tscn")
     # ---
     (ui_node_dic[GlobalSettings.UI_KEYS.MAIN_MENU] as GameMenu).settings_menu.on_apply_settings()
+    # ---
+    Input.set_custom_mouse_cursor(game_cursor, Input.CURSOR_ARROW)
     
 # ====== MANAGEMENT ====== #
 

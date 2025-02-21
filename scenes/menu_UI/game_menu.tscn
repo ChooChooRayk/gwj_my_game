@@ -1789,10 +1789,8 @@ theme_override_constants/separation = 10
 layout_mode = 2
 
 [node name="GameTitle" type="TextureRect" parent="MainMenu/VBoxContainer/CenterContainer"]
-custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 texture = ExtResource("3_fq5sx")
-expand_mode = 3
 stretch_mode = 5
 
 [node name="spacer" type="Control" parent="MainMenu/VBoxContainer"]
