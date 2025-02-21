@@ -13,7 +13,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 script = ExtResource("1_k4d6b")
+pos_offset = Vector2(0, 4)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("1_maet5")

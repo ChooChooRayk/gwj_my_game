@@ -3,8 +3,9 @@ extends MarginContainer
 
 
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
-
 var control_parent : Control
+
+@export var pos_offset : Vector2 = Vector2.ZERO
 
 # ====== INITIALIZATION ====== #
 
@@ -20,7 +21,7 @@ func _ready() -> void:
 
 func set_aspect_to_center()->void:
     #var frame_size := animated_sprite_2d.sprite_frames.get_frame_texture("default",0).get_size()
-    animated_sprite_2d.position = control_parent.size/2.# - frame_size/2.
+    animated_sprite_2d.position = control_parent.size/2. + pos_offset
     return
 
 # ====== MANAGEMENT ====== #
