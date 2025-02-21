@@ -17,7 +17,7 @@ func process_input(event: InputEvent) -> void:
 # ====== MANAGEMENT ====== #
 
 func enter()->void:
-    #Input.set_custom_mouse_cursor(cleaning_hand.cleaning_aspect)
+    Input.set_custom_mouse_cursor(cleaning_hand.cursor_inzone_aspect, Input.CURSOR_ARROW, Vector2(4,3))
     set_process(true)
     return
 

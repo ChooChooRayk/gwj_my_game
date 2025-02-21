@@ -31,6 +31,7 @@ func process_input(event: InputEvent) -> void:
 # ====== MANAGEMENT ====== #
 
 func enter()->void:
+    #cleaning animation ??? Input.set_custom_mouse_cursor(cleaning_hand.cursor_inzone_aspect, Input.CURSOR_ARROW, Vector2(1,1))
     cleaning_progress.value   = 0
     cleaning_progress.visible = true
     follow_mouse.follow_mouse_enable = true

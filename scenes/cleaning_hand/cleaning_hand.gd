@@ -2,12 +2,14 @@ class_name CleaningHand
 extends Node2D
 
 
-#@export var framing_tool         : TemperingTool
-#@export var cleaning_tool        : TemperingTool
-# ---
-@export var cleaning_aspect      : Texture2D
-@export var cleaning_done_aspect : Texture2D
 @export var framing_zone         : ClickableZone # zone for framing forensics
+@export_category("Cursor aspects")
+@export var default_cursor_outzone_aspect : Texture2D# = load("res://assets/hand_cursor/cursor_hand_01.png") as Texture2D
+@export var default_cursor_inzone_aspect  : Texture2D# = load("res://assets/hand_cursor/cursor_hand_inzone_01.png") as Texture2D
+@export var hand_cursor_outzone_list      : Array[Texture2D]
+@export var hand_cursor_inzone_list       : Array[Texture2D]
+var cursor_outzone_aspect : Texture2D
+var cursor_inzone_aspect  : Texture2D
 
 var item_to_clean  : CrimeEvidenceItem
 var cleaning_timer :Timer = Timer.new()
@@ -25,6 +27,16 @@ func _ready() -> void:
         player = Utilities.find_first_child_of_type(self, Player) as Player
     else:
         print("level not found !!!")
+    # ---
+    if hand_cursor_outzone_list.size()!=0 and PlayerStatistics.mission_manager.current_mission_idx<=hand_cursor_outzone_list.size():
+        cursor_outzone_aspect = hand_cursor_outzone_list[PlayerStatistics.mission_manager.current_mission_idx]
+    else:
+        cursor_outzone_aspect = default_cursor_outzone_aspect
+    # ---
+    if hand_cursor_inzone_list.size()!=0 and PlayerStatistics.mission_manager.current_mission_idx<=hand_cursor_inzone_list.size():
+        cursor_inzone_aspect = hand_cursor_inzone_list[PlayerStatistics.mission_manager.current_mission_idx]
+    else:
+        cursor_inzone_aspect = default_cursor_inzone_aspect
         
 # ====== PROCESS ====== #
 

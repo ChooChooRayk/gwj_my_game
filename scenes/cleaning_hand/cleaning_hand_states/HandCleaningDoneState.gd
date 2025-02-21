@@ -18,7 +18,7 @@ func process_input(event: InputEvent) -> void:
 # ====== MANAGEMENT ====== #
 
 func enter()->void:
-    #Input.set_custom_mouse_cursor(cleaning_done_aspect)
+    Input.set_custom_mouse_cursor(cleaning_hand.cursor_outzone_aspect, Input.CURSOR_ARROW, Vector2(1,1))
     EventBus.FrozePlayerRequested.emit(false)
     EventBus.EnableFramingZoneDisplay.emit()
     return

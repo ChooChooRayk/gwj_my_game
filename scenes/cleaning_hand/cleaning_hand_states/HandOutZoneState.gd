@@ -11,7 +11,7 @@ func _process(_delta: float) -> void:
 # ====== MANAGEMENT ====== #
 
 func enter()->void:
-    #Input.set_custom_mouse_cursor(default_cursor)
+    Input.set_custom_mouse_cursor(cleaning_hand.cursor_outzone_aspect, Input.CURSOR_ARROW, Vector2(1,1))
     EventBus.EnableCleaningZoneDisplay.emit()
     set_process(true)
     return

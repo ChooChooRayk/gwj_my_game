@@ -1,10 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvjp6wn02hyno"]
+[gd_scene load_steps=16 format=3 uid="uid://dvjp6wn02hyno"]
 
 [ext_resource type="Script" path="res://scenes/cleaning_hand/cleaning_hand.gd" id="1_eblbc"]
 [ext_resource type="Texture2D" uid="uid://dfvv3upnux7vx" path="res://assets/cleaning_stuff/hand.svg" id="2_01met"]
+[ext_resource type="Texture2D" uid="uid://cmdr1w3wm6cka" path="res://assets/hand_cursor/cursor_hand_outzone_01.png" id="3_86mwd"]
+[ext_resource type="Texture2D" uid="uid://c6ao21fp035jr" path="res://assets/hand_cursor/cursor_hand_inzone_01.png" id="3_jug4f"]
 [ext_resource type="Texture2D" uid="uid://c0rg6aafveqpa" path="res://assets/utils/cleaning_progression.svg" id="4_mmuts"]
+[ext_resource type="Texture2D" uid="uid://dh6leq7ws6qhu" path="res://assets/hand_cursor/cursor_hand_outzone_03.png" id="4_w1wco"]
+[ext_resource type="Texture2D" uid="uid://disgf30y6letd" path="res://assets/hand_cursor/cursor_hand_outzone_06.png" id="5_2eewu"]
 [ext_resource type="Script" path="res://scenes/cleaning_hand/follow_mouse.gd" id="5_v504h"]
 [ext_resource type="Script" path="res://scenes/cleaning_hand/HandStateMachine.gd" id="6_c13o1"]
+[ext_resource type="Texture2D" uid="uid://ddv2dysnu3yka" path="res://assets/hand_cursor/cursor_hand_inzone_03.png" id="6_yu35i"]
+[ext_resource type="Texture2D" uid="uid://c85f4yupd1h4d" path="res://assets/hand_cursor/cursor_hand_inzone_06.png" id="7_2qyx8"]
 [ext_resource type="Script" path="res://scenes/cleaning_hand/cleaning_hand_states/HandOutZoneState.gd" id="7_csgvi"]
 [ext_resource type="Script" path="res://scenes/cleaning_hand/cleaning_hand_states/HandInZoneState.gd" id="8_qq74t"]
 [ext_resource type="Script" path="res://scenes/cleaning_hand/cleaning_hand_states/HandInCleaningState.gd" id="9_77exu"]
@@ -12,8 +18,10 @@
 
 [node name="CleaningHand" type="Node2D"]
 script = ExtResource("1_eblbc")
-cleaning_aspect = ExtResource("2_01met")
-cleaning_done_aspect = ExtResource("2_01met")
+default_cursor_outzone_aspect = ExtResource("3_86mwd")
+default_cursor_inzone_aspect = ExtResource("3_jug4f")
+hand_cursor_outzone_list = Array[Texture2D]([ExtResource("3_86mwd"), ExtResource("4_w1wco"), ExtResource("5_2eewu")])
+hand_cursor_inzone_list = Array[Texture2D]([ExtResource("3_jug4f"), ExtResource("6_yu35i"), ExtResource("7_2qyx8")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

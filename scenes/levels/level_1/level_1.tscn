@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://0hlsng4af6gk"]
+[gd_scene load_steps=13 format=3 uid="uid://0hlsng4af6gk"]
 
 [ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_5pwur"]
 [ext_resource type="PackedScene" uid="uid://dvjp6wn02hyno" path="res://scenes/cleaning_hand/cleaning_hand.tscn" id="2_44beu"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d0hfjvtdhptl1" path="res://scenes/maps/start_level_position.tscn" id="4_j22tu"]
 [ext_resource type="PackedScene" uid="uid://dgcp0hkb0vimr" path="res://scenes/NPCs/forensic_scientist.tscn" id="5_64wes"]
 [ext_resource type="PackedScene" uid="uid://bbfjj0iurxsnk" path="res://scenes/evidence_items/crime_evidence_item.tscn" id="6_tcgm5"]
+[ext_resource type="Texture2D" uid="uid://b7v0vg8cvonvf" path="res://assets/crime_scene_related/chalk_outline_32.png" id="7_inkaq"]
 [ext_resource type="PackedScene" uid="uid://dgqm4oevr1gf4" path="res://scenes/menu_UI/tutorial/tutorial.tscn" id="9_h7v5d"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6ublb"]
@@ -41,14 +42,14 @@ navigation_polygon = SubResource("NavigationPolygon_6ublb")
 curve = SubResource("Curve2D_6bgst")
 
 [node name="Inspectors" type="Node2D" parent="Map"]
-z_index = 2
+z_index = 3
 
 [node name="Inspector" parent="Map/Inspectors" node_paths=PackedStringArray("scouting_targets") instance=ExtResource("4_86pr6")]
 position = Vector2(728, 155)
 scouting_targets = NodePath("../../ScoutingPaths/ScoutingPath1")
 
 [node name="Forensics" type="Node2D" parent="Map"]
-z_index = 2
+z_index = 3
 
 [node name="ForensicScientist" parent="Map/Forensics" instance=ExtResource("5_64wes")]
 position = Vector2(701, 419)
@@ -64,18 +65,19 @@ z_index = 2
 
 [node name="CrimeEvidenceItem" parent="Map/CrimeItems" instance=ExtResource("6_tcgm5")]
 position = Vector2(701, 117)
-rotation = -0.674617
 
 [node name="CrimeEvidenceItem2" parent="Map/CrimeItems" instance=ExtResource("6_tcgm5")]
 position = Vector2(116, 462)
-rotation = -0.674617
 
 [node name="CrimeEvidenceItem3" parent="Map/CrimeItems" instance=ExtResource("6_tcgm5")]
 position = Vector2(413, 383)
-rotation = -0.674617
+
+[node name="chalk_outlie" type="Sprite2D" parent="Map/CrimeItems"]
+position = Vector2(468, 382)
+texture = ExtResource("7_inkaq")
 
 [node name="Player" parent="Map" instance=ExtResource("3_hy12e")]
-z_index = 2
+z_index = 3
 
 [node name="StartLevelPosition" parent="Map" instance=ExtResource("4_j22tu")]
 position = Vector2(0, 63)
