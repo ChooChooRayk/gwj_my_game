@@ -15,9 +15,17 @@ var cleaning_timer :Timer = Timer.new()
 @onready var aspect_nd : Sprite2D = $Sprite2D
 @onready var hand_state_machine: HandStateMachine = %HandStateMachine
 
+var player : Player
 
 # ====== INITIALIZATION ====== #
 
+func _ready() -> void:
+    var level : Level = Utilities.find_first_parent_of_type(self, Level) as Level
+    if is_instance_valid(level):
+        player = Utilities.find_first_child_of_type(self, Player) as Player
+    else:
+        print("level not found !!!")
+        
 # ====== PROCESS ====== #
 
 func _process(_delta: float) -> void:
@@ -29,12 +37,6 @@ func _unhandled_input(event: InputEvent) -> void:
         hand_state_machine.process_input(event)
 
 # ====== MANAGEMENT ====== #
-
-#func set_new_tool(tool:TemperingTool)->void:
-    #if   tool.type==TemperingTool.TYPE.CLEANING:
-        #cleaning_tool = tool
-    #elif tool.type==TemperingTool.TYPE.FRAMING:
-        #framing_tool  = tool
 
 func crime_evidence_cleaned()->void:
     EventBus.EvidenceCleaned.emit(item_to_clean)

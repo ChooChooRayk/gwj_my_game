@@ -31,14 +31,14 @@ func raycast_check_for_forensic_scientist()->CharacterBody2D:
     var space_state := cleaning_hand.get_world_2d().direct_space_state
     var query       := PhysicsPointQueryParameters2D.new()
     query.position   = cleaning_hand.get_global_mouse_position()
-    query.collide_with_bodies = true
-    query.collide_with_areas  = false
-    query.collision_mask = GlobalSettings.LAYER_NAMES.BODIES
+    query.collide_with_bodies = false
+    query.collide_with_areas  = true
+    query.collision_mask = GlobalSettings.LAYER_NAMES.DETECTION
     # ---
     var result :Array[Dictionary] = space_state.intersect_point(query)
     if (result.size()!=0):
         for i in result.size():
-            var body :CharacterBody2D = result[i].collider
+            var body :CharacterBody2D = (result[i].collider as Area2D).get_parent()
             if body.is_in_group("forensic_scientists"):
                 return body
     # ---
@@ -47,7 +47,7 @@ func raycast_check_for_forensic_scientist()->CharacterBody2D:
 func hide_crime_evidence_in_forensic(forensic:ForensicScientist)->void:
     if forensic.is_inspector:
         forensic.play_inspector_reveal()
-        EventBus.SuspectCaught.emit()
+        EventBus.SuspectCaught.emit(cleaning_hand.player)
         return
     # ---
     cleaning_hand.crime_evidence_hidden()

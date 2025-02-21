@@ -62,6 +62,8 @@ texture = ExtResource("9_deaxd")
 position = Vector2(0, -16)
 sprite_frames = ExtResource("10_dp6gs")
 animation = &"walk_up"
+frame = 2
+frame_progress = 0.0445592
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 13)
@@ -89,3 +91,4 @@ shape = SubResource("CapsuleShape2D_k3ys7")
 debug_color = Color(0.261603, 0.63394, 0, 0.42)
 
 [connection signal="body_entered" from="DetectionZone" to="InspectorAI" method="on_player_deteted"]
+[connection signal="body_entered" from="CatchingZone" to="." method="on_catching_body"]

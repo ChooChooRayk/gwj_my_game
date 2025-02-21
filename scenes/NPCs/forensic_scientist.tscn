@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgcp0hkb0vimr"]
+[gd_scene load_steps=5 format=3 uid="uid://dgcp0hkb0vimr"]
 
 [ext_resource type="Script" path="res://scenes/NPCs/forensic_scientist.gd" id="1_geek6"]
 [ext_resource type="SpriteFrames" uid="uid://dxqxapxnf8g5y" path="res://resources/character_animation/forensic_scientist_animation.tres" id="3_206ve"]
@@ -6,6 +6,10 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r2wdt"]
 radius = 6.0
 height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4cg7"]
+radius = 13.0
+height = 44.0
 
 [node name="ForensicScientist" type="CharacterBody2D" groups=["forensic_scientists"]]
 collision_layer = 2
@@ -25,3 +29,12 @@ shape = SubResource("CapsuleShape2D_r2wdt")
 [node name="FootPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, 13)
+
+[node name="HiddingZone" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HiddingZone"]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_g4cg7")
+debug_color = Color(0.595939, 0.545289, 0, 0.42)

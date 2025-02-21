@@ -7,8 +7,7 @@ extends InspectorState
 func _ready() -> void:
     super()
     set_process(false)
-    if is_instance_valid((inspector_ai.npc_body as Inspector).catching_zone):
-        (inspector_ai.npc_body as Inspector).catching_zone.body_entered.connect(on_catching_body)
+    EventBus.SuspectCaught.connect(on_suspect_caught)
 
 # ====== PROCESS ====== #
 
@@ -20,21 +19,14 @@ func _process(_delta: float) -> void:
 func enter()->void:
     set_process(true)
     inspector_ai.go_to_target = true
-    (inspector_ai.npc_body as Inspector).catching_zone.monitoring = true
+    (inspector_ai.npc_body as Inspector).catching_zone.set_deferred("monitoring", true)
     return
     
 func exit()->void:
     set_process(false)
-    (inspector_ai.npc_body as Inspector).catching_zone.monitoring = false
+    (inspector_ai.npc_body as Inspector).catching_zone.set_deferred("monitoring", false)
     return
 
-#func target_reached()->void:
-    #EventBus.SuspectCaught.emit(inspector_ai.target_to_chase)
-    #ChangeStateRequested.emit(self, STATES.Idle)
-    #return
-    
-func on_catching_body(body:Node2D)->void:
-    if body.is_in_group("player"):
-        EventBus.SuspectCaught.emit(inspector_ai.target_to_chase)
-        ChangeStateRequested.emit(self, STATES.Idle)        
+func on_suspect_caught(_body:BodyMotor)->void:
+    ChangeStateRequested.emit(self, STATES.Idle)
     return
