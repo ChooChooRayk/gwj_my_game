@@ -4,11 +4,12 @@
 [ext_resource type="SpriteFrames" uid="uid://dxqxapxnf8g5y" path="res://resources/character_animation/forensic_scientist_animation.tres" id="3_206ve"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r2wdt"]
-radius = 13.0
-height = 44.0
+radius = 6.0
+height = 20.0
 
 [node name="ForensicScientist" type="CharacterBody2D" groups=["forensic_scientists"]]
 collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_geek6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -17,7 +18,8 @@ sprite_frames = ExtResource("3_206ve")
 animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(0, 13)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_r2wdt")
 
 [node name="FootPosition" type="Marker2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://du8x2iki4sv20"]
+[gd_scene load_steps=12 format=3 uid="uid://du8x2iki4sv20"]
 
 [ext_resource type="Script" path="res://scenes/NPCs/inspector.gd" id="1_wwls3"]
 [ext_resource type="Script" path="res://scenes/NPCs/inspector_ai/inspector_ai.gd" id="2_g806k"]
@@ -11,11 +11,15 @@
 [ext_resource type="SpriteFrames" uid="uid://dp6xyia83m7tr" path="res://resources/character_animation/inspector_animation.tres" id="10_dp6gs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qcmp"]
-radius = 13.0
-height = 44.0
+radius = 6.0
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k3ys7"]
+height = 36.0
 
 [node name="Inspector" type="CharacterBody2D" groups=["inspectors"]]
 collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_wwls3")
 
 [node name="InspectorAI" type="Node" parent="."]
@@ -60,7 +64,8 @@ sprite_frames = ExtResource("10_dp6gs")
 animation = &"walk_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(0, 13)
+rotation = -1.57079
 shape = SubResource("CapsuleShape2D_7qcmp")
 
 [node name="FootPosition" type="Marker2D" parent="."]
@@ -70,5 +75,17 @@ position = Vector2(0, 13)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
 target_desired_distance = 5.0
+
+[node name="CatchingZone" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatchingZone"]
+position = Vector2(0, 13)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_k3ys7")
+debug_color = Color(0.261603, 0.63394, 0, 0.42)
 
 [connection signal="body_entered" from="DetectionZone" to="InspectorAI" method="on_player_deteted"]
