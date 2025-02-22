@@ -43,18 +43,21 @@ func manage_animation()->void:
         else:
             anim_type = "idle"
         # ---
-        print(last_direction, " - ", movement_direction)
-        if   (last_direction.x>last_direction.y) and (last_direction.x>-last_direction.y):
+        # left
+        if   (last_direction.x<=last_direction.y) and (last_direction.x<-last_direction.y):
+            anim_dir = "left"
+            animated_sprite_2d.flip_h = false
+        # right
+        elif (last_direction.x>=last_direction.y) and (last_direction.x>-last_direction.y):
             anim_dir = "left"
             animated_sprite_2d.flip_h = true
-        elif (last_direction.x<last_direction.y) and (last_direction.x>-last_direction.y):
-            anim_dir = "down"
-            animated_sprite_2d.flip_h = false
-        elif (last_direction.x<last_direction.y) and (last_direction.x<-last_direction.y):
-            anim_dir = "left"
-            animated_sprite_2d.flip_h = false
-        elif (last_direction.x>last_direction.y) and (last_direction.x<-last_direction.y):
+        # up
+        elif (last_direction.x>last_direction.y) and (last_direction.x<=-last_direction.y):
             anim_dir = "up"
+            animated_sprite_2d.flip_h = false
+        # down
+        elif (last_direction.x<last_direction.y) and (last_direction.x>=-last_direction.y):
+            anim_dir = "down"
             animated_sprite_2d.flip_h = false
         else:
             anim_dir = "down"

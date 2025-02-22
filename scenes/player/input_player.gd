@@ -16,7 +16,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
     if not is_player_frozen:
         player_body.movement_direction = Input.get_vector("left","right","up","down")
-        print(player_body.anim_key)
     else:
         player_body.movement_direction = Vector2.ZERO
     # ---  --- #

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddx5en3e0q6qg"]
+
+[ext_resource type="Script" path="res://scenes/menu_UI/button_animation/main_menu_bttn_anim.gd" id="1_ufghf"]
+
+[node name="MainMenuAnimButton" type="Node"]
+script = ExtResource("1_ufghf")
+autostart = false
+transition = 7
+easing = 1

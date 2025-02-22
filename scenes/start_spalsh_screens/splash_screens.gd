@@ -1,6 +1,7 @@
 class_name SplashScreens
 extends Control
 
+signal SplashScreensFinished()
 
 @export var tween_trans : Tween.TransitionType
 @export var tween_ease  : Tween.EaseType
@@ -41,10 +42,14 @@ func _input(event: InputEvent) -> void:
 # ====== MANAGEMENT ====== #
 
 func next_scren()->void:
+    if trans_overlay.animation_player.is_playing():# tackle the asynchronicity
+        await trans_overlay.animation_player.animation_finished
+    # ---
+    #print("splash screen count : ", screen_count)
     if screen_count>=splash_scrn_list.size():
         trans_overlay.transition(SceneTransitionOverlay.TRANS_TYPE.FADE_IN)
         await trans_overlay.transition_finished
-        queue_free()
+        end_splash_screens()
         return
     # ---
     splash_scrn_list[screen_count].visible = true
@@ -62,7 +67,10 @@ func interupt_splash()->void:
     trans_overlay.skip_transition()
     screen_count += 1
     if screen_count>=splash_scrn_list.size():
-        queue_free()
+        end_splash_screens()
         return
     next_scren()
-    
+
+func end_splash_screens()->void:
+        SplashScreensFinished.emit()
+        queue_free()

@@ -19,6 +19,14 @@ func _ready() -> void:
     settings_menu.main_menu_bttn.text = "Back"
     return
 
+# ====== PROCESS ====== #
+
+func _unhandled_input(event: InputEvent) -> void:
+    if event.is_action_pressed("pause_game"):
+        print("ask pause")
+        continue_game()
+        get_viewport().set_input_as_handled()
+
 # ====== MANAGEMENT ====== #
 
 func return_to_main_menu()->void:

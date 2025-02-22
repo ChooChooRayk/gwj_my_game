@@ -69,11 +69,18 @@ func init_level()->void:
 # ====== PROCESS ====== #
 
 func _unhandled_input(event: InputEvent) -> void:
-    if event.is_action("pause_game"):
-        pause_menu.visible = true
-        get_tree().paused  = true
+    if event.is_action_pressed("pause_game"):
+        toggle_pause_game()
+        get_viewport().set_input_as_handled()
+
 
 # ====== MANAGEMENT ====== #
+
+func toggle_pause_game()->void:
+    print("toggle pausing")
+    var is_game_paused = get_tree().paused
+    pause_menu.visible = !is_game_paused
+    get_tree().paused  = !is_game_paused
 
 func mission_failed()->void:
     Engine.time_scale = 0.1
