@@ -35,7 +35,8 @@ func _ready() -> void:
             path_index_list.append(path_length-2-i)
     # ---
     var level : Level = Utilities.find_first_parent_of_type(self, Level) as Level
-    cleaning_hand = Utilities.find_first_child_of_type(level, CleaningHand) as CleaningHand
+    if is_instance_valid(level):
+        cleaning_hand = Utilities.find_first_child_of_type(level, CleaningHand) as CleaningHand
     return
 
 # ====== PROCESS ====== #

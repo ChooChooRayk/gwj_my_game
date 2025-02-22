@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqak675ispxnm"]
+
+[ext_resource type="Script" path="res://scenes/menu_UI/tutorial/component/player_npc.gd" id="1_whpq1"]
+[ext_resource type="Script" path="res://scenes/player/ClickableZoneDisplayer.gd" id="3_8n72p"]
+[ext_resource type="SpriteFrames" uid="uid://clyjpqs8gef1a" path="res://resources/character_animation/cop_default_animation.tres" id="4_r3366"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jvjy2"]
+radius = 6.0
+height = 20.0
+
+[node name="PlayerNPC" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_whpq1")
+
+[node name="DrawCleaningZone" type="Node2D" parent="."]
+unique_name_in_owner = true
+z_index = 3
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, -12)
+script = ExtResource("3_8n72p")
+color = Color(0.933333, 0.188235, 0.329412, 1)
+
+[node name="DrawFramingZone" type="Node2D" parent="."]
+unique_name_in_owner = true
+z_index = 3
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, -12)
+script = ExtResource("3_8n72p")
+color = Color(0.686275, 0.866667, 0.815686, 1)
+dash_speed = -0.1
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+z_index = 3
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, -29)
+sprite_frames = ExtResource("4_r3366")
+animation = &"idle_down"
+autoplay = "idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jvjy2")
+
+[node name="FootPosition" type="Marker2D" parent="."]
+unique_name_in_owner = true

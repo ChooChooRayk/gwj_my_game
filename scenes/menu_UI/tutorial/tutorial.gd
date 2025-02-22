@@ -16,7 +16,7 @@ var tuto_started   := false
 func _ready() -> void:
     hide_all()
     # ---
-    process_mode = PROCESS_MODE_WHEN_PAUSED
+    #process_mode = PROCESS_MODE_WHEN_PAUSED
     # ---
     if not(GlobalSettings.current_game_settings["tutorial"]):
         queue_free()

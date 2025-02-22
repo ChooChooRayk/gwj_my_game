@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgqm4oevr1gf4"]
+[gd_scene load_steps=5 format=3 uid="uid://dgqm4oevr1gf4"]
 
 [ext_resource type="Script" path="res://scenes/menu_UI/tutorial/tutorial.gd" id="1_t0jk6"]
+[ext_resource type="PackedScene" uid="uid://cqak675ispxnm" path="res://scenes/menu_UI/tutorial/component/player_npc.tscn" id="2_gi4yf"]
+[ext_resource type="PackedScene" uid="uid://du8x2iki4sv20" path="res://scenes/NPCs/inspector.tscn" id="3_yo8oc"]
+
+[sub_resource type="Curve2D" id="Curve2D_b1bqt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 248, 110, 0, 0, 0, 0, 376, 144, 0, 0, 0, 0, 497, 223)
+}
+point_count = 3
 
 [node name="Tutorial" type="CanvasLayer"]
 script = ExtResource("1_t0jk6")
@@ -15,7 +23,6 @@ grow_vertical = 2
 
 [node name="TutoPanel1" type="PanelContainer" parent="Control"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,3 +64,15 @@ grow_vertical = 2
 layout_mode = 2
 text = "Tuto 3"
 horizontal_alignment = 1
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="PlayerNPC" parent="Node2D" instance=ExtResource("2_gi4yf")]
+position = Vector2(228, 244)
+
+[node name="Inspector" parent="Node2D" node_paths=PackedStringArray("scouting_targets") instance=ExtResource("3_yo8oc")]
+position = Vector2(197, 340)
+scouting_targets = NodePath("../Path2D")
+
+[node name="Path2D" type="Path2D" parent="Node2D"]
+curve = SubResource("Curve2D_b1bqt")
