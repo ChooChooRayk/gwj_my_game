@@ -7,14 +7,19 @@ var control_parent : Control
 
 @export var pos_offset : Vector2 = Vector2.ZERO
 
+@export var enable_animation : bool = false:
+    set = set_enable_anim
+
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
     control_parent = get_parent() as Control
     # ---
-    control_parent.mouse_entered.connect(play_animation)
-    control_parent.mouse_exited .connect(set_to_default)
-    control_parent.resized      .connect(set_aspect_to_center)
+    if enable_animation:
+        control_parent.mouse_entered.connect(play_animation)
+        control_parent.mouse_exited .connect(set_to_default)
+    # ---
+    control_parent.resized.connect(set_aspect_to_center)
     return
 
 # ====== PROCESS ====== #
@@ -25,6 +30,18 @@ func set_aspect_to_center()->void:
     return
 
 # ====== MANAGEMENT ====== #
+
+func set_enable_anim(value):
+    if value!=enable_animation:
+        if value:
+            control_parent.mouse_entered.connect(play_animation)
+            control_parent.mouse_exited .connect(set_to_default)
+        else:
+            control_parent.mouse_entered.disconnect(play_animation)
+            control_parent.mouse_exited .disconnect(set_to_default)
+    # ---
+    enable_animation = value
+    return
 
 func play_animation()->void:
     animated_sprite_2d.play("swipe_clean")

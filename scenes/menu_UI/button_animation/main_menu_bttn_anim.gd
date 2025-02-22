@@ -4,6 +4,8 @@ extends ControlAnimation
 @export var sprite_anim : AnimatedOverlay
 @export var splash_screen : SplashScreens
 
+var init_enable : bool
+
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
@@ -15,6 +17,8 @@ func _ready() -> void:
             push_error("Error extra animation not found.")
     # ---
     sprite_anim.animated_sprite_2d.play("default_bloody")
+    init_enable = sprite_anim.enable_animation
+    sprite_anim.enable_animation = false
     # ---
     splash_screen = Utilities.find_first_child_of_type(get_tree().root, SplashScreens) as SplashScreens
     if not(is_instance_valid(splash_screen)):
@@ -33,4 +37,6 @@ func setup_animation()->void:
 
 func end_animation_func()->void:
     sprite_anim.play_animation()
+    await sprite_anim.animated_sprite_2d.animation_finished
+    sprite_anim.enable_animation = init_enable
     return

@@ -116,7 +116,7 @@ layout_mode = 1
 
 [node name="MainMenuAnimButton" parent="MainMenu/VBoxContainer/PanelContainer/VBoxContainer/StartButton" instance=ExtResource("8_mapw2")]
 duration = 1.5
-start_delay = 1.0
+start_delay = 0.2
 start_pos = Vector2(0, 300)
 
 [node name="Settings" type="Button" parent="MainMenu/VBoxContainer/PanelContainer/VBoxContainer"]
@@ -134,7 +134,7 @@ grow_vertical = 1
 
 [node name="MainMenuAnimButton2" parent="MainMenu/VBoxContainer/PanelContainer/VBoxContainer/Settings" instance=ExtResource("8_mapw2")]
 duration = 1.5
-start_delay = 2.0
+start_delay = 0.4
 start_pos = Vector2(0, 300)
 
 [node name="Quit" type="Button" parent="MainMenu/VBoxContainer/PanelContainer/VBoxContainer"]
@@ -150,6 +150,11 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 
+[node name="MainMenuAnimButton3" parent="MainMenu/VBoxContainer/PanelContainer/VBoxContainer/Quit" instance=ExtResource("8_mapw2")]
+duration = 1.5
+start_delay = 0.6
+start_pos = Vector2(0, 300)
+
 [node name="Credits" type="Button" parent="MainMenu/VBoxContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -162,6 +167,11 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="MainMenuAnimButton4" parent="MainMenu/VBoxContainer/PanelContainer/VBoxContainer/Credits" instance=ExtResource("8_mapw2")]
+duration = 1.5
+start_delay = 0.8
+start_pos = Vector2(0, 300)
 
 [node name="SettingsMenu" parent="." instance=ExtResource("2_5vv5r")]
 visible = false
