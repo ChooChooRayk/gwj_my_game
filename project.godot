@@ -25,8 +25,9 @@ buses/default_bus_layout="res://sound_music_buses.tres"
 EventBus="*res://global_scripts/EventBus.gd"
 SceneManager="*res://global_scripts/SceneManager.gd"
 GlobalColors="*res://global_scripts/GlobalColors.gd"
-PlayerStatistics="*res://global_scripts/PlayerStatistics.gd"
 GlobalSettings="*res://global_scripts/GlobalSettings.gd"
+PlayerStatistics="*res://global_scripts/PlayerStatistics.tscn"
+MusicManager="*res://global_scripts/MusicManager.tscn"
 
 [display]
 
