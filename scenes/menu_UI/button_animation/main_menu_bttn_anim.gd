@@ -19,6 +19,7 @@ func _ready() -> void:
     sprite_anim.animated_sprite_2d.play("default_bloody")
     init_enable = sprite_anim.enable_animation
     sprite_anim.enable_animation = false
+    parent_ctrl.modulate = Color(Color.WHITE,0.0)
     # ---
     splash_screen = Utilities.find_first_child_of_type(get_tree().root, SplashScreens) as SplashScreens
     if not(is_instance_valid(splash_screen)):
@@ -33,6 +34,7 @@ func setup_animation()->void:
     if is_instance_valid(splash_screen):
         await splash_screen.SplashScreensFinished
     #call_deferred("play_animation")
+    parent_ctrl.modulate = Color(Color.WHITE,1.0)
     play_animation()
 
 func end_animation_func()->void:

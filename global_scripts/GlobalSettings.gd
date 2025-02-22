@@ -29,12 +29,14 @@ static var missions_dic : Dictionary = {
 
 var current_game_settings := {
     "master_vol" : 0.,
+    "music_vol"  : 0.,
     "sfx_vol"    : 0.,
     "windowing"  : 0,
     "tutorial"   : true,
 }
 var default_game_settings := {
     "master_vol" : 0.,
+    "music_vol"  : 0.,
     "sfx_vol"    : 0.,
     "windowing"  : 0,
     "tutorial"   : true,

@@ -11,8 +11,6 @@ script = ExtResource("1_mbb0t")
 gui_container = NodePath("UIContainer")
 main_scene_container = NodePath("MainSceneContainer")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-
 [node name="MainSceneContainer" type="Node2D" parent="."]
 
 [node name="UIContainer" type="CanvasLayer" parent="."]

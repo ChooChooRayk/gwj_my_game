@@ -28,6 +28,7 @@ GlobalColors="*res://global_scripts/GlobalColors.gd"
 GlobalSettings="*res://global_scripts/GlobalSettings.gd"
 PlayerStatistics="*res://global_scripts/PlayerStatistics.tscn"
 MusicManager="*res://global_scripts/MusicManager.tscn"
+SFXManager="*res://global_scripts/SFXManager.tscn"
 
 [display]
 

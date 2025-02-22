@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://duddtd61qo7x"]
+[gd_scene load_steps=17 format=3 uid="uid://duddtd61qo7x"]
 
 [ext_resource type="Script" path="res://scenes/menu_UI/game_menu.gd" id="1_s7q0w"]
 [ext_resource type="Theme" uid="uid://cmtub874cpkew" path="res://assets/themes/main_menu_theme.tres" id="1_svic6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cvo0xvk8kchrp" path="res://assets/evidence_items/evidence_items_diaporama.png" id="3_37yrb"]
 [ext_resource type="Texture2D" uid="uid://qsstmwb5g3ln" path="res://assets/ui/ConversationPanel.png" id="3_a6vjq"]
 [ext_resource type="Texture2D" uid="uid://b7p76anfdow7t" path="res://assets/ui/GameTitle.png" id="3_fq5sx"]
+[ext_resource type="AudioStream" uid="uid://bdxkg1dkr354a" path="res://assets/musics/Fablefly_Music_spy_showdownMP3.mp3" id="3_ftfnf"]
 [ext_resource type="Shader" path="res://resources/shaders/game_menu_ui_background.gdshader" id="3_wpc37"]
 [ext_resource type="PackedScene" uid="uid://cvgqncv8ub5jh" path="res://scenes/menu_UI/swipe_clean_overlay/animated_overlay.tscn" id="4_tnerg"]
 [ext_resource type="PackedScene" uid="uid://ddx5en3e0q6qg" path="res://scenes/menu_UI/button_animation/main_menu_anim_button.tscn" id="8_mapw2"]
@@ -26,6 +27,21 @@ texture_margin_top = 7.0
 texture_margin_right = 7.0
 texture_margin_bottom = 7.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nequf"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.144, 0.182133, 0.32, 0.6)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jxys7"]
+texture = ExtResource("3_a6vjq")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+region_rect = Rect2(0, 0, 32, 32)
+
 [sub_resource type="Animation" id="Animation_ri181"]
 resource_name = "title_animation"
 loop_mode = 1
@@ -44,6 +60,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_svic6")
 script = ExtResource("1_s7q0w")
+menu_music = ExtResource("3_ftfnf")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -189,21 +206,49 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nequf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 4
 alignment = 1
 
-[node name="Spacer2" type="Control" parent="Credits/VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Credits/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Credits/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Thanks for :"
+theme_override_styles/panel = SubResource("StyleBoxTexture_jxys7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/bold_italics_font_size = 0
+theme_override_font_sizes/italics_font_size = 0
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 12
+bbcode_enabled = true
+text = "[center][color=red][b]Credits:[/b][/color][/center]
+
+[p]Thanks a lot for all people who shared their experience and work hard to make it accessible to the many.
+Also I give a thank for the organizers of the game jam, and all the contributors and playtesters.
+
+[p]Must of all, for this particular project, I would like to thank:
+[indent]
+[color=yellow][b]Fablefly Music[/b][/color]
+(fablefly.music@gmail.com, https://fablefly-music.itch.io/spy-showdown)
+for the track I use in the main menu.
+
+[color=yellow][b]LimeZu[/b][/color]
+(https://limezu.itch.io, www.instagram.com/limezu_, @lime_px),
+for the pixel artwork (ModernInterior,ModernExterior) I use in the level design.
+
+[color=yellow][b]Nimble Beasts[/b][/color]
+(https://nimblebeastscollective.itch.io, nimblebeasts.com)
+for the pixel art fontstyle in use.
+[/indent]
+
+[b][/b]
+"
 
 [node name="Spacer" type="Control" parent="Credits/VBoxContainer"]
 layout_mode = 2
@@ -211,10 +256,6 @@ layout_mode = 2
 [node name="MainMenuBttn" type="Button" parent="Credits/VBoxContainer"]
 layout_mode = 2
 text = "Main Menu"
-
-[node name="Spacer3" type="Control" parent="Credits/VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -2,6 +2,8 @@ class_name GameMenu
 extends Control
 
 
+@export var menu_music : AudioStream
+
 @onready var settings_menu : SettingsMenu   = $SettingsMenu
 @onready var main_menu     : PanelContainer = $MainMenu
 @onready var credits       : PanelContainer = $Credits
@@ -16,6 +18,9 @@ extends Control
 func _ready() -> void:
     settings_menu.main_menu_bttn.pressed.connect(return_to_main_menu)
     quit.pressed.connect(get_tree().quit)
+    # ---
+    if is_instance_valid(menu_music):
+        MusicManager.play_audio(menu_music, true)
     return
     
 # ====== MANAGEMENT ====== #
