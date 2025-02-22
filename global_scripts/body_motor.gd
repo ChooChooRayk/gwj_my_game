@@ -11,6 +11,8 @@ var movement_direction : Vector2 = Vector2.ZERO
 var animated_sprite_2d: AnimatedSprite2D
 var last_direction := Vector2.UP
 
+var anim_key := ""
+
 # ====== INITIALIZATION =====+ #
 
 func _ready() -> void:
@@ -41,6 +43,7 @@ func manage_animation()->void:
         else:
             anim_type = "idle"
         # ---
+        print(last_direction, " - ", movement_direction)
         if   (last_direction.x>last_direction.y) and (last_direction.x>-last_direction.y):
             anim_dir = "left"
             animated_sprite_2d.flip_h = true
@@ -57,5 +60,6 @@ func manage_animation()->void:
             anim_dir = "down"
             animated_sprite_2d.flip_h = false            
         # ---
+        anim_key = "{type}_{dir}".format({"type":anim_type, "dir":anim_dir})
         animated_sprite_2d.play("{type}_{dir}".format({"type":anim_type, "dir":anim_dir}))
     return

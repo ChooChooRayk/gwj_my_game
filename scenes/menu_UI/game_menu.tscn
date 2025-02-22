@@ -1,9 +1,12 @@
-[gd_scene load_steps=18 format=4 uid="uid://duddtd61qo7x"]
+[gd_scene load_steps=23 format=4 uid="uid://duddtd61qo7x"]
 
 [ext_resource type="FontFile" uid="uid://d365r4065j2rf" path="res://assets/fontstyles/c64esque.ttf" id="1_cvefy"]
 [ext_resource type="Script" path="res://scenes/menu_UI/game_menu.gd" id="1_s7q0w"]
 [ext_resource type="PackedScene" uid="uid://boa4w0vx84ybe" path="res://scenes/menu_UI/setting_menu/settings_menu.tscn" id="2_5vv5r"]
+[ext_resource type="Texture2D" uid="uid://cvo0xvk8kchrp" path="res://assets/evidence_items/evidence_items_diaporama.png" id="3_37yrb"]
+[ext_resource type="Texture2D" uid="uid://qsstmwb5g3ln" path="res://assets/ui/ConversationPanel.png" id="3_a6vjq"]
 [ext_resource type="Texture2D" uid="uid://b7p76anfdow7t" path="res://assets/ui/GameTitle.png" id="3_fq5sx"]
+[ext_resource type="Shader" path="res://resources/shaders/game_menu_ui_background.gdshader" id="3_wpc37"]
 [ext_resource type="PackedScene" uid="uid://cvgqncv8ub5jh" path="res://scenes/menu_UI/swipe_clean_overlay/animated_overlay.tscn" id="4_tnerg"]
 
 [sub_resource type="Image" id="Image_kcref"]
@@ -1743,6 +1746,22 @@ RichTextLabel/styles/focus = SubResource("StyleBoxFlat_4pfno")
 RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_ellg8")
 TabContainer/fonts/font = ExtResource("1_cvefy")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tw20f"]
+shader = ExtResource("3_wpc37")
+shader_parameter/repeat_x = 2.0
+shader_parameter/repeat_y = 2.0
+shader_parameter/angle = 157.0
+shader_parameter/scroll_speed = 0.2
+shader_parameter/color1 = Color(1, 1, 1, 1)
+shader_parameter/color2 = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vh77h"]
+texture = ExtResource("3_a6vjq")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
 [node name="GameMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -1763,12 +1782,16 @@ grow_vertical = 2
 color = Color(0.393086, 0.393086, 0.393085, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_tw20f")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_37yrb")
+expand_mode = 4
+stretch_mode = 5
 
 [node name="MainMenu" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -1783,6 +1806,7 @@ offset_right = 229.0
 offset_bottom = 109.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vh77h")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
 layout_mode = 2
