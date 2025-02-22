@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5wauwj63cf3m"
-path="res://.godot/imported/murder_knife_32_cleaned.png-d7ff509bbfb538f4f93be1401a04520e.ctex"
+uid="uid://dtx242xnmt84g"
+path="res://.godot/imported/murder_shovel_bloody.png-874a5876964a238fd4d94727681759f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/evidence_items/murder_knife/murder_knife_32_cleaned.png"
-dest_files=["res://.godot/imported/murder_knife_32_cleaned.png-d7ff509bbfb538f4f93be1401a04520e.ctex"]
+source_file="res://assets/evidence_items/murder_shovel/murder_shovel_bloody.png"
+dest_files=["res://.godot/imported/murder_shovel_bloody.png-874a5876964a238fd4d94727681759f4.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtimhta6y0a5e"
-path="res://.godot/imported/murder_knife_32_bloody.png-b6b33af8ee67738f464ca57a2f9b08da.ctex"
+uid="uid://cetys7w34ccou"
+path="res://.godot/imported/murder_piercor_bloody.png-8fe15600999bc2f88f23199bc344a7d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/evidence_items/murder_knife/murder_knife_32_bloody.png"
-dest_files=["res://.godot/imported/murder_knife_32_bloody.png-b6b33af8ee67738f464ca57a2f9b08da.ctex"]
+source_file="res://assets/evidence_items/murder_piercor/murder_piercor_bloody.png"
+dest_files=["res://.godot/imported/murder_piercor_bloody.png-8fe15600999bc2f88f23199bc344a7d3.ctex"]
 
 [params]
 
