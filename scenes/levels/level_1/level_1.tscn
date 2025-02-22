@@ -78,6 +78,7 @@ texture = ExtResource("7_inkaq")
 
 [node name="Player" parent="Map" instance=ExtResource("3_hy12e")]
 z_index = 3
+z_as_relative = false
 
 [node name="StartLevelPosition" parent="Map" instance=ExtResource("4_j22tu")]
 position = Vector2(0, 63)
