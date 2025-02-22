@@ -8,7 +8,7 @@ enum TYPE {CLEANING, FRAMING}
 @export var clickable_zone    : ClickableZone
 
 @export var price           : int
-@export var description_txt : String
+@export_multiline var description_txt : String
 
 @export var icon                  : Texture2D
 @export var cleaning_aspect       : Texture2D

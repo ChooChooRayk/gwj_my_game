@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://72ox32181fxs"]
+[gd_scene load_steps=11 format=3 uid="uid://72ox32181fxs"]
 
 [ext_resource type="Script" path="res://scenes/menu_UI/new_mission_menu/new_mission_menu.gd" id="1_fi2sr"]
 [ext_resource type="Theme" uid="uid://cmtub874cpkew" path="res://assets/themes/main_menu_theme.tres" id="1_m4tmt"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://resources/TemperingTool.gd" id="5_je407"]
 [ext_resource type="Resource" uid="uid://dv4sthl1dsq5r" path="res://resources/cleaning_tools/cleaning_cloth_base.tres" id="6_ojbpk"]
 [ext_resource type="Resource" uid="uid://w4n20mnwwfas" path="res://resources/cleaning_tools/broom_tool.tres" id="7_f85ge"]
+[ext_resource type="Resource" uid="uid://bi8vapn2h3srx" path="res://resources/framing_tool/reach_extender_tool.tres" id="8_auf5w"]
 
 [node name="NewMissionMenu" type="Control"]
 layout_mode = 3
@@ -53,7 +54,7 @@ size_flags_stretch_ratio = 3.0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_stretch_ratio = 3.0
-storage = Array[ExtResource("5_je407")]([ExtResource("6_ojbpk"), ExtResource("7_f85ge")])
+storage = Array[ExtResource("5_je407")]([ExtResource("6_ojbpk"), ExtResource("7_f85ge"), ExtResource("8_auf5w")])
 
 [node name="spacer2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 8)

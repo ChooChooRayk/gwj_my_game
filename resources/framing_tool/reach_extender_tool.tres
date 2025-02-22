@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="TemperingTool" load_steps=5 format=3 uid="uid://bi8vapn2h3srx"]
+
+[ext_resource type="Script" path="res://resources/ClickableZone.gd" id="1_0y7hr"]
+[ext_resource type="Script" path="res://resources/TemperingTool.gd" id="1_jb0e2"]
+[ext_resource type="Texture2D" uid="uid://bfegl23finxys" path="res://assets/cleaning_stuff/reach_extender_icon.png" id="2_i652r"]
+
+[sub_resource type="Resource" id="Resource_36tip"]
+script = ExtResource("1_0y7hr")
+radius = 50.0
+ellps_e = 0.5
+center_offset = Vector2(0, 10)
+center_zone = Vector2(0, 0)
+
+[resource]
+script = ExtResource("1_jb0e2")
+type = 1
+cleaning_duration = 0.0
+clickable_zone = SubResource("Resource_36tip")
+price = 1000
+description_txt = "Reach Extender:
+Allows to discretly hide a dirty cleaning tool at a longer distance."
+icon = ExtResource("2_i652r")

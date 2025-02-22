@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://resources/TemperingTool.gd" id="1_jgin2"]
 [ext_resource type="Script" path="res://resources/ClickableZone.gd" id="1_jlqkj"]
-[ext_resource type="Texture2D" uid="uid://b415lh3ufv355" path="res://assets/cleaning_stuff/cleaning_broom.svg" id="2_owunh"]
+[ext_resource type="Texture2D" uid="uid://b4wx1hvm0kqnk" path="res://assets/cleaning_stuff/cleaning_broom_icon.png" id="2_5wt3i"]
 
 [sub_resource type="Resource" id="Resource_4uyev"]
 script = ExtResource("1_jlqkj")
@@ -17,5 +17,6 @@ type = 0
 cleaning_duration = 3.0
 clickable_zone = SubResource("Resource_4uyev")
 price = 400
-description_txt = "Broom:\\nCleaning tool that allow larger range of effect."
-icon = ExtResource("2_owunh")
+description_txt = "Broom:
+Cleaning tool that allow larger range of effect."
+icon = ExtResource("2_5wt3i")
