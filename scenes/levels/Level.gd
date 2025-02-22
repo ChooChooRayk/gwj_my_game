@@ -63,6 +63,9 @@ func init_level()->void:
     hud.init_hud()
     mission_timer.start()
     # ---
+    if is_instance_valid(mission_res.level_music):
+        MusicManager.play_audio(mission_res.level_music, true, true)
+    # ---
     LevelUpdated.emit()
     return
 

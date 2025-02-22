@@ -39,9 +39,6 @@ func play_audio(audio:AudioStream, single=false, transition=false)->void:
         audio_transition(TRANS_TYPE.OUT)
         await tween.finished
     # ---
-    print(bus_volume_db)
-    print(bus_volume_multiplier)
-    # ---
     var audio_player := find_first_unoccupied_audio_streamer()
     audio_player.stream = audio
     audio_player.play()
