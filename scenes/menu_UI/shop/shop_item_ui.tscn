@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpies2aij7pjl"]
+[gd_scene load_steps=4 format=3 uid="uid://bpies2aij7pjl"]
 
 [ext_resource type="Theme" uid="uid://c7u02sp50jxf8" path="res://assets/themes/shop_item_theme.tres" id="1_vhjpf"]
 [ext_resource type="Script" path="res://scenes/menu_UI/shop/shop_item_ui.gd" id="1_ylkgr"]
+[ext_resource type="PackedScene" uid="uid://dh1vqggqgorkj" path="res://scenes/menu_UI/sfx_ui/sfx_item_stack.tscn" id="3_y5keh"]
 
 [node name="ShopItemUI" type="Button"]
 size_flags_horizontal = 3
@@ -13,3 +14,5 @@ text = "cost : 10$"
 icon_alignment = 1
 vertical_icon_alignment = 0
 script = ExtResource("1_ylkgr")
+
+[node name="SfxItemStack" parent="." instance=ExtResource("3_y5keh")]

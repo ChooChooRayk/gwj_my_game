@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://kb5ppulyuyb6"]
+[gd_scene load_steps=5 format=3 uid="uid://kb5ppulyuyb6"]
 
 [ext_resource type="Script" path="res://scenes/menu_UI/shop/shop_ui.gd" id="1_f8jyl"]
 [ext_resource type="Texture2D" uid="uid://qsstmwb5g3ln" path="res://assets/ui/ConversationPanel.png" id="1_xrvjf"]
+[ext_resource type="PackedScene" uid="uid://dtyp8o5x48qn4" path="res://scenes/menu_UI/sfx_ui/sfx_button_default.tscn" id="3_gnwtf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v7nwk"]
 texture = ExtResource("1_xrvjf")
@@ -65,5 +66,7 @@ layout_mode = 2
 [node name="BuyBttn" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Buy"
+
+[node name="SfxButtonDefault" parent="VBoxContainer/VBoxContainer/HBoxContainer/BuyBttn" instance=ExtResource("3_gnwtf")]
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/HBoxContainer/BuyBttn" to="." method="on_buying"]

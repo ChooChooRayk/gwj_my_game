@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://fj78pc8owlf2"]
+[gd_scene load_steps=6 format=3 uid="uid://fj78pc8owlf2"]
 
 [ext_resource type="Theme" uid="uid://c7u02sp50jxf8" path="res://assets/themes/shop_item_theme.tres" id="1_6b35c"]
 [ext_resource type="Texture2D" uid="uid://dio0cqeoetfvj" path="res://assets/ui/shop_item_container.png" id="2_8kr37"]
 [ext_resource type="Script" path="res://scenes/menu_UI/inventory/inventory_item_ui.gd" id="2_wkdwm"]
+[ext_resource type="PackedScene" uid="uid://dh1vqggqgorkj" path="res://scenes/menu_UI/sfx_ui/sfx_item_stack.tscn" id="4_6fbgd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b0eda"]
 texture = ExtResource("2_8kr37")
@@ -28,3 +29,5 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 script = ExtResource("2_wkdwm")
+
+[node name="SfxItemStack" parent="." instance=ExtResource("4_6fbgd")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://duddtd61qo7x"]
+[gd_scene load_steps=18 format=3 uid="uid://duddtd61qo7x"]
 
 [ext_resource type="Script" path="res://scenes/menu_UI/game_menu.gd" id="1_s7q0w"]
 [ext_resource type="Theme" uid="uid://cmtub874cpkew" path="res://assets/themes/main_menu_theme.tres" id="1_svic6"]
@@ -10,6 +10,7 @@
 [ext_resource type="Shader" path="res://resources/shaders/game_menu_ui_background.gdshader" id="3_wpc37"]
 [ext_resource type="PackedScene" uid="uid://cvgqncv8ub5jh" path="res://scenes/menu_UI/swipe_clean_overlay/animated_overlay.tscn" id="4_tnerg"]
 [ext_resource type="PackedScene" uid="uid://ddx5en3e0q6qg" path="res://scenes/menu_UI/button_animation/main_menu_anim_button.tscn" id="8_mapw2"]
+[ext_resource type="PackedScene" uid="uid://dtyp8o5x48qn4" path="res://scenes/menu_UI/sfx_ui/sfx_button_default.tscn" id="10_gdd0c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tw20f"]
 shader = ExtResource("3_wpc37")
@@ -136,6 +137,8 @@ duration = 1.5
 start_delay = 0.2
 start_pos = Vector2(0, 300)
 
+[node name="SfxButtonDefault" parent="MainMenu/VBoxContainer/PanelContainer/VBoxContainer/StartButton" instance=ExtResource("10_gdd0c")]
+
 [node name="Settings" type="Button" parent="MainMenu/VBoxContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -153,6 +156,8 @@ grow_vertical = 1
 duration = 1.5
 start_delay = 0.4
 start_pos = Vector2(0, 300)
+
+[node name="SfxButtonDefault" parent="MainMenu/VBoxContainer/PanelContainer/VBoxContainer/Settings" instance=ExtResource("10_gdd0c")]
 
 [node name="Quit" type="Button" parent="MainMenu/VBoxContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -172,6 +177,8 @@ duration = 1.5
 start_delay = 0.6
 start_pos = Vector2(0, 300)
 
+[node name="SfxButtonDefault" parent="MainMenu/VBoxContainer/PanelContainer/VBoxContainer/Quit" instance=ExtResource("10_gdd0c")]
+
 [node name="Credits" type="Button" parent="MainMenu/VBoxContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -189,6 +196,8 @@ grow_vertical = 1
 duration = 1.5
 start_delay = 0.8
 start_pos = Vector2(0, 300)
+
+[node name="SfxButtonDefault" parent="MainMenu/VBoxContainer/PanelContainer/VBoxContainer/Credits" instance=ExtResource("10_gdd0c")]
 
 [node name="SettingsMenu" parent="." instance=ExtResource("2_5vv5r")]
 visible = false
@@ -256,6 +265,8 @@ layout_mode = 2
 [node name="MainMenuBttn" type="Button" parent="Credits/VBoxContainer"]
 layout_mode = 2
 text = "Main Menu"
+
+[node name="SfxButtonDefault" parent="Credits/VBoxContainer/MainMenuBttn" instance=ExtResource("10_gdd0c")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

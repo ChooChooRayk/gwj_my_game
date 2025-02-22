@@ -16,6 +16,10 @@ for the pixel artwork (ModernInterior,ModernExterior) I use in the level design.
 [color=yellow][b]Nimble Beasts[/b][/color]
 (https://nimblebeastscollective.itch.io, nimblebeasts.com)
 for the pixel art fontstyle in use.
+
+[color=yellow][b]Kenney assets[/b][/color]
+( www.kenney.nl)
+for the available and rich SFX library.
 [/indent]
 
 [b][/b]

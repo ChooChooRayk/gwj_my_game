@@ -1,10 +1,16 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cxuqd34451nfm"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cxuqd34451nfm"]
 
+[ext_resource type="FontFile" uid="uid://wecvi2hswg40" path="res://assets/fontstyles/PixeloidSans-Bold.ttf" id="1_jdk06"]
 [ext_resource type="Texture2D" uid="uid://qsstmwb5g3ln" path="res://assets/ui/ConversationPanel.png" id="1_vh0ld"]
+[ext_resource type="FontFile" uid="uid://n71217bjpwdj" path="res://assets/fontstyles/PixeloidSans.ttf" id="2_1b7t4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bnybd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ijaf7"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 texture = ExtResource("1_vh0ld")
 texture_margin_left = 7.0
 texture_margin_top = 7.0
@@ -12,5 +18,13 @@ texture_margin_right = 7.0
 texture_margin_bottom = 7.0
 
 [resource]
+RichTextLabel/font_sizes/bold_font_size = 12
+RichTextLabel/font_sizes/italics_font_size = 12
+RichTextLabel/font_sizes/mono_font_size = 12
+RichTextLabel/font_sizes/normal_font_size = 12
+RichTextLabel/fonts/bold_font = ExtResource("1_jdk06")
+RichTextLabel/fonts/bold_italics_font = ExtResource("1_jdk06")
+RichTextLabel/fonts/italics_font = ExtResource("2_1b7t4")
+RichTextLabel/fonts/normal_font = ExtResource("2_1b7t4")
 RichTextLabel/styles/focus = SubResource("StyleBoxEmpty_bnybd")
 RichTextLabel/styles/normal = SubResource("StyleBoxTexture_ijaf7")

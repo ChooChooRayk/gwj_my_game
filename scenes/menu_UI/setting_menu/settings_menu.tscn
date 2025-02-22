@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://boa4w0vx84ybe"]
+[gd_scene load_steps=4 format=3 uid="uid://boa4w0vx84ybe"]
 
 [ext_resource type="Script" path="res://scenes/menu_UI/setting_menu/settings_menu.gd" id="1_qt1do"]
 [ext_resource type="Script" path="res://scenes/menu_UI/setting_menu/InputRemapPanel.gd" id="2_4l12d"]
+[ext_resource type="PackedScene" uid="uid://dtyp8o5x48qn4" path="res://scenes/menu_UI/sfx_ui/sfx_button_default.tscn" id="3_7p0f4"]
 
 [node name="SettingsMenu" type="PanelContainer"]
 custom_minimum_size = Vector2(400, 300)
@@ -120,6 +121,8 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Main menu"
 
+[node name="SfxButtonDefault" parent="VBoxContainer/HBoxContainer/MainMenuBttn" instance=ExtResource("3_7p0f4")]
+
 [node name="spacer" type="Control" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -129,10 +132,14 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Reset"
 
+[node name="SfxButtonDefault" parent="VBoxContainer/HBoxContainer/ResetBttn" instance=ExtResource("3_7p0f4")]
+
 [node name="ApplyBttn" type="Button" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Apply"
+
+[node name="SfxButtonDefault" parent="VBoxContainer/HBoxContainer/ApplyBttn" instance=ExtResource("3_7p0f4")]
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ResetBttn" to="." method="on_reset_settings"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ApplyBttn" to="." method="on_apply_settings"]

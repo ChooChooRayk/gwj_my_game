@@ -24,6 +24,7 @@ var caller_title  := ""
 var caller_text   := ""
 var wrapped_text  := ""
 var start_title   := ""
+
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:

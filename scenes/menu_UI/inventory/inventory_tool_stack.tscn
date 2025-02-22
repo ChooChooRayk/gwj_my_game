@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ljkd8ba5dvhp"]
+[gd_scene load_steps=5 format=3 uid="uid://ljkd8ba5dvhp"]
 
 [ext_resource type="Theme" uid="uid://cw8cfbak8twwi" path="res://assets/themes/tool_stack_theme.tres" id="1_2lhwx"]
 [ext_resource type="Texture2D" uid="uid://dtd4ef651h1x8" path="res://assets/cleaning_stuff/cleaning_cloth_icon.png" id="1_ewjtb"]
 [ext_resource type="Script" path="res://scenes/menu_UI/inventory/inventory_tool_stack.gd" id="1_exsqb"]
+[ext_resource type="PackedScene" uid="uid://dh1vqggqgorkj" path="res://scenes/menu_UI/sfx_ui/sfx_item_stack.tscn" id="4_lj2fk"]
 
 [node name="InventoryToolStack" type="Button"]
 custom_minimum_size = Vector2(32, 0)
@@ -16,3 +17,5 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 script = ExtResource("1_exsqb")
+
+[node name="SfxItemStack" parent="." instance=ExtResource("4_lj2fk")]

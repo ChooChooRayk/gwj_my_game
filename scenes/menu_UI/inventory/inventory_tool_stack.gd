@@ -1,7 +1,7 @@
 class_name InventoryToolStack
 extends Button
 
-
+signal double_ckicked()
 
 @export var tool : TemperingTool
 @export var tool_nbr : int = 1:
@@ -28,6 +28,7 @@ func _ready() -> void:
 func _gui_input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.double_click:
         tool_selected()
+        double_ckicked.emit()
         
 # ====== MANAGEMENT ====== #
 

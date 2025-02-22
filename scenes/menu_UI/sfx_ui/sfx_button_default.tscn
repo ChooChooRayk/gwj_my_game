@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtyp8o5x48qn4"]
+
+[ext_resource type="Script" path="res://scenes/menu_UI/sfx_ui/sfx_ui_setter.gd" id="1_lkgpv"]
+[ext_resource type="AudioStream" uid="uid://c0yoxrhmyvc3x" path="res://assets/sfx/kenney/click_003.ogg" id="2_u3s18"]
+[ext_resource type="AudioStream" uid="uid://cpqqlsocshtvy" path="res://assets/sfx/kenney/switch15_button_click.ogg" id="3_2bw00"]
+
+[node name="SfxButtonDefault" type="Node"]
+script = ExtResource("1_lkgpv")
+sfx_hover = ExtResource("2_u3s18")
+sfx_click = ExtResource("3_2bw00")

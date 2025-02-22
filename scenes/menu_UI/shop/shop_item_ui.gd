@@ -1,6 +1,8 @@
 class_name ShopItemUI
 extends Button
 
+signal double_ckicked()
+
 var item_res : TemperingTool
 var shop_ui  : ShopUI
 
@@ -19,6 +21,7 @@ func _ready() -> void:
 func _gui_input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.double_click:
         auto_buy_item()
+        double_ckicked.emit()
         
 # ====== MANAGEMENT ====== #
 

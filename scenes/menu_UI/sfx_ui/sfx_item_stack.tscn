@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh1vqggqgorkj"]
+
+[ext_resource type="Script" path="res://scenes/menu_UI/sfx_ui/sfx_ui_setter.gd" id="1_8seap"]
+[ext_resource type="AudioStream" uid="uid://c0yoxrhmyvc3x" path="res://assets/sfx/kenney/click_003.ogg" id="2_58ed1"]
+[ext_resource type="AudioStream" uid="uid://bq7838c005b3r" path="res://assets/sfx/kenney/drawKnife2_change_item_or_cleanindone.ogg" id="3_qcsm7"]
+
+[node name="SfxItemStack" type="Node"]
+script = ExtResource("1_8seap")
+sfx_hover = ExtResource("2_58ed1")
+sfx_click = ExtResource("3_qcsm7")
