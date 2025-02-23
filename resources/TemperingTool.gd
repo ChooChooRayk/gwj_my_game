@@ -1,7 +1,7 @@
 class_name TemperingTool
 extends Resource
 
-enum TYPE {CLEANING, FRAMING}
+enum TYPE {CLEANING, FRAMING, HIDING}
 @export var type : TYPE
 
 @export var cleaning_duration : float = 0. # [s]

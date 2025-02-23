@@ -80,6 +80,9 @@ func tool_selected(item:TemperingTool)->void:
             current_cleaning_tool = item
         TemperingTool.TYPE.FRAMING:
             current_framing_tool = item
+        TemperingTool.TYPE.HIDING:
+            pass
+            current_framing_tool = item
         _:
             push_error("type of Tempering tool not recognized")
     return

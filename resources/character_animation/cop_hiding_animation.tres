@@ -1,0 +1,78 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://c3gd684m6q8re"]
+
+[ext_resource type="Texture2D" uid="uid://c7damljmcj3xf" path="res://assets/characters/forensic_scientist_modif.png" id="1_i0i6j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqcd3"]
+atlas = ExtResource("1_i0i6j")
+region = Rect2(576, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nxuk"]
+atlas = ExtResource("1_i0i6j")
+region = Rect2(608, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13dve"]
+atlas = ExtResource("1_i0i6j")
+region = Rect2(640, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ykrq"]
+atlas = ExtResource("1_i0i6j")
+region = Rect2(672, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk2cs"]
+atlas = ExtResource("1_i0i6j")
+region = Rect2(704, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8601o"]
+atlas = ExtResource("1_i0i6j")
+region = Rect2(736, 64, 32, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqcd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nxuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13dve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ykrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk2cs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8601o")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]

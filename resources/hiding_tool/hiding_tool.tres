@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TemperingTool" load_steps=3 format=3 uid="uid://bo38goog6odlw"]
+
+[ext_resource type="Script" path="res://resources/TemperingTool.gd" id="1_gs6ys"]
+[ext_resource type="Texture2D" uid="uid://4u1uxmfcdmby" path="res://assets/cleaning_stuff/hiding_costume.png" id="1_y4b4j"]
+
+[resource]
+script = ExtResource("1_gs6ys")
+type = 2
+cleaning_duration = 0.0
+price = 1000
+description_txt = "Hiding costume:
+"
+icon = ExtResource("1_y4b4j")
