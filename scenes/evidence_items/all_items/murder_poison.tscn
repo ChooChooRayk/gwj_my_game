@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://v6lkukcep2t0"]
+
+[ext_resource type="Script" path="res://scenes/evidence_items/crime_evidence_item.gd" id="1_u4jn6"]
+[ext_resource type="Material" uid="uid://dlbfgulh65673" path="res://resources/shaders/highlight_effect_material.tres" id="2_f1e25"]
+[ext_resource type="Texture2D" uid="uid://1f56f441qijk" path="res://assets/evidence_items/murder_poison/murder_poison.png" id="2_fiv3p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btljf"]
+size = Vector2(23, 21)
+
+[node name="CrimeEvidenceItem" type="Area2D" groups=["evidence_items"]]
+collision_layer = 4
+script = ExtResource("1_u4jn6")
+dirty_aspect = ExtResource("2_fiv3p")
+cleaned_aspect = ExtResource("2_fiv3p")
+
+[node name="ItemAspect" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = ExtResource("2_f1e25")
+texture = ExtResource("2_fiv3p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_btljf")

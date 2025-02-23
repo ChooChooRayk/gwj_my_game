@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccoihmgcq2sqf"]
+
+[ext_resource type="Script" path="res://scenes/evidence_items/crime_evidence_item.gd" id="1_yujpu"]
+[ext_resource type="Material" uid="uid://dlbfgulh65673" path="res://resources/shaders/highlight_effect_material.tres" id="2_ubknj"]
+[ext_resource type="Texture2D" uid="uid://brcbq21n11cv5" path="res://assets/evidence_items/murder_crawbar/murder_crawbar_bloody.png" id="2_vfllb"]
+[ext_resource type="Texture2D" uid="uid://ylxc2rkba4is" path="res://assets/evidence_items/murder_crawbar/murder_crawbar_cleaned.png" id="3_vukfq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e3axb"]
+radius = 5.62455
+height = 32.7939
+
+[node name="CrimeEvidenceItem" type="Area2D" groups=["evidence_items"]]
+collision_layer = 4
+script = ExtResource("1_yujpu")
+dirty_aspect = ExtResource("2_vfllb")
+cleaned_aspect = ExtResource("3_vukfq")
+
+[node name="ItemAspect" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = ExtResource("2_ubknj")
+texture = ExtResource("2_vfllb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+rotation = -0.892312
+shape = SubResource("CapsuleShape2D_e3axb")

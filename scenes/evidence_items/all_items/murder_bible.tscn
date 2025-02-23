@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnpfo0ynetpei"]
+
+[ext_resource type="Script" path="res://scenes/evidence_items/crime_evidence_item.gd" id="1_7f6wh"]
+[ext_resource type="Material" uid="uid://dlbfgulh65673" path="res://resources/shaders/highlight_effect_material.tres" id="2_kc0a6"]
+[ext_resource type="Texture2D" uid="uid://6pytiv6ly4o3" path="res://assets/evidence_items/murder_bible/murder_bible_bloody.png" id="2_pq2v2"]
+[ext_resource type="Texture2D" uid="uid://c7t2jx4aaov1" path="res://assets/evidence_items/murder_bible/murder_bible_cleaned.png" id="3_1uji8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wmxr"]
+size = Vector2(24, 32)
+
+[node name="CrimeEvidenceItem" type="Area2D" groups=["evidence_items"]]
+collision_layer = 4
+script = ExtResource("1_7f6wh")
+dirty_aspect = ExtResource("2_pq2v2")
+cleaned_aspect = ExtResource("3_1uji8")
+
+[node name="ItemAspect" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = ExtResource("2_kc0a6")
+texture = ExtResource("2_pq2v2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_0wmxr")
