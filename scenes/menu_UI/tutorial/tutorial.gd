@@ -32,7 +32,7 @@ func _ready() -> void:
     else:
         EventBus.ChangeSceneFinished.connect(func ():start_tuto_panel())
     # ---
-    #start_tuto_panel()
+    start_tuto_panel()
 
 # ====== PROCESS ====== #
 
@@ -50,7 +50,7 @@ func start_tuto_panel()->void:
     await get_tree().create_timer(wait_to_start)
     # ---
     tuto_started      = true
-    get_tree().paused = true
+    #get_tree().paused = true
     for i in range(4):
         await next_tuto_panel()
     return

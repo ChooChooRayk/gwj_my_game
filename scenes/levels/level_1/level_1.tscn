@@ -102,3 +102,4 @@ z_as_relative = false
 position = Vector2(0, 63)
 
 [node name="Tutorial" parent="." instance=ExtResource("9_h7v5d")]
+layer = 10
