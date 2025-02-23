@@ -50,13 +50,16 @@ func check_hiding_valid()->void:
     var body_list : Array[Node2D] = detection_zone.get_overlapping_bodies()
     for body in body_list:
         if body.is_in_group("player"):
-            print("hiding not valid !")
+            #print("hiding not valid !")
             EventBus.PlayerHidingFailed.emit()
             # ---
-            #inspector_ai.target_to_chase = body
-            #ChangeStateRequested.emit(self,STATES.Chasing)
+            inspector_ai.target_to_chase = body
+            ChangeStateRequested.emit(self,STATES.Chasing)
             return
     # ---
-    print("hiding valid :) ")
-    #ChangeStateRequested.emit(self,STATES.Scouting)
+    return
+
+func do_continue_pursuit()->void:
+    if inspector_ai.is_alerted:
+        ChangeStateRequested.emit(self,STATES.Chasing)
     return

@@ -9,7 +9,9 @@ enum STATES {
 }
 @export var state : STATES
 
-var input_player : InputPlayer
+var input_player  : InputPlayer
+var is_discovered := false
+
 
 # ====== INITIALIZATION ====== #
 
@@ -33,5 +35,5 @@ func update_state()->void:
 func process_input(_event:InputEvent)->void:
     return
     
-func target_reached()->void:
+func hiding_failed()->void:
     return

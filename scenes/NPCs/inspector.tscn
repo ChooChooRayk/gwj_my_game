@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://du8x2iki4sv20"]
+[gd_scene load_steps=13 format=3 uid="uid://du8x2iki4sv20"]
 
 [ext_resource type="Script" path="res://scenes/NPCs/inspector.gd" id="1_wwls3"]
 [ext_resource type="Script" path="res://scenes/NPCs/inspector_ai/inspector_ai.gd" id="2_g806k"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/NPCs/inspector_ai/InspectorChasingState.gd" id="7_74pd8"]
 [ext_resource type="Texture2D" uid="uid://c1iw761eqct4a" path="res://assets/utils/inspector_detect_zone.svg" id="9_deaxd"]
 [ext_resource type="SpriteFrames" uid="uid://dp6xyia83m7tr" path="res://resources/character_animation/inspector_animation.tres" id="10_dp6gs"]
+[ext_resource type="FontFile" uid="uid://wecvi2hswg40" path="res://assets/fontstyles/PixeloidSans-Bold.ttf" id="10_gqdj4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qcmp"]
 radius = 6.0
@@ -95,6 +96,18 @@ position = Vector2(0, 13)
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_k3ys7")
 debug_color = Color(0.261603, 0.63394, 0, 0.42)
+
+[node name="AlertAspect" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = -4.0
+offset_top = -78.0
+offset_right = 36.0
+offset_bottom = -38.0
+theme_override_fonts/bold_font = ExtResource("10_gqdj4")
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[b]![/b]"
 
 [connection signal="body_entered" from="DetectionZone" to="InspectorAI" method="on_player_deteted"]
 [connection signal="body_entered" from="CatchingZone" to="." method="on_catching_body"]

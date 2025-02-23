@@ -8,14 +8,20 @@ var detection_zone : Area2D
 var looking_speed  := 10.
 @onready var inspector_state_machine: InspectorStateMachine = $InspectorStateMachine
 
+@onready var alert_aspect: RichTextLabel = %AlertAspect
 @onready var nav_agent_2d: NavigationAgent2D = %NavigationAgent2D
 var target_position : Vector2 = Vector2.ZERO
 var target_to_chase : BodyMotor
 
 var go_to_target  := true
+var is_alerted    := false:
+    set(value):
+        is_alerted = value
+        alert_aspect.visible = is_alerted
 
 var current_path_pos_idx := 0
 var path_index_list :Array[int]= []
+
 
 # ====== INITIALIZATION ====== #
 

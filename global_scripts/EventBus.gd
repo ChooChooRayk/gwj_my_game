@@ -7,6 +7,7 @@ signal FrozePlayerRequested(is_frozen:bool)
 signal PlayerHidingRequested()
 signal PlayerHidden()
 signal PlayerHidingFailed()
+signal PlayerHidingStopped()
 
 signal SuspectDetected(body:BodyMotor)
 signal SuspectCaught(body:BodyMotor)

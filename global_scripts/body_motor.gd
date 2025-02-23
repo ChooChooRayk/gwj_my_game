@@ -12,6 +12,7 @@ var animated_sprite_2d: AnimatedSprite2D
 var last_direction := Vector2.UP
 
 var anim_key := ""
+var is_anim_managed := true
 
 # ====== INITIALIZATION =====+ #
 
@@ -27,7 +28,9 @@ func _physics_process(delta: float) -> void:
     else:
         velocity = lerp(velocity, Vector2.ZERO, delta * SPEED/10.)
     # ---
-    manage_animation()
+    if is_anim_managed:
+        manage_animation()
+    # ---
     move_and_slide()
     #print("velocity : ", velocity.length())
 

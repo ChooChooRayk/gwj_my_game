@@ -24,7 +24,7 @@ func _ready() -> void:
     # ---
     set_physics_process(false)
     # ---
-    EventBus.SuspectDetected.connect(suspect_detected)
+    EventBus.SuspectDetected    .connect(suspect_detected)
 
 # ====== PROCESS ====== #
 
@@ -45,6 +45,8 @@ func enter()->void:
     # ---
     looking_count = 0
     next_head_look_timer.start()
+    # ---
+    EventBus.PlayerHidingStopped.connect(do_continue_pursuit)
     return
     
 func exit()->void:
@@ -54,6 +56,8 @@ func exit()->void:
     inspector_ai.npc_body.set_physics_process(true)
     # ---
     next_head_look_timer.stop()
+    # ---
+    EventBus.PlayerHidingStopped.disconnect(do_continue_pursuit)
     return
 
 func look_around()->void:

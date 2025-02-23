@@ -12,6 +12,8 @@ var current_state : PlayerState
 func _ready() -> void:
     await get_parent().ready
     init_state_machine()
+    # ---
+    EventBus.PlayerHidingFailed.connect(func ():current_state.is_discovered=true)
     return
     
 func init_state_machine()->void:
@@ -45,5 +47,5 @@ func on_change_state_requested(from_state:PlayerState, next_state:PlayerState.ST
     new_state    .enter()
     # ---
     current_state = new_state
-    print("player state : ", current_state.state)
+    #print("player state : ", current_state.state)
     return

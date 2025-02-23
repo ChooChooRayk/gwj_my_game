@@ -13,12 +13,14 @@ func _ready() -> void:
         normal_sprite_frame = input_player.player_body.animated_sprite_2d.sprite_frames
     # ---
     EventBus.PlayerHidingRequested.connect(set_hiding_outfit)
-    
+
 # ====== MANAGEMENT ====== #
 
 func enter()->void:
     if is_instance_valid(input_player.player_body.animated_sprite_2d):
         input_player.player_body.animated_sprite_2d.sprite_frames = normal_sprite_frame
+    # ---
+    is_discovered = false
     return
     
 func exit()->void:

@@ -9,7 +9,7 @@ var rng := RandomNumberGenerator.new()
 
 func _ready() -> void:
     super()
-    EventBus.SuspectDetected.connect(suspect_detected)
+    EventBus.SuspectDetected    .connect(suspect_detected)
     
 
 # ====== PROCESS ====== #
@@ -23,7 +23,14 @@ func enter()->void:
     # ---
     inspector_ai.go_to_target = false
     inspector_ai.move_to_next_path_position()
+    # ---
+    EventBus.PlayerHidingStopped.connect(do_continue_pursuit)
     return
+
+func exit()->void:
+    super()
+    # ---
+    EventBus.PlayerHidingStopped.disconnect(do_continue_pursuit)
 
 func target_reached()->void:
     var is_looking_around = rng.randf()>0.75
