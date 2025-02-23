@@ -2,6 +2,7 @@ class_name Tutorial
 extends CanvasLayer
 
 
+@onready var tuto_bck_gnd: ColorRect      = %TutoBckGnd
 @onready var tuto_panel_1: PanelContainer = %TutoPanel1
 @onready var tuto_panel_2: PanelContainer = %TutoPanel2
 @onready var tuto_panel_3: PanelContainer = %TutoPanel3
@@ -41,10 +42,13 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-        next_tuto_panel()
+        panel_count += 1
+        #next_tuto_panel()
+        key_interuption()
     elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
         panel_count = maxi(0, panel_count-1)
-        next_tuto_panel()
+        #next_tuto_panel()
+        key_interuption()
     return
 
 # ====== MANAGEMENT ====== #
@@ -58,9 +62,11 @@ func start_tuto_panel()->void:
     # ---
     for i in range(4):
         await next_tuto_panel()
+        panel_count += 1
     return
 
 func hide_all()->void:
+    tuto_bck_gnd.visible = false
     tuto_panel_1.visible = false
     tuto_panel_2.visible = false
     tuto_panel_3.visible = false
@@ -70,6 +76,7 @@ func next_tuto_panel()->void:
         return
     # ---
     hide_all()
+    tuto_bck_gnd.visible = true
     match panel_count:
         0:
             tuto_panel_1.visible = true
@@ -88,8 +95,11 @@ func next_tuto_panel()->void:
     # ---
     await play_totu_panel()
     await get_tree().create_timer(time_between_panel).timeout
-    panel_count += 1
     return
+
+func key_interuption()->void:
+    animation_player.stop()
+    next_tuto_panel()
 
 # ------------ #
 

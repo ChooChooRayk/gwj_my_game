@@ -8,7 +8,7 @@
 script = ExtResource("1_isrfn")
 radius = 40.0
 ellps_e = 0.5
-center_offset = Vector2(0, 10)
+center_offset = Vector2(0, 4)
 center_zone = Vector2(0, 0)
 
 [resource]
