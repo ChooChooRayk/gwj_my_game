@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_p1n5b")
 time_to_succeed = 300.0
-crime_evidence_number = 3
+crime_evidence_number = 1
 money_start_mission = 100
 money_reward = 200
 mission_call_start = 0

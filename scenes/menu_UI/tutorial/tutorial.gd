@@ -54,11 +54,12 @@ func _input(event: InputEvent) -> void:
 # ====== MANAGEMENT ====== #
 
 func start_tuto_panel()->void:
-    await get_tree().create_timer(wait_to_start).timeout
-    # ---
-    tuto_started      = true
     if !debug:
         get_tree().paused = true
+    # ---
+    tuto_bck_gnd.visible = true
+    tuto_started      = true
+    await get_tree().create_timer(wait_to_start).timeout
     # ---
     for i in range(4):
         await next_tuto_panel()

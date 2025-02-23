@@ -83,6 +83,7 @@ func on_player_deteted(body:Node2D)->void:
         if cleaning_state==HandState.STATES.InCleaning or cleaning_state==HandState.STATES.CleaningDone:
             if not(is_instance_valid(player)):
                 push_error("wt hell !!!")
-            EventBus.SuspectDetected.emit(player)
+            print("target on detection : ", player)
             target_to_chase = player
+            EventBus.SuspectDetected.emit(player)
         pass
