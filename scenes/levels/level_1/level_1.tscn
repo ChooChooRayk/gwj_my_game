@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://0hlsng4af6gk"]
+[gd_scene load_steps=21 format=3 uid="uid://0hlsng4af6gk"]
 
 [ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_5pwur"]
 [ext_resource type="PackedScene" uid="uid://dvjp6wn02hyno" path="res://scenes/cleaning_hand/cleaning_hand.tscn" id="2_44beu"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://b7v0vg8cvonvf" path="res://assets/crime_scene_related/chalk_outline_32.png" id="7_inkaq"]
 [ext_resource type="PackedScene" uid="uid://ceph7peai4dnq" path="res://scenes/evidence_items/all_items/murder_foot_print.tscn" id="8_e46dd"]
 [ext_resource type="PackedScene" uid="uid://br6eoue5h1ai4" path="res://scenes/evidence_items/all_items/murder_hand_mark.tscn" id="9_nua32"]
+[ext_resource type="PackedScene" uid="uid://cnpfo0ynetpei" path="res://scenes/evidence_items/all_items/murder_bible.tscn" id="10_i4f71"]
+[ext_resource type="PackedScene" uid="uid://bkg7wp5beonab" path="res://scenes/evidence_items/all_items/murder_scissors.tscn" id="11_iu6mu"]
+[ext_resource type="PackedScene" uid="uid://idocxe5bxpq" path="res://scenes/evidence_items/all_items/murder_shovel.tscn" id="12_g2vio"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6ublb"]
 vertices = PackedVector2Array(805.148, -31.0703, 816.844, 721.008, -4, 721.977, -4, -36.9219)
@@ -23,15 +26,27 @@ _data = {
 }
 point_count = 11
 
-[sub_resource type="Curve2D" id="Curve2D_6epi8"]
+[sub_resource type="Curve2D" id="Curve2D_riy5e"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 272, 619, 0, 0, 0, 0, 137, 603, 0, 0, 0, 0, 260, 584, 0, 0, 0, 0, 149, 464, 0, 0, 0, 0, 167, 285, 0, 0, 0, 0, 445, 404, 0, 0, 0, 0, 633, 382, 0, 0, 0, 0, 687, 346, 0, 0, 0, 0, 711, 142, 0, 0, 0, 0, 474, 55)
+"points": PackedVector2Array(0, 0, 0, 0, 80, 613, 0, 0, 0, 0, 175, 611, 0, 0, 0, 0, 254, 606, 0, 0, 0, 0, 260, 497)
 }
-point_count = 10
+point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_1ydge"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 588, 473, 0, 0, 0, 0, 470, 475, 0, 0, 0, 0, 583, 228, 0, 0, 0, 0, 248, 490, 0, 0, 0, 0, 244, 611)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_i1g0o"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 404, 322, 0, 0, 0, 0, 311, 358, 0, 0, 0, 0, 395, 433, 0, 0, 0, 0, 562, 354, 0, 0, 0, 0, 694, 315, 0, 0, 0, 0, 625, 208)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_c0llt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 710, 126, 0, 0, 0, 0, 650, 183, 0, 0, 0, 0, 598, 206, 0, 0, 0, 0, 518, 274, 0, 0, 0, 0, 461, 390)
 }
 point_count = 5
 
@@ -55,10 +70,16 @@ navigation_polygon = SubResource("NavigationPolygon_6ublb")
 curve = SubResource("Curve2D_6bgst")
 
 [node name="ScoutingPath2" type="Path2D" parent="Map/ScoutingPaths"]
-curve = SubResource("Curve2D_6epi8")
+curve = SubResource("Curve2D_riy5e")
 
 [node name="ScoutingPath3" type="Path2D" parent="Map/ScoutingPaths"]
 curve = SubResource("Curve2D_1ydge")
+
+[node name="ScoutingPath4" type="Path2D" parent="Map/ScoutingPaths"]
+curve = SubResource("Curve2D_i1g0o")
+
+[node name="ScoutingPath5" type="Path2D" parent="Map/ScoutingPaths"]
+curve = SubResource("Curve2D_c0llt")
 
 [node name="Inspectors" type="Node2D" parent="Map"]
 z_index = 3
@@ -68,14 +89,25 @@ y_sort_enabled = true
 [node name="Inspector" parent="Map/Inspectors" node_paths=PackedStringArray("scouting_targets") instance=ExtResource("4_86pr6")]
 position = Vector2(451, 106)
 scouting_targets = NodePath("../../ScoutingPaths/ScoutingPath1")
+all_inspctor_connected = false
 
 [node name="Inspector2" parent="Map/Inspectors" node_paths=PackedStringArray("scouting_targets") instance=ExtResource("4_86pr6")]
-position = Vector2(247, 561)
+position = Vector2(56, 618)
 scouting_targets = NodePath("../../ScoutingPaths/ScoutingPath2")
 
 [node name="Inspector3" parent="Map/Inspectors" node_paths=PackedStringArray("scouting_targets") instance=ExtResource("4_86pr6")]
 position = Vector2(643, 484)
 scouting_targets = NodePath("../../ScoutingPaths/ScoutingPath3")
+all_inspctor_connected = false
+
+[node name="Inspector4" parent="Map/Inspectors" node_paths=PackedStringArray("scouting_targets") instance=ExtResource("4_86pr6")]
+position = Vector2(379, 366)
+scouting_targets = NodePath("../../ScoutingPaths/ScoutingPath4")
+
+[node name="Inspector5" parent="Map/Inspectors" node_paths=PackedStringArray("scouting_targets") instance=ExtResource("4_86pr6")]
+position = Vector2(669, 146)
+scouting_targets = NodePath("../../ScoutingPaths/ScoutingPath5")
+all_inspctor_connected = false
 
 [node name="Forensics" type="Node2D" parent="Map"]
 z_index = 3
@@ -89,10 +121,18 @@ idle_direction = 2
 [node name="ForensicScientist3" parent="Map/Forensics" instance=ExtResource("5_64wes")]
 position = Vector2(502, 170)
 idle_direction = 3
+is_inspector = true
 
 [node name="ForensicScientist4" parent="Map/Forensics" instance=ExtResource("5_64wes")]
-position = Vector2(97, 385)
+position = Vector2(90, 393)
 is_inspector = true
+
+[node name="ForensicScientist5" parent="Map/Forensics" instance=ExtResource("5_64wes")]
+position = Vector2(576, 323)
+is_inspector = true
+
+[node name="ForensicScientist6" parent="Map/Forensics" instance=ExtResource("5_64wes")]
+position = Vector2(329, 520)
 
 [node name="CrimeItems" type="Node2D" parent="Map"]
 z_index = 2
@@ -118,6 +158,17 @@ z_index = 4
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(586, 170)
+
+[node name="CrimeEvidenceItem2" parent="Map/CrimeItems" instance=ExtResource("10_i4f71")]
+position = Vector2(541, 308)
+
+[node name="CrimeEvidenceItem5" parent="Map/CrimeItems" instance=ExtResource("11_iu6mu")]
+z_index = 2
+position = Vector2(92, 627)
+
+[node name="CrimeEvidenceItem6" parent="Map/CrimeItems" instance=ExtResource("12_g2vio")]
+z_index = 2
+position = Vector2(565, 170)
 
 [node name="Player" parent="Map" instance=ExtResource("3_hy12e")]
 z_index = 3

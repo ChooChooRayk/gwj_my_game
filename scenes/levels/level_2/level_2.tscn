@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://gj4c8iu8kuol"]
+[gd_scene load_steps=18 format=3 uid="uid://gj4c8iu8kuol"]
 
 [ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_s3u6d"]
 [ext_resource type="PackedScene" uid="uid://dvjp6wn02hyno" path="res://scenes/cleaning_hand/cleaning_hand.tscn" id="2_yu0mi"]
@@ -32,6 +32,12 @@ _data = {
 }
 point_count = 8
 
+[sub_resource type="Curve2D" id="Curve2D_c2343"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 879, 643, 0, 0, 0, 0, 904, 611)
+}
+point_count = 2
+
 [node name="Level2" type="Node"]
 script = ExtResource("1_s3u6d")
 
@@ -54,6 +60,9 @@ curve = SubResource("Curve2D_4fxyg")
 [node name="Path2D3" type="Path2D" parent="Map/ScoutingPaths"]
 curve = SubResource("Curve2D_d8pv7")
 
+[node name="Path2D4" type="Path2D" parent="Map/ScoutingPaths"]
+curve = SubResource("Curve2D_c2343")
+
 [node name="Inspectors" type="Node2D" parent="Map"]
 z_index = 3
 z_as_relative = false
@@ -72,8 +81,9 @@ position = Vector2(1151, 909)
 scouting_targets = NodePath("../../ScoutingPaths/Path2D3")
 all_inspctor_connected = false
 
-[node name="Inspector4" parent="Map/Inspectors" instance=ExtResource("4_dvo3s")]
+[node name="Inspector4" parent="Map/Inspectors" node_paths=PackedStringArray("scouting_targets") instance=ExtResource("4_dvo3s")]
 position = Vector2(863, 614)
+scouting_targets = NodePath("../../ScoutingPaths/Path2D4")
 
 [node name="Forensics" type="Node2D" parent="Map"]
 z_index = 3

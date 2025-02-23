@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("2_dtode")
-mission_list = Array[int]([2, 1, 0])
+mission_list = Array[int]([0, 2, 1])
 current_mission_idx = 0
