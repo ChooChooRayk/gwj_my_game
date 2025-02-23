@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_ijmgj"]
 script = ExtResource("1_jyhdr")
-radius = 30.0
+radius = 40.0
 ellps_e = 0.5
 center_offset = Vector2(0, 4)
 center_zone = Vector2(0, 0)

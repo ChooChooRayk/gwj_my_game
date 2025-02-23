@@ -74,9 +74,9 @@ func update_selected_item()->void:
     # ---
     current_selected_item = selected_item
 
-func update_player_money_display()->void:
+func update_player_money_display(delta_money:float=0.)->void:
     var pop_money : PopUpMoney = pop_money_scn.instantiate()
-    pop_money.delta_money = new_money
+    pop_money.delta_money = delta_money
     pop_money.pause_mode  = pause_mode_popup
     player_money.add_child(pop_money)
     pop_money.play_animation()

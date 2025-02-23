@@ -53,6 +53,7 @@ func on_buying()->void:
         return
     if PlayerStatistics.current_money>=selected_item.item_res.price:
         EventBus.AddItemToInventory.emit(selected_item.item_res)
+        # ---
         PlayerStatistics.current_money -= selected_item.item_res.price
         #selected_item.queue_free()
     else:

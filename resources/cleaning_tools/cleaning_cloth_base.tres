@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_2dtpy"]
 script = ExtResource("1_isrfn")
-radius = 40.0
+radius = 30.0
 ellps_e = 0.5
 center_offset = Vector2(0, 4)
 center_zone = Vector2(0, 0)
@@ -16,7 +16,7 @@ script = ExtResource("1_rnfq4")
 type = 0
 cleaning_duration = 2.0
 clickable_zone = SubResource("Resource_2dtpy")
-price = 200
-description_txt = "Cleaning cloth :
-Basic cleaning tool. Wider range for cleaning, and faster then bea hand."
+price = 40
+description_txt = "Soft fabric:
+Clean faster but need to get closer."
 icon = ExtResource("2_v6xn1")

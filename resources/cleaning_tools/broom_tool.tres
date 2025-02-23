@@ -16,7 +16,7 @@ script = ExtResource("1_jgin2")
 type = 0
 cleaning_duration = 3.0
 clickable_zone = SubResource("Resource_4uyev")
-price = 400
+price = 120
 description_txt = "Broom:
 Cleaning tool that allow larger range of effect."
 icon = ExtResource("2_5wt3i")

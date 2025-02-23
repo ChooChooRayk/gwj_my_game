@@ -1,6 +1,6 @@
 extends Node
 
-signal MoneyUpdated()
+signal MoneyUpdated(delta_money:float)
 signal CurrentToolUpdated()
 
 @export var mission_manager : MissionManager = load("res://resources/missions/player_default_mission_manager.tres") as MissionManager
@@ -21,8 +21,9 @@ var current_cleaning_tool : TemperingTool:
 var inventory             : Dictionary #  {key=TemperingTool : val=nbr      Array[TemperingTool]
 @export var current_money : int = 1250: # [$USD]
     set(value):
-        current_money = value
-        MoneyUpdated.emit()
+        var delta_money = value - current_money
+        current_money   = value
+        MoneyUpdated.emit(delta_money)
 
 var crime_item_tempering_time : float = 10. # [s]
 

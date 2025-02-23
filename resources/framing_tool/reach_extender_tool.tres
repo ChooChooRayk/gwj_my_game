@@ -16,7 +16,7 @@ script = ExtResource("1_jb0e2")
 type = 1
 cleaning_duration = 0.0
 clickable_zone = SubResource("Resource_36tip")
-price = 1000
+price = 500
 description_txt = "Reach Extender:
 Allows to discretly hide a dirty cleaning tool at a longer distance."
 icon = ExtResource("2_i652r")
