@@ -81,6 +81,8 @@ func on_player_deteted(body:Node2D)->void:
         var player := body as BodyMotor
         var cleaning_state:HandState.STATES = cleaning_hand.hand_state_machine.current_state.state
         if cleaning_state==HandState.STATES.InCleaning or cleaning_state==HandState.STATES.CleaningDone:
+            if not(is_instance_valid(player)):
+                push_error("wt hell !!!")
             EventBus.SuspectDetected.emit(player)
             target_to_chase = player
         pass
