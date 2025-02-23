@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://bink7r5kxyic0"]
+
+[ext_resource type="Script" path="res://scenes/menu_UI/tutorial/component/inspector_tuto.gd" id="1_ae3mm"]
+[ext_resource type="Texture2D" uid="uid://c1iw761eqct4a" path="res://assets/utils/inspector_detect_zone.svg" id="8_e4xij"]
+[ext_resource type="SpriteFrames" uid="uid://dp6xyia83m7tr" path="res://resources/character_animation/inspector_animation.tres" id="9_oqd5t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qcmp"]
+radius = 6.0
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k3ys7"]
+height = 36.0
+
+[node name="InspectorTuto" type="CharacterBody2D" groups=["inspectors"]]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_ae3mm")
+
+[node name="DetectionZone" type="Area2D" parent="."]
+unique_name_in_owner = true
+z_index = 2
+z_as_relative = false
+position = Vector2(0, -2)
+rotation = 3.14159
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="DetectionZone"]
+position = Vector2(7, -7)
+polygon = PackedVector2Array(-4, 8, -4, 6, 100, -20, 107, -2, 107, 17, 100, 34)
+
+[node name="Sprite2D" type="Sprite2D" parent="DetectionZone"]
+self_modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(60, 0)
+texture = ExtResource("8_e4xij")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 3
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, -29)
+sprite_frames = ExtResource("9_oqd5t")
+animation = &"idle_left"
+autoplay = "idle_left"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_7qcmp")
+
+[node name="FootPosition" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+target_desired_distance = 5.0
+avoidance_mask = 3
+
+[node name="CatchingZone" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -13)
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatchingZone"]
+position = Vector2(0, 13)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_k3ys7")
+debug_color = Color(0.261603, 0.63394, 0, 0.42)
+
+[connection signal="body_entered" from="CatchingZone" to="." method="on_catching_body"]

@@ -22,7 +22,9 @@ z_as_relative = false
 y_sort_enabled = true
 position = Vector2(0, -29)
 sprite_frames = ExtResource("3_206ve")
-animation = &"idle_down"
+animation = &"reveal_down"
+frame = 27
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

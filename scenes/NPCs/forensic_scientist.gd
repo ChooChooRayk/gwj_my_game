@@ -25,6 +25,8 @@ var dir_dic := {
 func _ready() -> void:
     animation_sprite_2d = Utilities.find_first_child_of_type(self, AnimatedSprite2D) as AnimatedSprite2D
     # ---
+    if change_behaviour_time==0:
+        return
     behaviour_timer = Timer.new()
     behaviour_timer.wait_time = change_behaviour_time
     behaviour_timer.one_shot  = true
@@ -58,4 +60,7 @@ func play_inspector_reveal()->void:
     if is_instance_valid(animation_sprite_2d):
         animation_sprite_2d.play("inspector_reveal")
     return
-    
+
+func play_reveal_down()->void:
+    animation_sprite_2d.play("reveal_down")
+    await animation_sprite_2d.animation_finished

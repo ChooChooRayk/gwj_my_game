@@ -6,15 +6,21 @@ extends CanvasLayer
 @onready var tuto_panel_2: PanelContainer = %TutoPanel2
 @onready var tuto_panel_3: PanelContainer = %TutoPanel3
 
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+
 var panel_count    : int   = 0
 var wait_time_read : float = 2. # [s]
 
 var tuto_started   := false
 
+var anim_keys_tuto_1 := ["mvmt_up_down","mvmt_right_left","drag_in_zone","cleaning"]
+var anim_keys_tuto_2 := ["frame_forensic","inspector_detection_1","inspector_detection_2"]
+var anim_keys_tuto_3 := ["under_cover_inpctr","under_cover_catch"]
+
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
-    hide_all()
+    #hide_all()
     # ---
     #process_mode = PROCESS_MODE_WHEN_PAUSED
     # ---
@@ -22,7 +28,8 @@ func _ready() -> void:
         queue_free()
     else:
         EventBus.ChangeSceneFinished.connect(func ():start_tuto_panel())
-    return
+    # ---
+    play_totu()
 
 # ====== PROCESS ====== #
 
@@ -68,3 +75,32 @@ func next_tuto_panel()->void:
             return
     panel_count += 1
     return
+
+# ------------ #
+
+func play_totu()->void:
+    var anim_keys := anim_keys_tuto_3.duplicate(true)
+    for key in anim_keys:
+        animation_player.play(key)
+        await animation_player.animation_finished
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
