@@ -11,8 +11,8 @@ extends CanvasLayer
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 @export var wait_to_start      : float = 1. # [s]
-@export var time_between_panel : float = 5. # [s]
-@export var time_between_anim  : float = 2. # [s]
+@export var time_between_panel : float = 3. # [s]
+@export var time_between_anim  : float = 1. # [s]
 var panel_count    : int   = 0
 var panel_nbr_tot  : int   = 4
 var tuto_started   := false
@@ -106,17 +106,24 @@ func next_tuto_panel()->void:
 
 func key_interuption()->void:
     animation_player.stop()
-    next_tuto_panel()
+    await next_tuto_panel()
 
 # ------------ #
 
 func play_totu_panel()->void:
-    for key in anim_keys_to_play:
+    for i in range(anim_keys_to_play.size()):
+        if i>=anim_keys_to_play.size():
+            return
+        var key = anim_keys_to_play[i]
+        # ---
         animation_player.play(key)
         await animation_player.animation_finished
+        # ---
         var wait_time = time_between_anim
         if panel_count==0:
             wait_time = time_between_anim*0.3
+        if i == anim_keys_to_play.size()-1:
+            wait_time = 0.1
         await get_tree().create_timer(wait_time).timeout
 
     
