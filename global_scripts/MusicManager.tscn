@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://global_scripts/AudioManager.gd" id="1_xgbhy"]
 
 [node name="MusicManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_xgbhy")
 bus_type = 1
 
