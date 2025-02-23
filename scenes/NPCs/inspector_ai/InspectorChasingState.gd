@@ -12,9 +12,6 @@ func _ready() -> void:
 # ====== PROCESS ====== #
 
 func _process(_delta: float) -> void:
-    print("target to chase : ", inspector_ai.target_to_chase)
-    if not(is_instance_valid(inspector_ai.target_to_chase)):
-        push_error("target to chase not valid ???")
     inspector_ai.move_to(inspector_ai.target_to_chase.global_position)
 
 # ====== MANAGEMENT ====== #

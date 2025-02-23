@@ -47,7 +47,7 @@ func next_scren()->void:
     if trans_overlay.animation_player.is_playing():# tackle the asynchronicity
         await trans_overlay.animation_player.animation_finished
     # ---
-    print("splash screen count : ", screen_count)
+    #print("splash screen count : ", screen_count)
     if screen_count>=splash_scrn_list.size():
         trans_overlay.transition(SceneTransitionOverlay.TRANS_TYPE.FADE_IN)
         await trans_overlay.transition_finished

@@ -23,6 +23,7 @@ collision_mask = 7
 script = ExtResource("1_wwls3")
 walking_speed = 50.0
 running_speed = 125.0
+all_inspctor_connected = true
 
 [node name="InspectorAI" type="Node" parent="."]
 script = ExtResource("2_g806k")

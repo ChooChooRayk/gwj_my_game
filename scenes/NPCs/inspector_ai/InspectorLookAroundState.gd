@@ -76,6 +76,7 @@ func rotate_detection_zone_random()->void:
     return
 
 
-func suspect_detected(_player:BodyMotor)->void:
+func suspect_detected(player:BodyMotor)->void:
+    inspector_ai.target_to_chase = player
     ChangeStateRequested.emit(self, STATES.Chasing)
     return

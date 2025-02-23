@@ -12,7 +12,6 @@ extends BodyMotor
 
 func _ready() -> void:
     super()
-    print("print player self : ", self)
     # ---
     SPEED = walking_speed
     # ---

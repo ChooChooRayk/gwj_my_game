@@ -5,6 +5,7 @@ extends BodyMotor
 @export var scouting_speed  : float = 50.
 @export var walking_speed   : float = 100.
 @export var running_speed   : float = 100.
+@export var all_inspctor_connected := false
 
 @onready var catching_zone: Area2D = %CatchingZone
 

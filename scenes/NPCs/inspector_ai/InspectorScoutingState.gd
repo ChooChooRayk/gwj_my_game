@@ -35,6 +35,7 @@ func target_reached()->void:
     inspector_ai.move_to_next_path_position()
     return
     
-func suspect_detected(_player:BodyMotor)->void:
+func suspect_detected(player:BodyMotor)->void:
+    inspector_ai.target_to_chase = player
     ChangeStateRequested.emit(self, STATES.Chasing)
     return
