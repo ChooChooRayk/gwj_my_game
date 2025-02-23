@@ -1,14 +1,476 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgqm4oevr1gf4"]
+[gd_scene load_steps=29 format=3 uid="uid://dgqm4oevr1gf4"]
 
 [ext_resource type="Script" path="res://scenes/menu_UI/tutorial/tutorial.gd" id="1_t0jk6"]
+[ext_resource type="Texture2D" uid="uid://blims4uhartd2" path="res://assets/ui/keyboard_mouse/movement_arrow_up.png" id="2_e6f5h"]
 [ext_resource type="PackedScene" uid="uid://cqak675ispxnm" path="res://scenes/menu_UI/tutorial/component/player_npc.tscn" id="2_gi4yf"]
+[ext_resource type="Texture2D" uid="uid://disgkd1no2g2d" path="res://assets/ui/keyboard_mouse/movement_arrow_left.png" id="3_qtvg0"]
 [ext_resource type="PackedScene" uid="uid://du8x2iki4sv20" path="res://scenes/NPCs/inspector.tscn" id="3_yo8oc"]
+[ext_resource type="Texture2D" uid="uid://c6ao21fp035jr" path="res://assets/hand_cursor/cursor_hand_inzone_01.png" id="4_5le16"]
+[ext_resource type="Texture2D" uid="uid://cmdr1w3wm6cka" path="res://assets/hand_cursor/cursor_hand_outzone_01.png" id="4_aecg4"]
+[ext_resource type="Texture2D" uid="uid://dhhwr3mg6lsn4" path="res://assets/ui/keyboard_mouse/movement_arrow_right.png" id="4_ptrpg"]
+[ext_resource type="Texture2D" uid="uid://b51yayyd718cx" path="res://assets/ui/keyboard_mouse/mouse_drawing.png" id="5_lye0h"]
+[ext_resource type="Texture2D" uid="uid://whfphnrnb6aj" path="res://assets/ui/keyboard_mouse/movement_arrow_down.png" id="5_m5k0n"]
+[ext_resource type="Texture2D" uid="uid://dxuk04ksxcgrv" path="res://assets/ui/keyboard_mouse/keyboard_key_Z.png" id="6_l0wvx"]
+[ext_resource type="Texture2D" uid="uid://c0rg6aafveqpa" path="res://assets/utils/cleaning_progression.svg" id="7_obswq"]
+[ext_resource type="Texture2D" uid="uid://b5vjsy4ypmgl" path="res://assets/ui/keyboard_mouse/keyboard_key_Q.png" id="7_t7m7n"]
+[ext_resource type="Texture2D" uid="uid://o8uwurnlkx5f" path="res://assets/ui/keyboard_mouse/keyboard_key_S.png" id="8_cd6cy"]
+[ext_resource type="Texture2D" uid="uid://bqjtcj5vndlo1" path="res://assets/ui/keyboard_mouse/keyboard_key_D.png" id="9_petnp"]
+[ext_resource type="Texture2D" uid="uid://dd1c3xmp83lo3" path="res://assets/ui/keyboard_mouse/keyboard_key_Z_down.png" id="10_bt0s6"]
+[ext_resource type="PackedScene" uid="uid://bbfjj0iurxsnk" path="res://scenes/evidence_items/crime_evidence_item.tscn" id="10_ojb15"]
+[ext_resource type="Texture2D" uid="uid://b1iqqcwa3gvtc" path="res://assets/ui/keyboard_mouse/keyboard_key_Q_down.png" id="11_qwkp8"]
+[ext_resource type="Texture2D" uid="uid://dr3k6ngmqi3y" path="res://assets/ui/keyboard_mouse/keyboard_key_S_down.png" id="12_88ve5"]
+[ext_resource type="Texture2D" uid="uid://ds8l1rlu8ixd" path="res://assets/ui/keyboard_mouse/keyboard_key_D_down.png" id="13_4p7dl"]
+[ext_resource type="Texture2D" uid="uid://dpcjdf1qngyju" path="res://assets/ui/keyboard_mouse/mouse_drawing_clicked.png" id="20_r47mj"]
 
 [sub_resource type="Curve2D" id="Curve2D_b1bqt"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 248, 110, 0, 0, 0, 0, 376, 144, 0, 0, 0, 0, 497, 223)
 }
 point_count = 3
+
+[sub_resource type="Animation" id="Animation_sa21a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MOVEMENT/key_moving_up/key_z:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MOVEMENT/key_moving_down/key_z:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MOVEMENT/PlayerNPC:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(26, 41)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MOVEMENT/key_moving_up/key_s:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MOVEMENT/key_moving_down/key_s:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MOVEMENT/key_moving_up/key_d:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MOVEMENT/key_moving_down/key_d:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MOVEMENT/key_moving_up/key_q:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MOVEMENT/key_moving_down/key_q:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CLEANING/tuto_hand/tuto_hand_outzone:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CLEANING/tuto_hand/tuto_hand_inzone:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CLEANING/tuto_hand:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(468, 191)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CLEANING/Mouse:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(526, 330)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CLEANING/Mouse:texture")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_lye0h")]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CLEANING/tuto_hand/CleaningProgress:value")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_s4xrm"]
+resource_name = "tuto_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MOVEMENT/key_moving_up/key_z:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MOVEMENT/key_moving_down/key_z:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MOVEMENT/PlayerNPC:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(26, 41), Vector2(26, 18), Vector2(26, 56), Vector2(26, 41)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MOVEMENT/key_moving_up/key_s:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MOVEMENT/key_moving_down/key_s:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_cx7fj"]
+resource_name = "movement_right_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MOVEMENT/PlayerNPC:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(26, 41), Vector2(50, 41), Vector2(2, 41), Vector2(26, 41)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MOVEMENT/key_moving_up/key_d:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MOVEMENT/key_moving_down/key_d:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MOVEMENT/key_moving_up/key_q:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MOVEMENT/key_moving_down/key_q:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_wv2vm"]
+resource_name = "drag_in_zone"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CLEANING/tuto_hand/tuto_hand_outzone:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CLEANING/tuto_hand/tuto_hand_inzone:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CLEANING/tuto_hand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(510, 191), Vector2(468, 191)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CLEANING/Mouse:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(526, 330), Vector2(504, 330)]
+}
+
+[sub_resource type="Animation" id="Animation_a7ipt"]
+resource_name = "cleaning"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CLEANING/tuto_hand/tuto_hand_outzone:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CLEANING/tuto_hand/tuto_hand_inzone:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CLEANING/tuto_hand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(468, 191)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CLEANING/Mouse:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(504, 330)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CLEANING/Mouse:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_lye0h"), ExtResource("20_r47mj")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CLEANING/tuto_hand/CleaningProgress:value")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 100.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_huiad"]
+_data = {
+"RESET": SubResource("Animation_sa21a"),
+"cleaning": SubResource("Animation_a7ipt"),
+"drag_in_zone": SubResource("Animation_wv2vm"),
+"mvmt_right_left": SubResource("Animation_cx7fj"),
+"mvmt_up_down": SubResource("Animation_s4xrm")
+}
 
 [node name="Tutorial" type="CanvasLayer"]
 script = ExtResource("1_t0jk6")
@@ -65,14 +527,132 @@ layout_mode = 2
 text = "Tuto 3"
 horizontal_alignment = 1
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="CLEANING" type="Node2D" parent="."]
 
-[node name="PlayerNPC" parent="Node2D" instance=ExtResource("2_gi4yf")]
-position = Vector2(228, 244)
+[node name="PlayerNPC2" parent="CLEANING" instance=ExtResource("2_gi4yf")]
+position = Vector2(446, 187)
+enable_cleaning_zone = true
 
-[node name="Inspector" parent="Node2D" node_paths=PackedStringArray("scouting_targets") instance=ExtResource("3_yo8oc")]
+[node name="Mouse" type="Sprite2D" parent="CLEANING"]
+position = Vector2(526, 330)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("5_lye0h")
+
+[node name="CrimeEvidenceItem" parent="CLEANING" instance=ExtResource("10_ojb15")]
+position = Vector2(465, 191)
+
+[node name="tuto_hand" type="Node2D" parent="CLEANING"]
+position = Vector2(468, 191)
+
+[node name="tuto_hand_outzone" type="Sprite2D" parent="CLEANING/tuto_hand"]
+visible = false
+texture = ExtResource("4_aecg4")
+
+[node name="tuto_hand_inzone" type="Sprite2D" parent="CLEANING/tuto_hand"]
+texture = ExtResource("4_5le16")
+
+[node name="CleaningProgress" type="TextureProgressBar" parent="CLEANING/tuto_hand"]
+z_index = 4
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+step = 0.01
+fill_mode = 4
+texture_progress = ExtResource("7_obswq")
+tint_progress = Color(0.198333, 0.7, 0, 1)
+
+[node name="MOVEMENT" type="Node2D" parent="."]
+position = Vector2(143, 146)
+
+[node name="key_moving_up" type="Node2D" parent="MOVEMENT"]
+position = Vector2(27, 140)
+scale = Vector2(2, 2)
+
+[node name="key_z" type="Sprite2D" parent="MOVEMENT/key_moving_up"]
+position = Vector2(0, 3)
+texture = ExtResource("6_l0wvx")
+
+[node name="key_q" type="Sprite2D" parent="MOVEMENT/key_moving_up"]
+visible = false
+position = Vector2(-21, 19)
+texture = ExtResource("7_t7m7n")
+
+[node name="key_s" type="Sprite2D" parent="MOVEMENT/key_moving_up"]
+position = Vector2(0, 19)
+texture = ExtResource("8_cd6cy")
+
+[node name="key_d" type="Sprite2D" parent="MOVEMENT/key_moving_up"]
+visible = false
+position = Vector2(21, 19)
+texture = ExtResource("9_petnp")
+
+[node name="key_moving_down" type="Node2D" parent="MOVEMENT"]
+position = Vector2(27, 140)
+scale = Vector2(2, 2)
+
+[node name="key_z" type="Sprite2D" parent="MOVEMENT/key_moving_down"]
+visible = false
+position = Vector2(0, 3)
+texture = ExtResource("10_bt0s6")
+
+[node name="key_q" type="Sprite2D" parent="MOVEMENT/key_moving_down"]
+position = Vector2(-21, 19)
+texture = ExtResource("11_qwkp8")
+
+[node name="key_s" type="Sprite2D" parent="MOVEMENT/key_moving_down"]
+visible = false
+position = Vector2(0, 19)
+texture = ExtResource("12_88ve5")
+
+[node name="key_d" type="Sprite2D" parent="MOVEMENT/key_moving_down"]
+position = Vector2(21, 19)
+texture = ExtResource("13_4p7dl")
+
+[node name="PlayerNPC" parent="MOVEMENT" instance=ExtResource("2_gi4yf")]
+position = Vector2(26, 41)
+
+[node name="arrows" type="Node2D" parent="MOVEMENT"]
+position = Vector2(-101, -143)
+
+[node name="arrow_up" type="Sprite2D" parent="MOVEMENT/arrows"]
+position = Vector2(126, 120)
+texture = ExtResource("2_e6f5h")
+
+[node name="arrow_left" type="Sprite2D" parent="MOVEMENT/arrows"]
+position = Vector2(87, 178)
+texture = ExtResource("3_qtvg0")
+
+[node name="arrow_right" type="Sprite2D" parent="MOVEMENT/arrows"]
+position = Vector2(171, 178)
+texture = ExtResource("4_ptrpg")
+
+[node name="arrow_down" type="Sprite2D" parent="MOVEMENT/arrows"]
+position = Vector2(126, 214)
+texture = ExtResource("5_m5k0n")
+
+[node name="Node2D2" type="Node2D" parent="."]
+visible = false
+
+[node name="Inspector" parent="Node2D2" node_paths=PackedStringArray("scouting_targets") instance=ExtResource("3_yo8oc")]
 position = Vector2(197, 340)
 scouting_targets = NodePath("../Path2D")
 
-[node name="Path2D" type="Path2D" parent="Node2D"]
+[node name="Path2D" type="Path2D" parent="Node2D2"]
+visible = false
 curve = SubResource("Curve2D_b1bqt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_huiad")
+}
+autoplay = "drag_in_zone"
