@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dgqm4oevr1gf4"]
+[gd_scene load_steps=43 format=3 uid="uid://dgqm4oevr1gf4"]
 
 [ext_resource type="Script" path="res://scenes/menu_UI/tutorial/tutorial.gd" id="1_t0jk6"]
 [ext_resource type="Texture2D" uid="uid://blims4uhartd2" path="res://assets/ui/keyboard_mouse/movement_arrow_up.png" id="2_e6f5h"]
@@ -24,9 +24,12 @@
 [ext_resource type="PackedScene" uid="uid://dgcp0hkb0vimr" path="res://scenes/NPCs/forensic_scientist.tscn" id="20_s4rxv"]
 [ext_resource type="PackedScene" uid="uid://bink7r5kxyic0" path="res://scenes/menu_UI/tutorial/component/inspector_tuto.tscn" id="22_qcpkn"]
 [ext_resource type="FontFile" uid="uid://wecvi2hswg40" path="res://assets/fontstyles/PixeloidSans-Bold.ttf" id="24_2nvna"]
+[ext_resource type="Texture2D" uid="uid://4u1uxmfcdmby" path="res://assets/cleaning_stuff/hiding_costume.png" id="24_h0jr2"]
 [ext_resource type="FontFile" uid="uid://n71217bjpwdj" path="res://assets/fontstyles/PixeloidSans.ttf" id="24_tecg7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qp886"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s3lcf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxdlv"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -47,7 +50,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -83,7 +86,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -119,7 +122,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -143,7 +146,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -388,7 +391,7 @@ tracks/28/keys = {
 tracks/29/type = "value"
 tracks/29/imported = false
 tracks/29/enabled = true
-tracks/29/path = NodePath("Control/TutoPanel3/UNDERCOVER/tuto_hand:visible")
+tracks/29/path = NodePath("Control/TutoPanel4/UNDERCOVER/tuto_hand:visible")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
@@ -400,7 +403,7 @@ tracks/29/keys = {
 tracks/30/type = "value"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("Control/TutoPanel3/UNDERCOVER/PlayerNPC6:position")
+tracks/30/path = NodePath("Control/TutoPanel4/UNDERCOVER/PlayerNPC6:position")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
@@ -412,7 +415,7 @@ tracks/30/keys = {
 tracks/31/type = "value"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("Control/TutoPanel3/UNDERCOVER/tuto_hand:position")
+tracks/31/path = NodePath("Control/TutoPanel4/UNDERCOVER/tuto_hand:position")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
@@ -436,7 +439,7 @@ tracks/32/keys = {
 tracks/33/type = "value"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("Control/TutoPanel3/UNDERCOVER:visible")
+tracks/33/path = NodePath("Control/TutoPanel4/UNDERCOVER:visible")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
@@ -496,7 +499,7 @@ tracks/37/keys = {
 tracks/38/type = "value"
 tracks/38/imported = false
 tracks/38/enabled = true
-tracks/38/path = NodePath("Control/TutoPanel3/TIMER:visible")
+tracks/38/path = NodePath("Control/TutoPanel4/TIMER:visible")
 tracks/38/interp = 1
 tracks/38/loop_wrap = true
 tracks/38/keys = {
@@ -508,7 +511,7 @@ tracks/38/keys = {
 tracks/39/type = "value"
 tracks/39/imported = false
 tracks/39/enabled = true
-tracks/39/path = NodePath("Control/TutoPanel3/MIMIC:visible")
+tracks/39/path = NodePath("Control/TutoPanel4/MIMIC:visible")
 tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = {
@@ -536,6 +539,114 @@ tracks/41/path = NodePath("Control/TutoPanel2/HIDE/RichTextLabel3:visible")
 tracks/41/interp = 1
 tracks/41/loop_wrap = true
 tracks/41/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("Control/TutoPanel3/HIDING:visible")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("Control/TutoPanel3/HIDING/ForensicScientist2:visible")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("Control/TutoPanel3/HIDING/InspectorTuto:position")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(80, -23)]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("Control/TutoPanel3/HIDING/PlayerNPC5:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(178, -22)]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("Control/TutoPanel3/HIDING/ForensicScientist2:position")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(294, -22)]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("Control/TutoPanel3/HIDING/PlayerNPC5:visible")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("Control/TutoPanel3/HIDING/InspectorTuto:rotation")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("Control/TutoPanel3/HIDING/InspectorTuto:scale")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("Control/TutoPanel3/HIDING/InspectorTuto/Label:visible")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1292,7 +1403,7 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/TutoPanel3/TIMER:visible")
+tracks/0/path = NodePath("Control/TutoPanel4/TIMER:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1308,7 +1419,7 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/TutoPanel3/UNDERCOVER/tuto_hand:visible")
+tracks/0/path = NodePath("Control/TutoPanel4/UNDERCOVER/tuto_hand:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1320,7 +1431,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/TutoPanel3/UNDERCOVER/PlayerNPC6:position")
+tracks/1/path = NodePath("Control/TutoPanel4/UNDERCOVER/PlayerNPC6:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1332,7 +1443,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Control/TutoPanel3/UNDERCOVER/tuto_hand:position")
+tracks/2/path = NodePath("Control/TutoPanel4/UNDERCOVER/tuto_hand:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1344,7 +1455,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Control/TutoPanel3/UNDERCOVER/ForensicScientist3")
+tracks/3/path = NodePath("Control/TutoPanel4/UNDERCOVER/ForensicScientist3")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1358,7 +1469,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Control/TutoPanel3/UNDERCOVER:visible")
+tracks/4/path = NodePath("Control/TutoPanel4/UNDERCOVER:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1374,7 +1485,7 @@ length = 5.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/TutoPanel3/MIMIC/ForensicScientist2")
+tracks/0/path = NodePath("Control/TutoPanel4/MIMIC/ForensicScientist2")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1388,7 +1499,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/TutoPanel3/UNDERCOVER:visible")
+tracks/1/path = NodePath("Control/TutoPanel4/UNDERCOVER:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1400,7 +1511,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Control/TutoPanel3/TIMER:visible")
+tracks/2/path = NodePath("Control/TutoPanel4/TIMER:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1412,7 +1523,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Control/TutoPanel3/MIMIC:visible")
+tracks/3/path = NodePath("Control/TutoPanel4/MIMIC:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1422,12 +1533,125 @@ tracks/3/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_l7xxo"]
+resource_name = "hiding_mechanic"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/TutoPanel3/HIDING:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/TutoPanel3/HIDING/ForensicScientist2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/TutoPanel3/HIDING/InspectorTuto:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(80, -23), Vector2(122, -23)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/TutoPanel3/HIDING/PlayerNPC5:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(178, -22), Vector2(294, -22)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/TutoPanel3/HIDING/ForensicScientist2:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(294, -22)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/TutoPanel3/HIDING/PlayerNPC5:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/TutoPanel3/HIDING/InspectorTuto:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/TutoPanel3/HIDING/InspectorTuto:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.03333, 1.4, 2, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(-1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control/TutoPanel3/HIDING/InspectorTuto/Label:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_huiad"]
 _data = {
 "RESET": SubResource("Animation_sa21a"),
 "cleaning": SubResource("Animation_a7ipt"),
 "drag_in_zone": SubResource("Animation_wv2vm"),
 "frame_forensic": SubResource("Animation_lphnp"),
+"hiding_mechanic": SubResource("Animation_l7xxo"),
 "inspector_detection_1": SubResource("Animation_rwkhg"),
 "inspector_detection_2": SubResource("Animation_65mxl"),
 "mvmt_right_left": SubResource("Animation_cx7fj"),
@@ -1439,6 +1663,7 @@ _data = {
 
 [node name="Tutorial" type="CanvasLayer"]
 script = ExtResource("1_t0jk6")
+debug = true
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -1568,6 +1793,7 @@ position = Vector2(27, 140)
 scale = Vector2(2, 2)
 
 [node name="key_z" type="Sprite2D" parent="Control/TutoPanel1/MOVEMENT/key_moving_up"]
+visible = false
 position = Vector2(0, 3)
 texture = ExtResource("6_l0wvx")
 
@@ -1577,6 +1803,7 @@ position = Vector2(-21, 19)
 texture = ExtResource("7_t7m7n")
 
 [node name="key_s" type="Sprite2D" parent="Control/TutoPanel1/MOVEMENT/key_moving_up"]
+visible = false
 position = Vector2(0, 19)
 texture = ExtResource("8_cd6cy")
 
@@ -1595,6 +1822,7 @@ position = Vector2(0, 3)
 texture = ExtResource("10_bt0s6")
 
 [node name="key_q" type="Sprite2D" parent="Control/TutoPanel1/MOVEMENT/key_moving_down"]
+visible = false
 position = Vector2(-21, 19)
 texture = ExtResource("11_qwkp8")
 
@@ -1604,6 +1832,7 @@ position = Vector2(0, 19)
 texture = ExtResource("12_88ve5")
 
 [node name="key_d" type="Sprite2D" parent="Control/TutoPanel1/MOVEMENT/key_moving_down"]
+visible = false
 position = Vector2(21, 19)
 texture = ExtResource("13_4p7dl")
 
@@ -1790,13 +2019,78 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_s3lcf")
+
+[node name="HIDING" type="Node2D" parent="Control/TutoPanel3"]
+position = Vector2(97, 277)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/TutoPanel3/HIDING"]
+custom_minimum_size = Vector2(300, 0)
+offset_left = 59.0
+offset_top = -165.0
+offset_right = 359.0
+offset_bottom = -135.0
+theme = ExtResource("20_obecy")
+bbcode_enabled = true
+text = " You can try hiding from the
+chasing inspector, using hiding outfit:"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Control/TutoPanel3/HIDING"]
+custom_minimum_size = Vector2(300, 0)
+offset_left = 59.0
+offset_top = 32.0
+offset_right = 359.0
+offset_bottom = 62.0
+theme = ExtResource("20_obecy")
+bbcode_enabled = true
+text = "[center]But you need to be out of sight, and wait still until the inspector is no longr alerted."
+fit_content = true
+
+[node name="HidingOutfit" type="Sprite2D" parent="Control/TutoPanel3/HIDING"]
+position = Vector2(330, -160)
+texture = ExtResource("24_h0jr2")
+
+[node name="InspectorTuto" parent="Control/TutoPanel3/HIDING" instance=ExtResource("22_qcpkn")]
+position = Vector2(80, -23)
+scale = Vector2(-1, 1)
+
+[node name="Label" type="Label" parent="Control/TutoPanel3/HIDING/InspectorTuto"]
+visible = false
+offset_left = -4.0
+offset_top = -86.0
+offset_right = 36.0
+offset_bottom = -46.0
+theme_override_fonts/font = ExtResource("24_2nvna")
+theme_override_font_sizes/font_size = 32
+text = "!"
+
+[node name="PlayerNPC5" parent="Control/TutoPanel3/HIDING" instance=ExtResource("2_gi4yf")]
+visible = false
+position = Vector2(178, -22)
+enable_framing_zone = true
+
+[node name="ForensicScientist2" parent="Control/TutoPanel3/HIDING" instance=ExtResource("20_s4rxv")]
+visible = false
+position = Vector2(294, -22)
+idle_direction = 1
+
+[node name="TutoPanel4" type="PanelContainer" parent="Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_qp886")
 
-[node name="MIMIC" type="Node2D" parent="Control/TutoPanel3"]
+[node name="MIMIC" type="Node2D" parent="Control/TutoPanel4"]
 visible = false
 position = Vector2(-59, -85)
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/TutoPanel3/MIMIC"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/TutoPanel4/MIMIC"]
 custom_minimum_size = Vector2(200, 0)
 offset_left = 155.0
 offset_top = 149.0
@@ -1808,17 +2102,17 @@ text = "[center]Some inspectors are under cover."
 fit_content = true
 metadata/_edit_use_anchors_ = true
 
-[node name="ForensicScientist2" parent="Control/TutoPanel3/MIMIC" instance=ExtResource("20_s4rxv")]
+[node name="ForensicScientist2" parent="Control/TutoPanel4/MIMIC" instance=ExtResource("20_s4rxv")]
 position = Vector2(253, 230)
 idle_direction = 1
 change_behaviour_time = 0.0
 is_inspector = true
 
-[node name="UNDERCOVER" type="Node2D" parent="Control/TutoPanel3"]
+[node name="UNDERCOVER" type="Node2D" parent="Control/TutoPanel4"]
 visible = false
 position = Vector2(54, -85)
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/TutoPanel3/UNDERCOVER"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/TutoPanel4/UNDERCOVER"]
 custom_minimum_size = Vector2(200, 0)
 offset_left = 312.0
 offset_top = 131.0
@@ -1829,34 +2123,34 @@ bbcode_enabled = true
 text = "[center] Hidding evidence on them, will get you immediately caught, and it's game over !"
 fit_content = true
 
-[node name="ForensicScientist3" parent="Control/TutoPanel3/UNDERCOVER" instance=ExtResource("20_s4rxv")]
+[node name="ForensicScientist3" parent="Control/TutoPanel4/UNDERCOVER" instance=ExtResource("20_s4rxv")]
 position = Vector2(388, 230)
 idle_direction = 1
 
-[node name="arrow_right" type="Sprite2D" parent="Control/TutoPanel3/UNDERCOVER"]
+[node name="arrow_right" type="Sprite2D" parent="Control/TutoPanel4/UNDERCOVER"]
 position = Vector2(267, 226)
 texture = ExtResource("4_ptrpg")
 
-[node name="PlayerNPC6" parent="Control/TutoPanel3/UNDERCOVER" instance=ExtResource("2_gi4yf")]
+[node name="PlayerNPC6" parent="Control/TutoPanel4/UNDERCOVER" instance=ExtResource("2_gi4yf")]
 position = Vector2(414, 241)
 enable_framing_zone = true
 
-[node name="tuto_hand" type="Node2D" parent="Control/TutoPanel3/UNDERCOVER"]
+[node name="tuto_hand" type="Node2D" parent="Control/TutoPanel4/UNDERCOVER"]
 z_index = 5
 position = Vector2(393, 283)
 
-[node name="tuto_hand_outzone" type="Sprite2D" parent="Control/TutoPanel3/UNDERCOVER/tuto_hand"]
+[node name="tuto_hand_outzone" type="Sprite2D" parent="Control/TutoPanel4/UNDERCOVER/tuto_hand"]
 visible = false
 texture = ExtResource("4_aecg4")
 
-[node name="tuto_hand_inzone" type="Sprite2D" parent="Control/TutoPanel3/UNDERCOVER/tuto_hand"]
+[node name="tuto_hand_inzone" type="Sprite2D" parent="Control/TutoPanel4/UNDERCOVER/tuto_hand"]
 texture = ExtResource("4_5le16")
 
-[node name="TIMER" type="Node2D" parent="Control/TutoPanel3"]
+[node name="TIMER" type="Node2D" parent="Control/TutoPanel4"]
 visible = false
 position = Vector2(151, 361)
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/TutoPanel3/TIMER"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/TutoPanel4/TIMER"]
 custom_minimum_size = Vector2(300, 0)
 offset_left = 6.0
 offset_top = -73.0
@@ -1867,7 +2161,7 @@ bbcode_enabled = true
 text = "[center] A special investigator is on it's way to gather up all the evidence left untoucged, so hurry up before the timer  goes to zero."
 fit_content = true
 
-[node name="Label" type="Label" parent="Control/TutoPanel3/TIMER"]
+[node name="Label" type="Label" parent="Control/TutoPanel4/TIMER"]
 offset_left = 40.0
 offset_top = -8.0
 offset_right = 272.0
@@ -1876,7 +2170,7 @@ theme_override_fonts/font = ExtResource("24_tecg7")
 theme_override_font_sizes/font_size = 24
 text = "Time left : ??? -> 0"
 
-[node name="PanelContainer" type="PanelContainer" parent="Control/TutoPanel3/TIMER"]
+[node name="PanelContainer" type="PanelContainer" parent="Control/TutoPanel4/TIMER"]
 custom_minimum_size = Vector2(550, 300)
 offset_left = -115.0
 offset_top = -13.0

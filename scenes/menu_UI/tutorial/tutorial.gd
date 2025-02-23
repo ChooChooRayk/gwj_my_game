@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var tuto_panel_1: PanelContainer = %TutoPanel1
 @onready var tuto_panel_2: PanelContainer = %TutoPanel2
 @onready var tuto_panel_3: PanelContainer = %TutoPanel3
+@onready var tuto_panel_4: PanelContainer = %TutoPanel4
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
@@ -13,12 +14,13 @@ extends CanvasLayer
 @export var time_between_panel : float = 5. # [s]
 @export var time_between_anim  : float = 2. # [s]
 var panel_count    : int   = 0
-
+var panel_nbr_tot  : int   = 4
 var tuto_started   := false
 
 var anim_keys_tuto_1  : Array[String] = ["mvmt_up_down","mvmt_right_left","drag_in_zone","cleaning"]
 var anim_keys_tuto_2  : Array[String] = ["frame_forensic","inspector_detection_1","inspector_detection_2"]
-var anim_keys_tuto_3  : Array[String] = ["under_cover_inpctr","under_cover_catch","timer_mechanic"]
+var anim_keys_tuto_3  : Array[String] = ["hiding_mechanic"]
+var anim_keys_tuto_4  : Array[String] = ["under_cover_inpctr","under_cover_catch","timer_mechanic"]
 var anim_keys_to_play : Array[String]
 
 @export var debug := false
@@ -61,7 +63,7 @@ func start_tuto_panel()->void:
     tuto_started      = true
     await get_tree().create_timer(wait_to_start).timeout
     # ---
-    for i in range(4):
+    for i in range(panel_nbr_tot+1):
         await next_tuto_panel()
         panel_count += 1
     return
@@ -71,6 +73,7 @@ func hide_all()->void:
     tuto_panel_1.visible = false
     tuto_panel_2.visible = false
     tuto_panel_3.visible = false
+    tuto_panel_4.visible = false
 
 func next_tuto_panel()->void:
     if not tuto_started:
@@ -88,6 +91,9 @@ func next_tuto_panel()->void:
         2:
             tuto_panel_3.visible = true
             anim_keys_to_play    = anim_keys_tuto_3.duplicate(true)
+        3:
+            tuto_panel_4.visible = true
+            anim_keys_to_play    = anim_keys_tuto_4.duplicate(true)
         _:
             GlobalSettings.current_game_settings["tutorial"] = false
             get_tree().paused = false
