@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dgqm4oevr1gf4"]
+[gd_scene load_steps=40 format=3 uid="uid://dgqm4oevr1gf4"]
 
 [ext_resource type="Script" path="res://scenes/menu_UI/tutorial/tutorial.gd" id="1_t0jk6"]
 [ext_resource type="Texture2D" uid="uid://blims4uhartd2" path="res://assets/ui/keyboard_mouse/movement_arrow_up.png" id="2_e6f5h"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c0rg6aafveqpa" path="res://assets/utils/cleaning_progression.svg" id="7_obswq"]
 [ext_resource type="Texture2D" uid="uid://b5vjsy4ypmgl" path="res://assets/ui/keyboard_mouse/keyboard_key_Q.png" id="7_t7m7n"]
 [ext_resource type="Texture2D" uid="uid://o8uwurnlkx5f" path="res://assets/ui/keyboard_mouse/keyboard_key_S.png" id="8_cd6cy"]
+[ext_resource type="Texture2D" uid="uid://da0r8je87q2up" path="res://assets/utils/cleaning_progression.png" id="8_t6q2l"]
 [ext_resource type="Texture2D" uid="uid://bqjtcj5vndlo1" path="res://assets/ui/keyboard_mouse/keyboard_key_D.png" id="9_petnp"]
 [ext_resource type="Texture2D" uid="uid://dd1c3xmp83lo3" path="res://assets/ui/keyboard_mouse/keyboard_key_Z_down.png" id="10_bt0s6"]
 [ext_resource type="PackedScene" uid="uid://bbfjj0iurxsnk" path="res://scenes/evidence_items/crime_evidence_item.tscn" id="10_ojb15"]
@@ -1364,7 +1365,6 @@ grow_vertical = 2
 
 [node name="TutoPanel1" type="PanelContainer" parent="Control"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1436,7 +1436,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 step = 0.01
 fill_mode = 4
-texture_progress = ExtResource("7_obswq")
+texture_progress = ExtResource("8_t6q2l")
 tint_progress = Color(0.198333, 0.7, 0, 1)
 
 [node name="MOVEMENT" type="Node2D" parent="Control/TutoPanel1"]
