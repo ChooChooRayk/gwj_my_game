@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MissionResource" load_steps=2 format=3 uid="uid://ktcg4xh0pdcl"]
+
+[ext_resource type="Script" path="res://resources/missions/MissionResource.gd" id="1_cyynt"]
+
+[resource]
+script = ExtResource("1_cyynt")
+time_to_succeed = 0.0
+crime_evidence_number = 0
+money_start_mission = 100
+money_reward = 200
+mission_call_start = 0
+mission_conversation = 0
+mission_call_success = 0

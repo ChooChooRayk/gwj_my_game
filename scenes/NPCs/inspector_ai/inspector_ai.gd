@@ -36,6 +36,7 @@ func _ready() -> void:
     if not(is_instance_valid((npc_body as Inspector).scouting_targets)):
         push_warning("no scouting targets found")
         go_to_target = false
+        inspector_state_machine.init_state = InspectorState.STATES.LookingAround
     else:
         var path_length = (npc_body as Inspector).scouting_targets.curve.point_count
         for i in range(path_length):

@@ -29,6 +29,8 @@ for the pixel artwork (ModernInterior,ModernExterior) I use in the level design.
 for the pixel art fontstyle in use.
 [/indent]
 
-
-
-[b][/b]
+[b][u]VFX[/u][/b][indent]
+[color=yellow][b]Kostilus[/b][/color]
+(https://godotshaders.com/author/kostilus/)
+for the highlighting shader effect.
+[/indent]

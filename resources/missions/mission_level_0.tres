@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="MissionResource" load_steps=4 format=3 uid="uid://cbhj78ohvdw7j"]
 
+[ext_resource type="AudioStream" uid="uid://cisq8bknkuoa4" path="res://assets/musics/t5loop.ogg" id="1_5gpb2"]
 [ext_resource type="PackedScene" uid="uid://cb3xdw4v73jt0" path="res://scenes/levels/level_0/level_0.tscn" id="1_u8n8b"]
 [ext_resource type="Script" path="res://resources/missions/MissionResource.gd" id="1_wwknh"]
-[ext_resource type="AudioStream" uid="uid://dgeokob7xf3m3" path="res://assets/musics/t1loop.ogg" id="1_xb6j7"]
 
 [resource]
 script = ExtResource("1_wwknh")
@@ -13,5 +13,5 @@ money_reward = 200
 mission_call_start = 0
 mission_conversation = 1
 mission_call_success = 2
-level_music = ExtResource("1_xb6j7")
+level_music = ExtResource("1_5gpb2")
 mision_level = ExtResource("1_u8n8b")

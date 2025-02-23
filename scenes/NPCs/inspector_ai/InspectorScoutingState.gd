@@ -19,6 +19,9 @@ func _ready() -> void:
 func enter()->void:
     super()
     # ---
+    if not(is_instance_valid((inspector_ai.npc_body as Inspector).scouting_targets)):
+        ChangeStateRequested.emit(self, STATES.LookingAround)
+    # ---
     inspector_ai.npc_body.SPEED = (inspector_ai.npc_body as Inspector).scouting_speed
     # ---
     inspector_ai.go_to_target = false
