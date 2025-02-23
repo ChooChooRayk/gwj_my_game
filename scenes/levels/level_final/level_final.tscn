@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://kfljhtw1ucb0"]
+[gd_scene load_steps=5 format=3 uid="uid://kfljhtw1ucb0"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_final/level_final.gd" id="1_65k5d"]
 [ext_resource type="Theme" uid="uid://cmtub874cpkew" path="res://assets/themes/main_menu_theme.tres" id="2_m07vn"]
 [ext_resource type="PackedScene" uid="uid://1hexkrc65pk5" path="res://scenes/menu_UI/conversation_ui/conversation_displayer.tscn" id="3_ludtj"]
+[ext_resource type="PackedScene" uid="uid://bs8op06k8sxmr" path="res://scenes/utils/on_pressed_menu_music.tscn" id="4_ikvvy"]
 
 [node name="LevelFinal" type="Node"]
 script = ExtResource("1_65k5d")
@@ -56,6 +57,8 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Main menu"
+
+[node name="OnPressedMenuMusic" parent="Control/PanelContainer/VBoxContainer/HBoxContainer/MainMenu" instance=ExtResource("4_ikvvy")]
 
 [node name="Quit" type="Button" parent="Control/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://jp4vr5jimcmp"]
+[gd_scene load_steps=4 format=3 uid="uid://jp4vr5jimcmp"]
 
 [ext_resource type="Script" path="res://scenes/menu_UI/pause_menu/pause_menu.gd" id="1_q0sp8"]
+[ext_resource type="PackedScene" uid="uid://bs8op06k8sxmr" path="res://scenes/utils/on_pressed_menu_music.tscn" id="2_52ct8"]
 [ext_resource type="PackedScene" uid="uid://boa4w0vx84ybe" path="res://scenes/menu_UI/setting_menu/settings_menu.tscn" id="2_da3et"]
 
 [node name="PauseMenu" type="Control"]
@@ -59,6 +60,8 @@ text = "Settings"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Main Menu"
+
+[node name="OnPressedMenuMusic" parent="PauseButtons/CenterContainer/VBoxContainer/MainMenu" instance=ExtResource("2_52ct8")]
 
 [node name="Quit" type="Button" parent="PauseButtons/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true

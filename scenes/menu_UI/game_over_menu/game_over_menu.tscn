@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6fp51agbm5l5"]
+[gd_scene load_steps=8 format=3 uid="uid://c6fp51agbm5l5"]
 
 [ext_resource type="Theme" uid="uid://cmtub874cpkew" path="res://assets/themes/main_menu_theme.tres" id="1_rb3xo"]
 [ext_resource type="Script" path="res://scenes/menu_UI/game_over_menu/game_over_menu.gd" id="2_llgya"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://1hexkrc65pk5" path="res://scenes/menu_UI/conversation_ui/conversation_displayer.tscn" id="3_ix8a7"]
 [ext_resource type="StyleBox" uid="uid://dm36j6ac6mq0j" path="res://resources/end_mission_panel.tres" id="3_wt7jr"]
 [ext_resource type="PackedScene" uid="uid://dtyp8o5x48qn4" path="res://scenes/menu_UI/sfx_ui/sfx_button_default.tscn" id="4_xjvwq"]
+[ext_resource type="PackedScene" uid="uid://bs8op06k8sxmr" path="res://scenes/utils/on_pressed_menu_music.tscn" id="7_mglbt"]
 
 [node name="GameOverMenu" type="Control"]
 layout_mode = 3
@@ -71,6 +72,8 @@ text = "Main Menu"
 
 [node name="SfxButtonDefault" parent="PanelContainer/VBoxContainer/HBoxContainer/MainMenu" instance=ExtResource("4_xjvwq")]
 
+[node name="OnPressedMenuMusic" parent="PanelContainer/VBoxContainer/HBoxContainer/MainMenu" instance=ExtResource("7_mglbt")]
+
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -84,6 +87,8 @@ size_flags_horizontal = 3
 text = "Retry"
 
 [node name="SfxButtonDefault" parent="PanelContainer/VBoxContainer/HBoxContainer/Restart" instance=ExtResource("4_xjvwq")]
+
+[node name="OnPressedMenuMusic" parent="PanelContainer/VBoxContainer/HBoxContainer/Restart" instance=ExtResource("7_mglbt")]
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MainMenu" to="." method="return_to_main_menu"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Quit" to="." method="quit_game"]

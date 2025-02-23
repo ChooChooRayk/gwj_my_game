@@ -20,4 +20,3 @@ func quit_game()->void:
 func next_mission()->void:
     EventBus.PauseMainSceneRequested.emit(true)
     EventBus.ChangeMainUIRequested.emit(GlobalSettings.UI_KEYS.NEW_MISSION)
-    

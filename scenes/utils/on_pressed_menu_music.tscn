@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs8op06k8sxmr"]
+
+[ext_resource type="Script" path="res://scenes/utils/on_pressed_menu_music.gd" id="1_wfc7a"]
+
+[node name="OnPressedMenuMusic" type="Node"]
+script = ExtResource("1_wfc7a")

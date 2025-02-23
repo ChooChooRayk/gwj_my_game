@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfxb7uw370upc"]
+[gd_scene load_steps=10 format=3 uid="uid://cfxb7uw370upc"]
 
 [ext_resource type="Theme" uid="uid://cmtub874cpkew" path="res://assets/themes/main_menu_theme.tres" id="1_1w02l"]
 [ext_resource type="Script" path="res://scenes/menu_UI/victory_menu/victory_menu.gd" id="1_bx4cb"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://1hexkrc65pk5" path="res://scenes/menu_UI/conversation_ui/conversation_displayer.tscn" id="4_xhjm7"]
 [ext_resource type="PackedScene" uid="uid://cvmm8squ78d8y" path="res://scenes/menu_UI/inventory/inventory_ui.tscn" id="5_u2384"]
 [ext_resource type="PackedScene" uid="uid://dtyp8o5x48qn4" path="res://scenes/menu_UI/sfx_ui/sfx_button_default.tscn" id="6_351jb"]
+[ext_resource type="PackedScene" uid="uid://bs8op06k8sxmr" path="res://scenes/utils/on_pressed_menu_music.tscn" id="9_dhfyo"]
 
 [node name="VictoryMenu" type="Control"]
 layout_mode = 3
@@ -83,6 +84,8 @@ text = "Main Menu"
 
 [node name="SfxButtonDefault" parent="PanelContainer/VBoxContainer/HBoxContainer/MainMenu" instance=ExtResource("6_351jb")]
 
+[node name="OnPressedMenuMusic" parent="PanelContainer/VBoxContainer/HBoxContainer/MainMenu" instance=ExtResource("9_dhfyo")]
+
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -97,6 +100,8 @@ text = "Continue obstructing
 the Law"
 
 [node name="SfxButtonDefault" parent="PanelContainer/VBoxContainer/HBoxContainer/NextMission" instance=ExtResource("6_351jb")]
+
+[node name="OnPressedMenuMusic" parent="PanelContainer/VBoxContainer/HBoxContainer/NextMission" instance=ExtResource("9_dhfyo")]
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MainMenu" to="." method="return_to_main_menu"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Quit" to="." method="quit_game"]
