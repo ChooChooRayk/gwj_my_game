@@ -3,11 +3,13 @@ extends Node
 
 var player_body : BodyMotor
 var is_player_frozen := false
+var player_state_machine : PlayerStateMachine
 
 # ====== INITIALIZATION =====+ #
 
 func _ready() -> void:
     player_body = get_parent() as BodyMotor
+    player_state_machine = Utilities.find_first_child_of_type(self, PlayerStateMachine) as PlayerStateMachine
     # ---
     EventBus.FrozePlayerRequested.connect(set_player_frozen)
 

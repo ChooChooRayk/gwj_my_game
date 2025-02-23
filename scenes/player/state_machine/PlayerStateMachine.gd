@@ -10,6 +10,7 @@ var current_state : PlayerState
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
+    await get_parent().ready
     init_state_machine()
     return
     

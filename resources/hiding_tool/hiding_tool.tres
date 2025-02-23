@@ -7,7 +7,7 @@
 script = ExtResource("1_gs6ys")
 type = 2
 cleaning_duration = 0.0
-price = 1000
+price = 100
 description_txt = "Hiding costume:
 "
 icon = ExtResource("1_y4b4j")

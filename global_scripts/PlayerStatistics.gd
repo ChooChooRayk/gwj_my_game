@@ -81,8 +81,8 @@ func tool_selected(item:TemperingTool)->void:
         TemperingTool.TYPE.FRAMING:
             current_framing_tool = item
         TemperingTool.TYPE.HIDING:
-            pass
-            current_framing_tool = item
+            EventBus.PlayerHidingRequested.emit()
+            remove_item_from_inventory(item)
         _:
             push_error("type of Tempering tool not recognized")
     return

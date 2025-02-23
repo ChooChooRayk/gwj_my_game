@@ -8,6 +8,7 @@ func _ready() -> void:
     super()
     set_process(false)
     EventBus.SuspectCaught.connect(on_suspect_caught)
+    EventBus.PlayerHidingRequested.connect(check_hiding_valid)
 
 # ====== PROCESS ====== #
 
@@ -35,4 +36,7 @@ func exit()->void:
 
 func on_suspect_caught(_body:BodyMotor)->void:
     ChangeStateRequested.emit(self, STATES.Idle)
+    return
+
+func check_hiding_valid()->void:
     return
