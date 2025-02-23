@@ -31,14 +31,16 @@ func _ready() -> void:
     if hand_cursor_outzone_list.size()!=0 and PlayerStatistics.mission_manager.current_mission_idx<=hand_cursor_outzone_list.size():
         cursor_outzone_aspect = hand_cursor_outzone_list[PlayerStatistics.mission_manager.current_mission_idx]
     else:
+        print("cursor outzone aspect : default")
         cursor_outzone_aspect = default_cursor_outzone_aspect
     # ---
     if hand_cursor_inzone_list.size()!=0 and PlayerStatistics.mission_manager.current_mission_idx<=hand_cursor_inzone_list.size():
         cursor_inzone_aspect = hand_cursor_inzone_list[PlayerStatistics.mission_manager.current_mission_idx]
     else:
+        print("cursor inzone aspect : default")
         cursor_inzone_aspect = default_cursor_inzone_aspect
     # ---
-    Input.set_custom_mouse_cursor(default_cursor_outzone_aspect, Input.CURSOR_ARROW, Vector2(1,1))
+    Input.set_custom_mouse_cursor(cursor_outzone_aspect, Input.CURSOR_ARROW, Vector2(1,1))
 
         
 # ====== PROCESS ====== #

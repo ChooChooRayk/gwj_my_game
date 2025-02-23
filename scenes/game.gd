@@ -13,6 +13,10 @@ var current_scene : Node
 var scene_still_loaded : Array  = []
 var ui_node_dic : Dictionary    = {}
 
+@export_category("Debug")
+@export var allow_cheat := false
+var dflt_crime_item : CrimeEvidenceItem
+
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
@@ -34,7 +38,22 @@ func _ready() -> void:
     (ui_node_dic[GlobalSettings.UI_KEYS.MAIN_MENU] as GameMenu).settings_menu.on_apply_settings()
     # ---
     Input.set_custom_mouse_cursor(game_cursor, Input.CURSOR_ARROW)
-    
+    # ---
+    set_process_input(allow_cheat)
+    if allow_cheat:
+        var dflt_crime_item_scn : PackedScene = load("res://scenes/evidence_items/crime_evidence_item.tscn")
+        dflt_crime_item = dflt_crime_item_scn.instantiate() as CrimeEvidenceItem
+        add_child(dflt_crime_item)
+        dflt_crime_item.visible = false
+        
+# ====== PROCESS ====== #
+
+func _input(event: InputEvent) -> void:
+    if event.is_action_pressed("cheat_key"):
+        print("should cheat !!")
+        EventBus.EvidenceHidden.emit(dflt_crime_item)
+        get_viewport().set_input_as_handled()
+
 # ====== MANAGEMENT ====== #
 
 func change_to_main_scene(new_scene:PackedScene)->void:

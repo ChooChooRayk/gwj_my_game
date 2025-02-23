@@ -65,6 +65,8 @@ func init_level()->void:
     # ---
     if is_instance_valid(mission_res.level_music):
         MusicManager.play_audio(mission_res.level_music, true, true)
+    else:
+        print("no level music found")
     # ---
     LevelUpdated.emit()
     return
