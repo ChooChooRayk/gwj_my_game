@@ -2192,6 +2192,7 @@ offset_bottom = 287.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kxdlv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_huiad")
 }

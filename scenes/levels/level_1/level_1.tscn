@@ -173,7 +173,7 @@ position = Vector2(565, 170)
 [node name="Player" parent="Map" instance=ExtResource("3_hy12e")]
 z_index = 3
 z_as_relative = false
-position = Vector2(25, 71)
+position = Vector2(47, 71)
 
 [node name="StartLevelPosition" parent="Map" instance=ExtResource("4_j22tu")]
-position = Vector2(0, 63)
+position = Vector2(37, 72)
