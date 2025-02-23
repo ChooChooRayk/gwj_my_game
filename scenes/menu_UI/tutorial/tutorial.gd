@@ -17,22 +17,25 @@ var tuto_started   := false
 
 var anim_keys_tuto_1  : Array[String] = ["mvmt_up_down","mvmt_right_left","drag_in_zone","cleaning"]
 var anim_keys_tuto_2  : Array[String] = ["frame_forensic","inspector_detection_1","inspector_detection_2"]
-var anim_keys_tuto_3  : Array[String] = ["under_cover_inpctr","under_cover_catch"]
+var anim_keys_tuto_3  : Array[String] = ["under_cover_inpctr","under_cover_catch","timer_mechanic"]
 var anim_keys_to_play : Array[String]
+
+@export var debug := false
 
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
     hide_all()
     # ---
-    process_mode = PROCESS_MODE_WHEN_PAUSED
-    # ---
-    if not(GlobalSettings.current_game_settings["tutorial"]):
-        queue_free()
+    if !debug:
+        process_mode = PROCESS_MODE_WHEN_PAUSED
+        # ---
+        if not(GlobalSettings.current_game_settings["tutorial"]):
+            queue_free()
+        else:
+            EventBus.ChangeSceneFinished.connect(func ():start_tuto_panel())
     else:
-        EventBus.ChangeSceneFinished.connect(func ():start_tuto_panel())
-    # ---
-    start_tuto_panel()
+        start_tuto_panel()
 
 # ====== PROCESS ====== #
 
@@ -50,7 +53,9 @@ func start_tuto_panel()->void:
     await get_tree().create_timer(wait_to_start)
     # ---
     tuto_started      = true
-    #get_tree().paused = true
+    if !debug:
+        get_tree().paused = true
+    # ---
     for i in range(4):
         await next_tuto_panel()
     return

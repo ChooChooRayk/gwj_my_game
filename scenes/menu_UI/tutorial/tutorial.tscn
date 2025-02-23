@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dgqm4oevr1gf4"]
+[gd_scene load_steps=39 format=3 uid="uid://dgqm4oevr1gf4"]
 
 [ext_resource type="Script" path="res://scenes/menu_UI/tutorial/tutorial.gd" id="1_t0jk6"]
 [ext_resource type="Texture2D" uid="uid://blims4uhartd2" path="res://assets/ui/keyboard_mouse/movement_arrow_up.png" id="2_e6f5h"]
@@ -24,6 +24,14 @@
 [ext_resource type="PackedScene" uid="uid://dgcp0hkb0vimr" path="res://scenes/NPCs/forensic_scientist.tscn" id="20_s4rxv"]
 [ext_resource type="PackedScene" uid="uid://bink7r5kxyic0" path="res://scenes/menu_UI/tutorial/component/inspector_tuto.tscn" id="22_qcpkn"]
 [ext_resource type="FontFile" uid="uid://wecvi2hswg40" path="res://assets/fontstyles/PixeloidSans-Bold.ttf" id="24_2nvna"]
+[ext_resource type="FontFile" uid="uid://n71217bjpwdj" path="res://assets/fontstyles/PixeloidSans.ttf" id="24_tecg7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxdlv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_sa21a"]
 length = 0.001
@@ -253,7 +261,7 @@ tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
@@ -373,7 +381,7 @@ tracks/28/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/29/type = "value"
 tracks/29/imported = false
@@ -483,133 +491,187 @@ tracks/37/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("Control/TutoPanel3/TIMER:visible")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("Control/TutoPanel3/MIMIC:visible")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("Control/TutoPanel1/MOVEMENT:visible")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("Control/TutoPanel2/HIDE/RichTextLabel3:visible")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
-[sub_resource type="Animation" id="Animation_s4xrm"]
-resource_name = "tuto_1"
+[sub_resource type="Animation" id="Animation_a7ipt"]
+resource_name = "cleaning"
 length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/TutoPanel1/MOVEMENT/key_moving_up/key_z:visible")
+tracks/0/path = NodePath("Control/TutoPanel1/CLEANING/tuto_hand/tuto_hand_outzone:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.4, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false, true, false, true]
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/TutoPanel1/MOVEMENT/key_moving_down/key_z:visible")
+tracks/1/path = NodePath("Control/TutoPanel1/CLEANING/tuto_hand/tuto_hand_inzone:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.4, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false, true, false]
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Control/TutoPanel1/MOVEMENT/PlayerNPC:position")
+tracks/2/path = NodePath("Control/TutoPanel1/CLEANING/tuto_hand:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.4, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(26, 41), Vector2(26, 18), Vector2(26, 56), Vector2(26, 41)]
+"values": [Vector2(468, 191)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Control/TutoPanel1/MOVEMENT/key_moving_up/key_s:visible")
+tracks/3/path = NodePath("Control/TutoPanel1/CLEANING/Mouse:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Control/TutoPanel1/MOVEMENT/key_moving_down/key_s:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-
-[sub_resource type="Animation" id="Animation_cx7fj"]
-resource_name = "movement_right_left"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/TutoPanel1/MOVEMENT/PlayerNPC:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.4, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(26, 41), Vector2(50, 41), Vector2(2, 41), Vector2(26, 41)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/TutoPanel1/MOVEMENT/key_moving_up/key_d:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.4, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [false, true, false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Control/TutoPanel1/MOVEMENT/key_moving_down/key_d:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.4, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [true, false, true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Control/TutoPanel1/MOVEMENT/key_moving_up/key_q:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.6, 1.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
+"values": [Vector2(504, 330)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Control/TutoPanel1/MOVEMENT/key_moving_down/key_q:visible")
+tracks/4/path = NodePath("Control/TutoPanel1/CLEANING/Mouse:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.6, 1.4),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [ExtResource("5_lye0h"), ExtResource("20_r47mj")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/TutoPanel1/CLEANING/tuto_hand/CleaningProgress:value")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 100.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/TutoPanel1/CLEANING:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/TutoPanel1/CLEANING/PlayerNPC2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"enable_cleaning_zone_func"
+}, {
+"args": [false],
+"method": &"enable_cleaning_zone_func"
+}]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control/TutoPanel1/CLEANING/PlayerNPC2")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"enable_framing_zone_func"
+}, {
+"args": [true],
+"method": &"enable_framing_zone_func"
+}]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Control/TutoPanel1/CLEANING/tuto_hand/CleaningProgress:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_wv2vm"]
@@ -748,143 +810,9 @@ tracks/10/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_a7ipt"]
-resource_name = "cleaning"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/TutoPanel1/CLEANING/tuto_hand/tuto_hand_outzone:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/TutoPanel1/CLEANING/tuto_hand/tuto_hand_inzone:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Control/TutoPanel1/CLEANING/tuto_hand:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(468, 191)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Control/TutoPanel1/CLEANING/Mouse:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(504, 330)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Control/TutoPanel1/CLEANING/Mouse:texture")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("5_lye0h"), ExtResource("20_r47mj")]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Control/TutoPanel1/CLEANING/tuto_hand/CleaningProgress:value")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.2, 1.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 100.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Control/TutoPanel1/CLEANING:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/7/type = "method"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Control/TutoPanel1/CLEANING/PlayerNPC2")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 1.6),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [true],
-"method": &"enable_cleaning_zone_func"
-}, {
-"args": [false],
-"method": &"enable_cleaning_zone_func"
-}]
-}
-tracks/8/type = "method"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Control/TutoPanel1/CLEANING/PlayerNPC2")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 1.6),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [false],
-"method": &"enable_framing_zone_func"
-}, {
-"args": [true],
-"method": &"enable_framing_zone_func"
-}]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Control/TutoPanel1/CLEANING/tuto_hand/CleaningProgress:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_lphnp"]
 resource_name = "frame_forensic"
-length = 2.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -892,7 +820,7 @@ tracks/0/path = NodePath("Control/TutoPanel2/HIDE/PlayerNPC3:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(85, 265), Vector2(185, 227)]
@@ -928,7 +856,7 @@ tracks/3/path = NodePath("Control/TutoPanel2/HIDE/tuto_hand:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0, 1.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -940,7 +868,7 @@ tracks/4/path = NodePath("Control/TutoPanel2/HIDE/tuto_hand:position")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.8, 1.7),
+"times": PackedFloat32Array(1.4, 2.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(214, 275), Vector2(214, 230)]
@@ -952,7 +880,7 @@ tracks/5/path = NodePath("Control/TutoPanel2/HIDE/PlayerNPC3")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 1.66667),
+"times": PackedFloat32Array(0, 2.46667),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [false],
@@ -969,7 +897,7 @@ tracks/6/path = NodePath("Control/TutoPanel2/HIDE/PlayerNPC3")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 1.66667),
+"times": PackedFloat32Array(0, 2.46667),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [true],
@@ -1003,57 +931,17 @@ tracks/8/keys = {
 "update": 1,
 "values": [false]
 }
-
-[sub_resource type="Animation" id="Animation_65mxl"]
-resource_name = "inspector_detection_2"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/TutoPanel2/DETECTION2/PlayerNPC5:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(372, 122), Vector2(415, 146)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/TutoPanel2/DETECTION2/InspectorTuto:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(558, 131), Vector2(508, 158)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Control/TutoPanel2/DETECTION2/InspectorTuto/Label:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Control/TutoPanel2/HIDE/RichTextLabel3:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Control/TutoPanel2/DETECTION2:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_rwkhg"]
@@ -1120,34 +1008,196 @@ tracks/4/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_ftm57"]
-resource_name = "under_cover_inpctr"
-length = 5.0
-tracks/0/type = "method"
+[sub_resource type="Animation" id="Animation_65mxl"]
+resource_name = "inspector_detection_2"
+length = 1.5
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/TutoPanel3/MIMIC/ForensicScientist2")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Control/TutoPanel2/DETECTION2/PlayerNPC5:position")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"play_reveal_down"
-}]
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(372, 122), Vector2(415, 146)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/TutoPanel3/UNDERCOVER:visible")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Control/TutoPanel2/DETECTION2/InspectorTuto:position")
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(558, 131), Vector2(508, 158)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/TutoPanel2/DETECTION2/InspectorTuto/Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/TutoPanel2/DETECTION2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_cx7fj"]
+resource_name = "movement_right_left"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/TutoPanel1/MOVEMENT/PlayerNPC:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(26, 41), Vector2(50, 41), Vector2(2, 41), Vector2(26, 41)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/TutoPanel1/MOVEMENT/key_moving_up/key_d:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/TutoPanel1/MOVEMENT/key_moving_down/key_d:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/TutoPanel1/MOVEMENT/key_moving_up/key_q:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/TutoPanel1/MOVEMENT/key_moving_down/key_q:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.6, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_s4xrm"]
+resource_name = "tuto_1"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/TutoPanel1/MOVEMENT/key_moving_up/key_z:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/TutoPanel1/MOVEMENT/key_moving_down/key_z:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/TutoPanel1/MOVEMENT/PlayerNPC:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(26, 41), Vector2(26, 18), Vector2(26, 56), Vector2(26, 41)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/TutoPanel1/MOVEMENT/key_moving_up/key_s:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/TutoPanel1/MOVEMENT/key_moving_down/key_s:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/TutoPanel1/MOVEMENT:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_4wfjr"]
@@ -1216,6 +1266,76 @@ tracks/4/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_ftm57"]
+resource_name = "under_cover_inpctr"
+length = 5.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/TutoPanel3/MIMIC/ForensicScientist2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_reveal_down"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/TutoPanel3/UNDERCOVER:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/TutoPanel3/TIMER:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/TutoPanel3/MIMIC:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6dtj7"]
+resource_name = "timer_mechanic"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/TutoPanel3/TIMER:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_huiad"]
 _data = {
 "RESET": SubResource("Animation_sa21a"),
@@ -1226,6 +1346,7 @@ _data = {
 "inspector_detection_2": SubResource("Animation_65mxl"),
 "mvmt_right_left": SubResource("Animation_cx7fj"),
 "mvmt_up_down": SubResource("Animation_s4xrm"),
+"timer_mechanic": SubResource("Animation_6dtj7"),
 "under_cover_catch": SubResource("Animation_4wfjr"),
 "under_cover_inpctr": SubResource("Animation_ftm57")
 }
@@ -1243,18 +1364,13 @@ grow_vertical = 2
 
 [node name="TutoPanel1" type="PanelContainer" parent="Control"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label" type="Label" parent="Control/TutoPanel1"]
-visible = false
-layout_mode = 2
-text = "Tuto 1"
-horizontal_alignment = 1
 
 [node name="CLEANING" type="Node2D" parent="Control/TutoPanel1"]
 visible = false
@@ -1283,7 +1399,7 @@ fit_content = true
 
 [node name="PlayerNPC2" parent="Control/TutoPanel1/CLEANING" instance=ExtResource("2_gi4yf")]
 position = Vector2(446, 187)
-enable_framing_zone = true
+enable_cleaning_zone = true
 
 [node name="Mouse" type="Sprite2D" parent="Control/TutoPanel1/CLEANING"]
 position = Vector2(526, 330)
@@ -1324,6 +1440,7 @@ texture_progress = ExtResource("7_obswq")
 tint_progress = Color(0.198333, 0.7, 0, 1)
 
 [node name="MOVEMENT" type="Node2D" parent="Control/TutoPanel1"]
+visible = false
 position = Vector2(143, 146)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/TutoPanel1/MOVEMENT"]
@@ -1413,12 +1530,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label2" type="Label" parent="Control/TutoPanel2"]
-layout_mode = 2
-text = "Tuto 2"
-horizontal_alignment = 1
-
 [node name="HIDE" type="Node2D" parent="Control/TutoPanel2"]
+visible = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/TutoPanel2/HIDE"]
+custom_minimum_size = Vector2(200, 0)
+offset_left = 42.0
+offset_top = 122.0
+offset_right = 242.0
+offset_bottom = 197.0
+theme = ExtResource("20_obecy")
+bbcode_enabled = true
+text = "[center]After cleaning, find a forensic scientist to hide the evidence and frame them."
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Control/TutoPanel2/HIDE"]
+visible = false
+custom_minimum_size = Vector2(200, 0)
+offset_left = 39.0
+offset_top = 292.0
+offset_right = 239.0
+offset_bottom = 367.0
+theme = ExtResource("20_obecy")
+bbcode_enabled = true
+text = "[center]Only possible in the framing zone (cyan)."
+fit_content = true
 
 [node name="PlayerNPC3" parent="Control/TutoPanel2/HIDE" instance=ExtResource("2_gi4yf")]
 position = Vector2(85, 265)
@@ -1441,7 +1577,19 @@ texture = ExtResource("4_aecg4")
 texture = ExtResource("4_5le16")
 
 [node name="DETECTION1" type="Node2D" parent="Control/TutoPanel2"]
+visible = false
 position = Vector2(0, 42)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/TutoPanel2/DETECTION1"]
+custom_minimum_size = Vector2(200, 0)
+offset_left = 308.0
+offset_top = 3.0
+offset_right = 508.0
+offset_bottom = 78.0
+theme = ExtResource("20_obecy")
+bbcode_enabled = true
+text = "[center]Careful not to get caught by inspector roaming around, while cleaning, ..."
+fit_content = true
 
 [node name="InspectorTuto" parent="Control/TutoPanel2/DETECTION1" instance=ExtResource("22_qcpkn")]
 position = Vector2(558, 131)
@@ -1496,6 +1644,17 @@ tint_progress = Color(0.198333, 0.7, 0, 1)
 visible = false
 position = Vector2(0, 198)
 
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/TutoPanel2/DETECTION2"]
+custom_minimum_size = Vector2(200, 0)
+offset_left = 310.0
+offset_top = 192.0
+offset_right = 510.0
+offset_bottom = 267.0
+theme = ExtResource("20_obecy")
+bbcode_enabled = true
+text = "[center] ... while hiding the eveidence"
+fit_content = true
+
 [node name="InspectorTuto" parent="Control/TutoPanel2/DETECTION2" instance=ExtResource("22_qcpkn")]
 position = Vector2(558, 131)
 
@@ -1523,12 +1682,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label3" type="Label" parent="Control/TutoPanel3"]
-layout_mode = 2
-text = "Tuto 3"
-horizontal_alignment = 1
-
 [node name="MIMIC" type="Node2D" parent="Control/TutoPanel3"]
+visible = false
+position = Vector2(-59, -85)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/TutoPanel3/MIMIC"]
+custom_minimum_size = Vector2(200, 0)
+offset_left = 155.0
+offset_top = 116.0
+offset_right = 355.0
+offset_bottom = 191.0
+theme = ExtResource("20_obecy")
+bbcode_enabled = true
+text = "[center]Some inspectors are under cover."
+fit_content = true
+metadata/_edit_use_anchors_ = true
 
 [node name="ForensicScientist2" parent="Control/TutoPanel3/MIMIC" instance=ExtResource("20_s4rxv")]
 position = Vector2(253, 230)
@@ -1538,13 +1706,25 @@ is_inspector = true
 
 [node name="UNDERCOVER" type="Node2D" parent="Control/TutoPanel3"]
 visible = false
+position = Vector2(54, -85)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/TutoPanel3/UNDERCOVER"]
+custom_minimum_size = Vector2(200, 0)
+offset_left = 312.0
+offset_top = 117.0
+offset_right = 512.0
+offset_bottom = 192.0
+theme = ExtResource("20_obecy")
+bbcode_enabled = true
+text = "[center] Hidding evidence on them, will get you immediately caught, and it's game over !"
+fit_content = true
 
 [node name="ForensicScientist3" parent="Control/TutoPanel3/UNDERCOVER" instance=ExtResource("20_s4rxv")]
 position = Vector2(388, 230)
 idle_direction = 1
 
 [node name="arrow_right" type="Sprite2D" parent="Control/TutoPanel3/UNDERCOVER"]
-position = Vector2(321, 226)
+position = Vector2(267, 226)
 texture = ExtResource("4_ptrpg")
 
 [node name="PlayerNPC6" parent="Control/TutoPanel3/UNDERCOVER" instance=ExtResource("2_gi4yf")]
@@ -1561,6 +1741,38 @@ texture = ExtResource("4_aecg4")
 
 [node name="tuto_hand_inzone" type="Sprite2D" parent="Control/TutoPanel3/UNDERCOVER/tuto_hand"]
 texture = ExtResource("4_5le16")
+
+[node name="TIMER" type="Node2D" parent="Control/TutoPanel3"]
+visible = false
+position = Vector2(151, 361)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/TutoPanel3/TIMER"]
+custom_minimum_size = Vector2(300, 0)
+offset_left = 6.0
+offset_top = -73.0
+offset_right = 306.0
+offset_bottom = 2.0
+theme = ExtResource("20_obecy")
+bbcode_enabled = true
+text = "[center] A special investigator is on it's way to gather up all the evidence left untoucged, so hurry up before the timer  goes to zero."
+fit_content = true
+
+[node name="Label" type="Label" parent="Control/TutoPanel3/TIMER"]
+offset_left = 40.0
+offset_top = -8.0
+offset_right = 272.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("24_tecg7")
+theme_override_font_sizes/font_size = 24
+text = "Time left : ??? -> 0"
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/TutoPanel3/TIMER"]
+custom_minimum_size = Vector2(550, 300)
+offset_left = -115.0
+offset_top = -13.0
+offset_right = 435.0
+offset_bottom = 287.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kxdlv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
