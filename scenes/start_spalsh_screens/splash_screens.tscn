@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://0bsj5ug7lkfp"]
+[gd_scene load_steps=6 format=3 uid="uid://0bsj5ug7lkfp"]
 
 [ext_resource type="PackedScene" uid="uid://twd0myqwmadb" path="res://scenes/start_spalsh_screens/splash_screen_intro_0.tscn" id="1_nskat"]
 [ext_resource type="Script" path="res://scenes/start_spalsh_screens/splash_screens.gd" id="1_xtxop"]
 [ext_resource type="PackedScene" uid="uid://deselsw2xo2r5" path="res://scenes/start_spalsh_screens/splash_screen_intro_1.tscn" id="2_7wexu"]
 [ext_resource type="PackedScene" uid="uid://cfl4u8ogkvpn3" path="res://scenes/menu_UI/overlays/scene_transition_overlay.tscn" id="4_u1d8a"]
+[ext_resource type="Theme" uid="uid://cmtub874cpkew" path="res://assets/themes/main_menu_theme.tres" id="4_xrpky"]
 
 [node name="SplashScreens" type="Control"]
 layout_mode = 3
@@ -19,9 +20,50 @@ visible = false
 layout_mode = 1
 
 [node name="SplashScreenIntro1" parent="." instance=ExtResource("2_7wexu")]
-visible = false
 layout_mode = 1
 
+[node name="SplashContentWarning" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_xrpky")
+
+[node name="ColorRect" type="ColorRect" parent="SplashContentWarning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.136826, 0.136826, 0.136826, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="SplashContentWarning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SplashContentWarning/CenterContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/mono_font_size = 18
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+bbcode_enabled = true
+text = "[center][b]Content Warning[/b]
+
+
+This game contains bloody visuals and representation of murder scenes."
+fit_content = true
+
 [node name="SceneTransitionOverlay" parent="." instance=ExtResource("4_u1d8a")]
+visible = false
 layout_mode = 1
 init_visible = true
