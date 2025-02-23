@@ -4,22 +4,31 @@
 Also I give a thank for the organizers of the game jam, and all the contributors and playtesters.
 
 [p]Must of all, for this particular project, I would like to thank:
-[indent]
+
+[b][u]Music & Sounds[/u][/b][indent]
 [color=yellow][b]Fablefly Music[/b][/color]
 (fablefly.music@gmail.com, https://fablefly-music.itch.io/spy-showdown)
 for the track I use in the main menu.
-
-[color=yellow][b]LimeZu[/b][/color]
-(https://limezu.itch.io, www.instagram.com/limezu_, @lime_px),
-for the pixel artwork (ModernInterior,ModernExterior) I use in the level design.
-
-[color=yellow][b]Nimble Beasts[/b][/color]
-(https://nimblebeastscollective.itch.io, nimblebeasts.com)
-for the pixel art fontstyle in use.
-
+[color=yellow][b]RUSTED MUSIC STUDIO[/b][/color]
+(https://rustedstudio.itch.io)
+for the track I use in the levels.
 [color=yellow][b]Kenney assets[/b][/color]
 ( www.kenney.nl)
 for the available and rich SFX library.
 [/indent]
+
+[b][u]Artwork[/u][/b][indent]
+[color=yellow][b]LimeZu[/b][/color]
+(https://limezu.itch.io, www.instagram.com/limezu_, @lime_px),
+for the pixel artwork (ModernInterior,ModernExterior) I use in the level design.
+[/indent]
+
+[b][u]Font style[/u][/b][indent]
+[color=yellow][b]GGBotNet[/b][/color]
+(https://ggbot.itch.io, www.ggbot.net, @ggbotnet.bsky.social)
+for the pixel art fontstyle in use.
+[/indent]
+
+
 
 [b][/b]
