@@ -22,6 +22,8 @@ shader_parameter/color1 = Color(1, 1, 1, 1)
 shader_parameter/color2 = Color(0, 0, 0, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vh77h"]
+content_margin_top = 16.0
+content_margin_bottom = 24.0
 texture = ExtResource("3_a6vjq")
 texture_margin_left = 7.0
 texture_margin_top = 7.0

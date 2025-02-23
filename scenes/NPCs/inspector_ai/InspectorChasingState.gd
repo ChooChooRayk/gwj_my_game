@@ -8,7 +8,6 @@ func _ready() -> void:
     super()
     set_process(false)
     EventBus.SuspectCaught.connect(on_suspect_caught)
-    EventBus.PlayerHidingRequested.connect(check_hiding_valid)
 
 # ====== PROCESS ====== #
 
@@ -18,6 +17,8 @@ func _process(_delta: float) -> void:
 # ====== MANAGEMENT ====== #
 
 func enter()->void:
+    super()
+    # ---
     inspector_ai.npc_body.SPEED = (inspector_ai.npc_body as Inspector).running_speed
     # ---
     inspector_ai.go_to_target = true
@@ -27,6 +28,8 @@ func enter()->void:
     return
     
 func exit()->void:
+    super()
+    # ---
     set_process(false)
     # ---
     inspector_ai.npc_body.SPEED = (inspector_ai.npc_body as Inspector).walking_speed
@@ -39,4 +42,6 @@ func on_suspect_caught(_body:BodyMotor)->void:
     return
 
 func check_hiding_valid()->void:
+    super()
+    ChangeStateRequested.emit(self,STATES.LookingAround)
     return

@@ -35,6 +35,8 @@ func _physics_process(_delta: float) -> void:
 # ====== MANAGEMENT ====== #
 
 func enter()->void:
+    super()
+    # ---
     looking_dir = inspector_ai.npc_body.last_direction
     # ---
     inspector_ai.go_to_target = false
@@ -46,6 +48,8 @@ func enter()->void:
     return
     
 func exit()->void:
+    super()
+    # ---
     set_physics_process(false)
     inspector_ai.npc_body.set_physics_process(true)
     # ---

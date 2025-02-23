@@ -17,7 +17,6 @@ func _ready() -> void:
 # ====== MANAGEMENT ====== #
 
 func enter()->void:
-    print("player state : player body ", input_player.player_body.animated_sprite_2d)
     if is_instance_valid(input_player.player_body.animated_sprite_2d):
         input_player.player_body.animated_sprite_2d.sprite_frames = normal_sprite_frame
     return

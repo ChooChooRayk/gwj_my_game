@@ -24,9 +24,11 @@ func _ready() -> void:
 # ====== MANAGEMENT ====== #
 
 func enter()->void:
+    EventBus.PlayerHidingRequested.connect(check_hiding_valid)
     return
     
 func exit()->void:
+    EventBus.PlayerHidingRequested.disconnect(check_hiding_valid)
     return
 
 func update_state()->void:
@@ -36,4 +38,25 @@ func process_input(_event:InputEvent)->void:
     return
     
 func target_reached()->void:
+    return
+
+# ------------ #
+
+func check_hiding_valid()->void:
+    var detection_zone := inspector_ai.detection_zone
+    if !detection_zone.monitoring:
+        return
+    # ---
+    var body_list : Array[Node2D] = detection_zone.get_overlapping_bodies()
+    for body in body_list:
+        if body.is_in_group("player"):
+            print("hiding not valid !")
+            EventBus.PlayerHidingFailed.emit()
+            # ---
+            #inspector_ai.target_to_chase = body
+            #ChangeStateRequested.emit(self,STATES.Chasing)
+            return
+    # ---
+    print("hiding valid :) ")
+    #ChangeStateRequested.emit(self,STATES.Scouting)
     return

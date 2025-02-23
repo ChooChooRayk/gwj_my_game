@@ -55,9 +55,8 @@ z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 
-[node name="Inspector" parent="Map/Inspectors" node_paths=PackedStringArray("scouting_targets") instance=ExtResource("4_86pr6")]
+[node name="Inspector" parent="Map/Inspectors" instance=ExtResource("4_86pr6")]
 position = Vector2(659, 147)
-scouting_targets = NodePath("../../ScoutingPaths/ScoutingPath1")
 
 [node name="Inspector2" parent="Map/Inspectors" node_paths=PackedStringArray("scouting_targets") instance=ExtResource("4_86pr6")]
 position = Vector2(247, 561)

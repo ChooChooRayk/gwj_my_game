@@ -27,12 +27,16 @@ func _ready() -> void:
     # ---
     nav_agent_2d.navigation_finished.connect(target_reached)
     # ---
-    var path_length = (npc_body as Inspector).scouting_targets.curve.point_count
-    for i in range(path_length):
-        path_index_list.append(i)
-    if path_length>=3:
-        for i in range(path_length-2):
-            path_index_list.append(path_length-2-i)
+    if not(is_instance_valid((npc_body as Inspector).scouting_targets)):
+        push_warning("no scouting targets found")
+        go_to_target = false
+    else:
+        var path_length = (npc_body as Inspector).scouting_targets.curve.point_count
+        for i in range(path_length):
+            path_index_list.append(i)
+        if path_length>=3:
+            for i in range(path_length-2):
+                path_index_list.append(path_length-2-i)
     # ---
     var level : Level = Utilities.find_first_parent_of_type(self, Level) as Level
     if is_instance_valid(level):
@@ -61,6 +65,10 @@ func target_reached()->void:
     return
 
 func move_to_next_path_position()->void:
+    if path_index_list.size()==0:
+        go_to_target = false
+        return
+    # ---
     current_path_pos_idx += 1
     current_path_pos_idx  = current_path_pos_idx%path_index_list.size()
     # ---
