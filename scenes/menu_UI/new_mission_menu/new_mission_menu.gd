@@ -45,4 +45,5 @@ func on_set_visible()->void:
         await get_tree().create_timer(mission_call_display.auto_start_delay).timeout
         mission_call_display.start_conversation()
     # ---
+    inventory_ui.new_money = next_mission.money_start_mission
     PlayerStatistics.current_money += next_mission.money_start_mission

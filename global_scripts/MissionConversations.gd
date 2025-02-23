@@ -21,4 +21,17 @@ static var conversation_dic := {
         ["Mme M" , ["Thank you a lot, you seen I am not that bad... I'll send you the detail. Here's the start of the money.", "However, I hear there is this renowned investigator comming on the scene, one might want to hurry up."]],
         ["Agent" , ["I'll get to it."]],
     ],
+    CONV.CONV_1_LEVEL:[
+        ["Inspector 1", ["Well what have we got here?"]],
+        ["Agent" , ["Hello, I'm here for the scene."]],
+        ["Inspector 2", ["What a bloody mess. Hope we catch that one."]],
+        ["Agent" , ["..."]],
+    ],
+    CONV.CONV_1_END:[
+        ["Mme M", ["Thank you very much ! You saved my life!"]],
+        ["Agent" , ["Just doin' my job."]],
+        ["Mme M", ["Here's the rest of the money. Hope it's enough."]],
+        ["Agent" , ["..."]],
+        ["Mme M", ["I am again ery grateful... Although I might need your service again soon...this anoying neighbouring want to be singer..."]],
+    ],
 }

@@ -12,6 +12,8 @@ var button_grp : ButtonGroup = ButtonGroup.new()
 var current_selected_item : TemperingTool
 var inventory_ui_tools := {}
 
+var pop_money_scn : PackedScene = load("res://scenes/menu_UI/inventory/pop_up_money.tscn")
+var new_money     : float = 0.0
 # ====== INITIALIZATION ====== #
 
 func _ready() -> void:
@@ -72,4 +74,9 @@ func update_selected_item()->void:
     current_selected_item = selected_item
 
 func update_player_money_display()->void:
+    var pop_money : PopUpMoney = pop_money_scn.instantiate()
+    pop_money.delta_money = new_money
+    player_money.add_child(pop_money)
+    pop_money.play_animation()
+    # ---
     player_money.text = "money : {money}$".format({"money":PlayerStatistics.current_money})

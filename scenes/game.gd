@@ -135,6 +135,8 @@ func pause_main_scene(to_pause:bool)->void:
 
 func reset_game_default_settings()->void:
     Engine.time_scale = 1.0
+    get_tree().paused = false
+
 
 func reset_missions()->void:
     PlayerStatistics.reset_stats()

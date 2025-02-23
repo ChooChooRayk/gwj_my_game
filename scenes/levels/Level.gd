@@ -20,6 +20,7 @@ var victory_panel_scene : PackedScene = load("res://scenes/menu_UI/victory_menu/
 var defeat_panel_scene  : PackedScene = load("res://scenes/menu_UI/game_over_menu/game_over_menu.tscn")
 
 var item_left_to_hide : int
+var level_conv_timer  : Timer = Timer.new()
 
 # ====== INITIALIZATION ====== #
 
@@ -40,6 +41,14 @@ func _ready() -> void:
     hud = GlobalSettings.hud_scene.instantiate()# as HUD
     hud_canvas.add_child(hud)
     add_child(hud_canvas)
+    # ---
+    hud.conv_displayer.enable_auto_continue(false)
+    level_conv_timer.wait_time = 10. # [s]
+    level_conv_timer.one_shot  = true
+    level_conv_timer.autostart = false
+    level_conv_timer.timeout.connect(show_new_conv_line)
+    add_child(level_conv_timer)
+    hud.conv_displayer.auto_writer.WritingFinished.connect(func ():level_conv_timer.start())
     # ---
     pause_menu = pause_menu_scene.instantiate() as PauseMenu
     hud_canvas.add_child(pause_menu)
@@ -68,6 +77,8 @@ func init_level()->void:
     else:
         print("no level music found")
     # ---
+    manage_level_conversation()
+    # ---
     LevelUpdated.emit()
     return
 
@@ -88,7 +99,8 @@ func toggle_pause_game()->void:
     get_tree().paused  = !is_game_paused
 
 func mission_failed()->void:
-    Engine.time_scale = 0.1
+    #Engine.time_scale = 0.1
+    #get_tree().paused = true
     # ---
     var gameover_menu = defeat_panel_scene.instantiate()
     hud_canvas.add_child(gameover_menu)
@@ -98,7 +110,8 @@ func mission_failed()->void:
     return
 
 func mission_succeeded()->void:
-    Engine.time_scale = 0.1
+    #Engine.time_scale = 0.1
+    #get_tree().paused = true
     # ---
     var victory_menu := victory_panel_scene.instantiate() as VictoryMenu
     hud_canvas.add_child(victory_menu)
@@ -109,6 +122,7 @@ func mission_succeeded()->void:
 
 func end_level()->void:
     mission_timer.stop()
+    get_tree().paused = true
     return
 
 func on_evidence_cleaned(item:CrimeEvidenceItem)->void:
@@ -123,3 +137,16 @@ func on_evidence_hidden(_item:CrimeEvidenceItem)->void:
 func check_for_mission_success()->void:
     if item_left_to_hide==0:
         mission_succeeded()
+
+func manage_level_conversation()->void:
+    print("level conv starting")
+    var conv_key := mission_res.mission_conversation
+    hud.conv_displayer.conversation_key = conv_key
+    hud.conv_displayer.init_conversation()
+    hud.conv_displayer.start_conversation()
+    return
+
+func show_new_conv_line()->void:
+    print("new conv line")
+    hud.conv_displayer.next_caller_text()
+    return

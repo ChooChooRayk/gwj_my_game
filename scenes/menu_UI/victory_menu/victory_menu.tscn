@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bs8op06k8sxmr" path="res://scenes/utils/on_pressed_menu_music.tscn" id="9_dhfyo"]
 
 [node name="VictoryMenu" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,10 +63,13 @@ custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
 [node name="ConversationDisplayer" parent="PanelContainer/VBoxContainer" instance=ExtResource("4_xhjm7")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Thanks! Here's the rest of the money. I might need your help again soon.[b]test[/b]"
+title_text = ""
 
 [node name="InventoryUI" parent="PanelContainer/VBoxContainer" instance=ExtResource("5_u2384")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
 

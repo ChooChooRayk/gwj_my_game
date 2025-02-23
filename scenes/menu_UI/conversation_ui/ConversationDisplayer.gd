@@ -8,6 +8,7 @@ extends RichTextLabel
 @export var number_of_caller    :int=2
 @export var auto_start          := false
 @export var auto_start_delay    := 2.0 # [s]
+@export var auto_continue       := true
 
 var auto_writer : PhoneCallAutoWrite = PhoneCallAutoWrite.new()
 
@@ -31,12 +32,16 @@ func _ready() -> void:
     bbcode_enabled   = true
     scroll_following = true
     # ---
-    start_title  = "[left][b]{text}[/b][/left]:\n\n".format({"text":title_text})
+    if title_text=="":
+        start_title = ""
+    else:
+        start_title = "[left][b]{text}[/b][/left]:\n\n".format({"text":title_text})
     # ---
     auto_writer.writing_speed  = writing_speed
     auto_writer.next_line_time = next_line_time
-    auto_writer.WritingFinished.connect(next_caller_text)
     auto_writer.TextUpdated    .connect(add_char_to_text_to_displayed_text)
+    if auto_continue:
+        auto_writer.WritingFinished.connect(next_caller_text)
     add_child(auto_writer)
     # ---
     set_process(false)
@@ -114,3 +119,11 @@ func add_char_to_text_to_displayed_text(_char:String)->void:
         "text":caller_text,
         "side":caller_display_stye[side_count]["side"],
     })
+
+func enable_auto_continue(enable:bool)->void:
+    if enable:
+        if !auto_writer.WritingFinished.is_connected(next_caller_text):
+            auto_writer.WritingFinished.connect(next_caller_text)
+    else:
+        if auto_writer.WritingFinished.is_connected(next_caller_text):
+            auto_writer.WritingFinished.disconnect(next_caller_text)

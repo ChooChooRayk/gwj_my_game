@@ -53,6 +53,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -113.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -66,8 +67,10 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_8ph75")
 
 [node name="ConversationDisplayer" parent="StatusBar/HBoxContainer" instance=ExtResource("3_n8ubr")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_stretch_ratio = 2.0
+title_text = ""
 
 [node name="MissionStatus" type="PanelContainer" parent="StatusBar/HBoxContainer"]
 unique_name_in_owner = true

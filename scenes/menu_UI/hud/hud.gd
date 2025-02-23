@@ -7,6 +7,7 @@ var player_stats  : PlayerStatistics
 @onready var mission_timer : Label        = %MissionTimer
 @onready var inventory_hud : InventoryHUD = %InventoryHUD
 @onready var nbr_item      : Label        = %NbrItem
+@onready var conv_displayer: ConversationDisplayer = %ConversationDisplayer
 
 # ====== INITIALIZATION ====== #
 

@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bs8op06k8sxmr" path="res://scenes/utils/on_pressed_menu_music.tscn" id="7_mglbt"]
 
 [node name="GameOverMenu" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
