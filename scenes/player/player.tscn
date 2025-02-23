@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scenes/player/ClickableZoneDisplayer.gd" id="4_hdr3f"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/PlayerNormalState.gd" id="4_oq0iy"]
 [ext_resource type="Script" path="res://scenes/player/state_machine/PlayerHidingState.gd" id="5_1ruyq"]
-[ext_resource type="SpriteFrames" uid="uid://c3gd684m6q8re" path="res://resources/character_animation/cop_hiding_animation.tres" id="7_whr2u"]
+[ext_resource type="SpriteFrames" uid="uid://clyjpqs8gef1a" path="res://resources/character_animation/cop_default_animation.tres" id="5_8ge5m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jvjy2"]
 radius = 6.0
@@ -26,6 +26,7 @@ script = ExtResource("3_6gk4f")
 
 [node name="NormalState" type="Node" parent="InputPlayer/PlayerStateMachine"]
 script = ExtResource("4_oq0iy")
+normal_sprite_frame = ExtResource("5_8ge5m")
 
 [node name="HidingState" type="Node" parent="InputPlayer/PlayerStateMachine"]
 script = ExtResource("5_1ruyq")
@@ -53,8 +54,8 @@ z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(0, -29)
-sprite_frames = ExtResource("7_whr2u")
-animation = &"idle_down"
+sprite_frames = ExtResource("5_8ge5m")
+animation = &"walk_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
