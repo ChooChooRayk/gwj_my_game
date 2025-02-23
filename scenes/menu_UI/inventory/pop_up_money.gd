@@ -1,10 +1,11 @@
 class_name PopUpMoney
 extends Label
 
-@export var anim_duration := 1.0 # [s]
+@export var anim_duration := 2.0 # [s]
 @export var delta_money   : float = 0.
 @export var trans_type    : Tween.TransitionType
 @export var ease_type     : Tween.EaseType
+@export var pause_mode    : Tween.TweenPauseMode
 
 var tween : Tween
 var text_color : Color
@@ -29,7 +30,8 @@ func play_animation()->void:
     visible = true
     # ---
     tween = get_tree().create_tween()
-    tween.set_trans(trans_type).set_ease(ease_type)
+    tween.set_trans(trans_type).set_ease(ease_type).bind_node(self)
+    #tween.set_pause_mode(pause_mode)
     # ---
     tween.parallel().tween_property(self, "position", position +delta_pos, anim_duration)
     tween.parallel().tween_property(self, "modulate", Color(text_color,0), anim_duration).from(text_color)

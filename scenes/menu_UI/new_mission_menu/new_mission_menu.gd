@@ -39,11 +39,17 @@ func start_mission()->void:
 func on_set_visible()->void:
     next_mission = PlayerStatistics.get_mission()
     # ---
+    await EventBus.ChangeSceneFinished
+    # ---
     if visible and is_instance_valid(mission_call_display):
-        mission_call_display.conversation_key = next_mission.mission_call_start
-        mission_call_display.init_conversation()
-        await get_tree().create_timer(mission_call_display.auto_start_delay).timeout
-        mission_call_display.start_conversation()
+        play_start_mission_conv()
     # ---
     inventory_ui.new_money = next_mission.money_start_mission
     PlayerStatistics.current_money += next_mission.money_start_mission
+
+func play_start_mission_conv()->void:
+    mission_call_display.conversation_key = next_mission.mission_call_start
+    mission_call_display.init_conversation()
+    await get_tree().create_timer(mission_call_display.auto_start_delay).timeout
+    mission_call_display.start_conversation()
+    return

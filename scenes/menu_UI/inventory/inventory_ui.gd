@@ -12,6 +12,7 @@ var button_grp : ButtonGroup = ButtonGroup.new()
 var current_selected_item : TemperingTool
 var inventory_ui_tools := {}
 
+var pause_mode_popup = Tween.TweenPauseMode.TWEEN_PAUSE_BOUND
 var pop_money_scn : PackedScene = load("res://scenes/menu_UI/inventory/pop_up_money.tscn")
 var new_money     : float = 0.0
 # ====== INITIALIZATION ====== #
@@ -76,6 +77,7 @@ func update_selected_item()->void:
 func update_player_money_display()->void:
     var pop_money : PopUpMoney = pop_money_scn.instantiate()
     pop_money.delta_money = new_money
+    pop_money.pause_mode  = pause_mode_popup
     player_money.add_child(pop_money)
     pop_money.play_animation()
     # ---
