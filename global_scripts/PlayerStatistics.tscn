@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://u2rhqklgs65q"]
+[gd_scene load_steps=3 format=3 uid="uid://u2rhqklgs65q"]
 
 [ext_resource type="Script" path="res://global_scripts/PlayerStatistics.gd" id="1_0ro1j"]
+[ext_resource type="Resource" uid="uid://488cppl6gxt1" path="res://resources/missions/player_default_mission_manager.tres" id="2_jqn1g"]
 
 [node name="PlayerStatistics" type="Node"]
 script = ExtResource("1_0ro1j")
+mission_manager = ExtResource("2_jqn1g")
+current_money = 20

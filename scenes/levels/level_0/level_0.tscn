@@ -14,7 +14,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_5j8y3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 108, -207, 0, 0, 0, 0, 72, -140, 0, 0, 0, 0, 117, -95, 0, 0, 0, 0, 206, -126, 0, 0, 0, 0, 283, -131, 0, 0, 0, 0, 252, -180, 0, 0, 0, 0, 166, -177)
+"points": PackedVector2Array(0, 0, 0, 0, 108, -207, 0, 0, 0, 0, 72, -140, 0, 0, 0, 0, 117, -95, 0, 0, 0, 0, 284, 27, 0, 0, 0, 0, 331, -29, 0, 0, 0, 0, 253, -103, 0, 0, 0, 0, 239, -199)
 }
 point_count = 7
 
@@ -26,9 +26,9 @@ point_count = 9
 
 [sub_resource type="Curve2D" id="Curve2D_4i2ic"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 462, 316, 0, 0, 0, 0, 455, 370, 0, 0, 0, 0, 356, 361, 0, 0, 0, 0, 346, 420, 0, 0, 0, 0, 441, 263, 0, 0, 0, 0, 340, 281)
+"points": PackedVector2Array(0, 0, 0, 0, 331, 180, 0, 0, 0, 0, 448, 272, 0, 0, 0, 0, 455, 370, 0, 0, 0, 0, 402, 359, 0, 0, 0, 0, 344, 433)
 }
-point_count = 6
+point_count = 5
 
 [node name="Level0" type="Node"]
 script = ExtResource("1_uvwji")

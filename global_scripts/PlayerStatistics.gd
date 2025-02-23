@@ -19,7 +19,7 @@ var current_cleaning_tool : TemperingTool:
         current_cleaning_tool = value
         CurrentToolUpdated.emit()
 var inventory             : Dictionary #  {key=TemperingTool : val=nbr      Array[TemperingTool]
-var current_money         : int = 1250: # [$USD]
+@export var current_money : int = 1250: # [$USD]
     set(value):
         current_money = value
         MoneyUpdated.emit()
