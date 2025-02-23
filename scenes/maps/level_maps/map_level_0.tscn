@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=4 uid="uid://c6ocyqgtbhoeo"]
+[gd_scene load_steps=4 format=4 uid="uid://c6ocyqgtbhoeo"]
 
 [ext_resource type="TileSet" uid="uid://orp84asluqnk" path="res://resources/tilesets/interior_floors_and_walls.tres" id="1_v43g5"]
 [ext_resource type="TileSet" uid="uid://c0p5fl71wpg0u" path="res://resources/tilesets/interior_items.tres" id="2_sq0iu"]
 
-[node name="MapLevel1" type="Node2D"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_whi6o"]
+vertices = PackedVector2Array(-45.2031, 486.938, -61.7813, -308.906, 415.711, -305.078, 404.719, 81.5625, 596.773, 483.063, 588.203, 89.5781)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-72, -319, 426, -315, 415, 72, 598, 80, 607, 493, -55, 497)])
+
+[node name="MapLevel0" type="Node2D"]
 y_sort_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -17,6 +22,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_whi6o")
+navigation_layers = 15
 
 [node name="Floor" type="TileMapLayer" parent="."]
 z_index = -1

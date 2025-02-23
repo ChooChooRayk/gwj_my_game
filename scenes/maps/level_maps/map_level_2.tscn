@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://orp84asluqnk" path="res://resources/tilesets/interior_floors_and_walls.tres" id="1_2u0rv"]
 [ext_resource type="TileSet" uid="uid://c0p5fl71wpg0u" path="res://resources/tilesets/interior_items.tres" id="2_m1y5r"]
 
-[node name="MapLevel1" type="Node2D"]
+[node name="MapLevel2" type="Node2D"]
 y_sort_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
